@@ -27,20 +27,25 @@ public class Main {
 				break;
 			case 3:
 				String registerCourseName;
-				do {
-					System.out.println("Enter Course Name");
-					registerCourseName = sc.nextLine();
+				System.out.println("Enter Course Name");
+				registerCourseName = sc.nextLine();
+				if (CourseManager.checkCourse(registerCourseName) == false) {
+					System.out.println("Invalid Course Name");
+					break;
 				}
-				while (CourseManager.checkCourse(registerCourseName) == false);
+				int courseIndex = CourseManager.getCourseList().indexOf(registerCourseName);
 				String registerStudentName;
-				do {
-					System.out.println("Enter Student Name");
-					registerStudentName = sc.nextLine();
+				System.out.println("Enter Student Name");
+				registerStudentName = sc.nextLine();
+				if (StudentManager.checkStudent(registerStudentName) == false) {
+					System.out.println("Invalid Student Name");
+					break;
 				}
-				while (StudentManager.checkStudent(registerStudentName) == false);
-//				Student.registerCourse(registerCourseName);
-//				Course.registerStudent(registerStudentName);
 				
+//				Student.registerCourse(registerCourseName);
+				Course registerCourse = CourseManager.getCourse(registerCourseName);
+				registerCourse.registerStudent(registerStudentName); //?
+				break;
 			default:
 				break;
 			}				

@@ -1,10 +1,10 @@
 package scrame;
 
-public class Tutorial extends Session{
+public class Lecture extends Session{
 
 	private int vacancy;
 	
-	public Tutorial(int vacancy) {
+	public Lecture(int vacancy) {
 		this.vacancy = vacancy;
 	}
 	
@@ -13,5 +13,4 @@ public class Tutorial extends Session{
 		return vacancy;
 	}
 
-	
 }

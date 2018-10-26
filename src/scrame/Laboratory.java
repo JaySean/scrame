@@ -1,13 +1,13 @@
 package scrame;
 
-public class Tutorial extends Session{
+public class Laboratory extends Session{
 
 	private int vacancy;
 	
-	public Tutorial(int vacancy) {
+	public Laboratory(int vacancy) {
 		this.vacancy = vacancy;
 	}
-	
+
 	@Override
 	public int getVacancy() {
 		return vacancy;
