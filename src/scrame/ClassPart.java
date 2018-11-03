@@ -7,5 +7,8 @@ public class ClassPart extends Components {
 		super(percentage);
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	public String getType() {
+		return "Class Part";
+	}
 }

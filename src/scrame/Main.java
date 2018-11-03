@@ -5,46 +5,32 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int input = -1;		
+		int input;		
 		do {
 			showMenu();
 			input = sc.nextInt();
 			sc.nextLine();
 			switch(input) {
 			case 1:
-				System.out.println("Enter Student's Name"); //need to check validity
-				String studentName = sc.nextLine();
-				System.out.println("Enter Student's Matriculation Number"); //need to check validity
-				String studentMatricNo = sc.nextLine();
-				StudentManager.addStudent(studentName, studentMatricNo);
+				AddStudent.run();
 				break;
 			case 2:
-				System.out.println("Enter Course Name"); //need to check validity
-				String courseName = sc.nextLine();
-				System.out.println("Enter Course Code"); //need to check validity
-				String courseCode = sc.nextLine();
-				CourseManager.addCourse(courseName, courseCode);
+				AddCourse.run();
 				break;
 			case 3:
-				String registerCourseName;
-				System.out.println("Enter Course Name");
-				registerCourseName = sc.nextLine();
-				if (CourseManager.checkCourse(registerCourseName) == false) {
-					System.out.println("Invalid Course Name");
-					break;
-				}
-				int courseIndex = CourseManager.getCourseList().indexOf(registerCourseName);
-				String registerStudentName;
-				System.out.println("Enter Student Name");
-				registerStudentName = sc.nextLine();
-				if (StudentManager.checkStudent(registerStudentName) == false) {
-					System.out.println("Invalid Student Name");
-					break;
-				}
-				
-//				Student.registerCourse(registerCourseName);
-				Course registerCourse = CourseManager.getCourse(registerCourseName);
-				registerCourse.registerStudent(registerStudentName); //?
+				RegisterStudent.run();
+				break;
+			case 4:
+				CheckVacancy.run();
+				break;
+			case 5:
+				PrintStudentList.run();
+				break;
+			case 7:
+				EnterCourseworkMarks.run();
+				break;
+			case 8:
+				EnterExamMarks.run();
 				break;
 			default:
 				break;
@@ -55,6 +41,7 @@ public class Main {
 	}
 	
 	public static void showMenu() {
+		System.out.println();
 		System.out.println("1: Add a student");
 		System.out.println("2: Add a course");
 		System.out.println("3: Register student for a course");

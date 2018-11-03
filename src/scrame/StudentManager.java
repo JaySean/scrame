@@ -13,6 +13,9 @@ public class StudentManager implements Serializable {
 		Student student = new Student(studentName, studentMatricNo);
 		ArrayList<Student> studentList = DatabaseManager.read(studentFile);
 		studentList.add(student);
+		for (int i=0; i<studentList.size(); i++) {
+			System.out.println(studentList.get(i).getStudentName() + " " + studentList.get(i).getStudentMatricNo());
+		}
 		DatabaseManager.write(studentList, studentFile);
 
 	}

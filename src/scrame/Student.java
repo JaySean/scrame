@@ -20,6 +20,10 @@ public class Student implements Serializable{
 		return studentName;
 	}
 	
+	public String getStudentMatricNo() {
+		return studentMatricNo;
+	}
+	
 	public void registerCourse(String registerCourseName) {
 		
 	}

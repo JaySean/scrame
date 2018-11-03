@@ -2,16 +2,11 @@ package scrame;
 
 public class Laboratory extends Session{
 
-	private int vacancy;
-	
-	public Laboratory(int vacancy) {
-		this.vacancy = vacancy;
-	}
+	private static final long serialVersionUID = 1L;
 
-	@Override
-	public int getVacancy() {
-		return vacancy;
+	public Laboratory(int capacity) {
+		this.capacity = capacity;
+		this.vacancy = capacity;
+		studentList = new String[vacancy];
 	}
-
-	
 }
