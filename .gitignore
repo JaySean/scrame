@@ -1,3 +1,4 @@
 /bin/
 
-/data/
+# Ignore folder named 'data'
+data/
