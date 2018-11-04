@@ -13,7 +13,6 @@ public class Course implements Serializable {
 	private String courseCode;
 
 	private String courseCoordinator;
-//	private int courseVacancy;
 
 	private int tutNumber;
 	private int labNumber;

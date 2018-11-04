@@ -8,18 +8,6 @@ public class StudentManager implements Serializable {
 	private static final long serialVersionUID = 1L;
 	public static final String studentFile = "data/Students.txt";
 
-	public static void addStudent(String studentName, String studentMatricNo) {
-
-		Student student = new Student(studentName, studentMatricNo);
-		ArrayList<Student> studentList = DatabaseManager.read(studentFile);
-		studentList.add(student);
-		for (int i=0; i<studentList.size(); i++) {
-			System.out.println(studentList.get(i).getStudentName() + " " + studentList.get(i).getStudentMatricNo());
-		}
-		DatabaseManager.write(studentList, studentFile);
-
-	}
-
 	public static boolean checkStudent(String studentName) {
 		boolean checkStudent = false;
 		ArrayList<Student> studentList = DatabaseManager.read(studentFile);
@@ -31,5 +19,4 @@ public class StudentManager implements Serializable {
 		}
 		return checkStudent;
 	}
-
 }

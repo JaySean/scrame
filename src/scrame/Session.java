@@ -31,26 +31,6 @@ public abstract class Session implements Serializable {
 		}
 		return vacancy;
 	}
-
-	public void addStudent(String studentName) {
-//		boolean set = false;
-//		for (int i = 0; i < getVacancy(); i++) {
-//			if (studentList[i].isEmpty() == false) {
-//				studentList[i] = studentName;
-//				set = true;
-//				System.out.println("Student successfully registered");
-//			}
-//		}
-//		if (set == false) {
-//			System.out.println("No vacancies, student not registerd");
-//		}
-		if (getVacancy() == 0) {
-			System.out.println("No vacancies, student not registerd");
-		} else {
-			studentList[0] = studentName;
-			System.out.println("Student successfully registered");
-		}
-	}
 	
 	public String[] getStudentList() {
 		return studentList;

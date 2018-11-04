@@ -6,13 +6,22 @@ public class EnterExamMarks {
 
 	public static void run() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter Course Name");
-		String courseName = sc.nextLine();
-		System.out.println("Enter Student Matric Number");
-		String studentMatricNo = sc.nextLine();
+		
+		System.out.println("Enter Course Code");
+		String courseCode = sc.nextLine();
+		System.out.println("Enter Student Matriculation Number");
+		String studentMatric = sc.nextLine();
+		
 		int examMarks = 0;
-		System.out.println("Enter " + CourseManager.getCourse(courseName).getComponents().get(0).getType() + " Marks:");
+		
+		Course course = CourseManager.getCourse(courseCode);
+		
+		// Enter Exam Marks
+		Components examComponent = course.getComponents().get(0);
+		
+		System.out.println("Enter " + examComponent.getType() + " Marks:");
 		examMarks = sc.nextInt();
-		CourseManager.addCourseworkMarks(courseName, studentMatricNo, examMarks, 0);
+		
+		AddMarks.add(course, studentMatric, examMarks, 0);
 	}
 }

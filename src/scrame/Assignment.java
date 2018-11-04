@@ -6,7 +6,6 @@ public class Assignment extends Components {
 	
 	public Assignment(int percentage) {
 		super(percentage);
-		// TODO Auto-generated constructor stub
 	}
 	
 	public String getType() {

@@ -1,16 +1,17 @@
 package scrame;
+
 import java.util.*;
 
 public class Main {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int input;		
+		int input;
 		do {
 			showMenu();
 			input = sc.nextInt();
 			sc.nextLine();
-			switch(input) {
+			switch (input) {
 			case 1:
 				AddStudent.run();
 				break;
@@ -32,14 +33,18 @@ public class Main {
 			case 8:
 				EnterExamMarks.run();
 				break;
+			case 9:
+				PrintCourseStatistics.run();
+				break;
+			case 10:
+				PrintStudentTranscript.run();
 			default:
 				break;
-			}				
-		}
-		while (input != 11);
+			}
+		} while (input != 11);
 
 	}
-	
+
 	public static void showMenu() {
 		System.out.println();
 		System.out.println("1: Add a student");
