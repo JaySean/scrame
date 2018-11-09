@@ -9,7 +9,7 @@ public class Exam extends Components{
 	}
 
 	public String getType() {
-		return type;
+		return "Exam";
 	}
 	
 }

@@ -32,6 +32,6 @@ public class EnterCourseworkMarks {
 		}
 		
 		AddMarks.add(course, studentMatric, assignmentMarks, 1);
-		AddMarks.add(course, studentMatric, assignmentMarks, 2);
+		AddMarks.add(course, studentMatric, classPartMarks, 2);
 	}
 }
