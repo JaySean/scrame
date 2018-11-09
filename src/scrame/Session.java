@@ -25,7 +25,7 @@ public abstract class Session implements Serializable {
 	public int countVacancy() {
 		int vacancy = 0;
 		for (int i = 0; i < studentList.length; i++) {
-			if (studentList[i].isEmpty() == true) { // or isBlank?
+			if (studentList[i].isEmpty()) { // or isBlank?
 				vacancy++;
 			}
 		}
@@ -38,5 +38,17 @@ public abstract class Session implements Serializable {
 	
 	public void setStudentList(String[] studentList) {
 		this.studentList = studentList;
+	}
+
+	public void addStudent(String studentMatric) {
+		studentList[capacity - vacancy] = studentMatric;
+		vacancy--;
+	}
+
+	public boolean hasStudent(String studentMatric) {
+		for (String student : studentList) {
+			if (student.equals(studentMatric)) return true;
+		}
+		return false;
 	}
 }

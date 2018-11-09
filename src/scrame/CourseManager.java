@@ -52,4 +52,11 @@ public class CourseManager implements Serializable {
 		DatabaseManager.write(courseList, courseFile);
 	}
 
+	public static void amendCourse(Course course) {
+		if (course == null) return;
+		ArrayList<Course> courseList = DatabaseManager.read(courseFile);
+		int index = getCourseIndex(course.getCourseCode());
+		courseList.set(index, course);
+		DatabaseManager.write(courseList, courseFile);
+	}
 }

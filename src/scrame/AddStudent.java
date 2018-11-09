@@ -23,6 +23,7 @@ public class AddStudent {
 				FormatValidator.validateName(studentName);
 				correct = true;
 			} catch (Exception e) {
+				sc.nextLine();
 				System.out.println(e.getMessage());
 			}
 		}
@@ -36,6 +37,7 @@ public class AddStudent {
 				validateNewStudentMatricNo(studentMatricNo);
 				correct = true;
 			} catch (Exception e) {
+				sc.nextLine();
 				System.out.println(e.getMessage());
 			}
 		}

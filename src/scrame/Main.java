@@ -15,6 +15,7 @@ public class Main {
 				input = sc.nextInt();
 				sc.nextLine();
 			} catch (Exception e) {
+				sc.nextLine();
 				System.out.println(e.getMessage());
 				continue;
 			}
