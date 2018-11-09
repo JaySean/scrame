@@ -56,14 +56,19 @@ public class AddCourse {
 			}
 		}
 
-		// Create sessions
-		ArrayList<Session> session = AddSession.add(courseCapacity, tutNumber, labNumber); //May want to reconsider this
-		// Create components
-		ArrayList<Components> components = AddComponents.add(examPercent, courseWorkPercent, assignmentPercent, //May want to reconsider this
-				classPartPercent);
 		// Create new instance of course
-		Course course = new Course(courseName, courseCode, courseCoordinator, session, tutNumber, labNumber,
-				components);
+		Course course = new Course(
+				courseName,
+				courseCode,
+				courseCoordinator,
+				courseCapacity,
+				tutNumber,
+				labNumber,
+				examPercent,
+				courseWorkPercent,
+				assignmentPercent,
+				classPartPercent
+		);
 		// Add course to array
 		courseList.add(course);
 		

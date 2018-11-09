@@ -115,7 +115,6 @@ public class RegisterStudent {
 			}
 			int choice = sc.nextInt();
 			//check choice validity
-			System.out.println(laboratories.size());
 			if (choice > laboratories.size() || choice < 1) throw new Exception("No such laboratory!");
 			sc.nextLine();
 			//add student to course

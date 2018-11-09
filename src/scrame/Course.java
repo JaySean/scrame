@@ -20,14 +20,63 @@ public class Course implements Serializable {
 	ArrayList<Session> session;
 	ArrayList<Components> components;
 	
-	public Course(String courseName, String courseCode, String courseCoordinator, ArrayList<Session> session, int tutNumber, int labNumber, ArrayList<Components> components) {
+	public Course(
+			String courseName,
+			String courseCode,
+			String courseCoordinator,
+			int courseVacancy,
+			int tutNumber,
+			int labNumber,
+			int examPercent,
+			int courseWorkPercent,
+			int assignmentPercent,
+			int classPartPercent
+	) {
 		this.courseName = courseName;
 		this.courseCode = courseCode;
 		this.courseCoordinator = courseCoordinator;
-		this.session = session;
+		this.session = constructSessionsList(courseVacancy, tutNumber, labNumber);
 		this.tutNumber = tutNumber;
 		this.labNumber = labNumber;
-		this.components = components;
+		this.components = constructComponentsList(examPercent, courseWorkPercent, assignmentPercent, classPartPercent);
+	}
+
+	private static ArrayList<Session> constructSessionsList(
+			int courseVacancy,
+			int tutNumber,
+			int labNumber
+	) {
+		// Create arraylist of lecture, tutorial and lab
+		ArrayList<Session> session = new ArrayList<>(1 + tutNumber + labNumber);
+		// Create new instance of lecture
+		Session lecture = new Lecture(courseVacancy);
+		session.add(lecture);
+		// Create new instance of tutorial
+		for (int i = 1; i < 1 + tutNumber; i++) {
+			session.add(new Tutorial((int) (Math.ceil(courseVacancy / tutNumber))));
+		}
+		// Create new instance of lab
+		for (int i = 1; i < 1 + labNumber; i++) {
+			session.add(new Laboratory((int) (Math.ceil(courseVacancy / labNumber))));
+		}
+		return session;
+	}
+
+	private static ArrayList<Components> constructComponentsList(
+			int examPercent,
+			int courseWorkPercent,
+			int assignmentPercent,
+			int classPartPercent
+	) {
+		ArrayList<Components> components = new ArrayList<>(3);
+		Exam exam = new Exam(examPercent);
+		components.add(exam);
+		Assignment assignment = new Assignment(assignmentPercent*courseWorkPercent/100);
+		components.add(assignment);
+		ClassPart classPart = new ClassPart(classPartPercent*courseWorkPercent/100);
+		components.add(classPart);
+
+		return components;
 	}
 
 	public String getCourseName() {

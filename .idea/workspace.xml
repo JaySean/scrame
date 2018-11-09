@@ -4,21 +4,21 @@
     <list default="true" id="6160c58e-eae9-49fd-8688-444f79759330" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/Courses.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/Courses.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Students.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/Students.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/scrame/scrame/AddCourse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/scrame/scrame/AddCourse.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/scrame/scrame/AddStudent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/scrame/scrame/AddStudent.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/scrame/scrame/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/scrame/scrame/Course.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/scrame/scrame/CourseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/scrame/scrame/CourseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/scrame/scrame/EnterCourseworkMarks.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/scrame/scrame/EnterCourseworkMarks.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/scrame/scrame/Exam.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/scrame/scrame/Exam.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/scrame/scrame/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/scrame/scrame/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/scrame/scrame/PrintStudentTranscript.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/scrame/scrame/PrintStudentTranscript.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/scrame/scrame/RegisterStudent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/scrame/scrame/RegisterStudent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/scrame/scrame/RegisterStudent_Copy.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/scrame/scrame/Session.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/scrame/scrame/Session.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/scrame/scrame/StudentManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/scrame/scrame/StudentManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scrame/AddComponents.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scrame/AddCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scrame/AddCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scrame/AddStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scrame/AddStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scrame/AddSession.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scrame/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scrame/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scrame/CourseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scrame/CourseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scrame/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scrame/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scrame/RegisterStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scrame/RegisterStudent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scrame/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scrame/Session.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,145 +38,41 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="iml" value="1" />
-          <entry key="java" value="38" />
+          <entry key="java" value="58" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="38" />
+          <entry key="JAVA" value="58" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="12706" />
+          <entry key="java" value="12889" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="12706" />
+          <entry key="JAVA" value="12889" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scrame/RegisterStudent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="15" column="51" lean-forward="true" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
+            <state relative-caret-position="206">
+              <caret line="116" column="35" lean-forward="true" selection-start-line="116" selection-start-column="35" selection-end-line="116" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#getCourseCode#0;class#RegisterStudent_Copy#0" />
-                <element signature="method#getStudentMatric#0;class#RegisterStudent_Copy#0" />
-                <element signature="method#registerLecture#0;class#RegisterStudent_Copy#0" />
-                <element signature="method#registerTutorial#0;class#RegisterStudent_Copy#0" />
-                <element signature="method#registerLaboratory#0;class#RegisterStudent_Copy#0" />
+                <element signature="method#getCourseCode#0;class#RegisterStudent#0" />
+                <element signature="method#getStudentMatric#0;class#RegisterStudent#0" />
+                <element signature="method#registerLecture#0;class#RegisterStudent#0" />
+                <element signature="method#registerTutorial#0;class#RegisterStudent#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scrame/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="30" column="42" lean-forward="true" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scrame/CourseManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="29" column="68" lean-forward="true" selection-start-line="29" selection-start-column="68" selection-end-line="29" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/scrame/Course.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
-              <caret line="59" selection-start-line="59" selection-end-line="59" />
-              <folding>
-                <element signature="e#1167#1168#0" expanded="true" />
-                <element signature="e#1188#1189#0" expanded="true" />
-                <element signature="e#1238#1239#0" expanded="true" />
-                <element signature="e#1262#1263#0" expanded="true" />
-                <element signature="method#getExamPercent#0;class#Course#0" />
-                <element signature="method#getCourseWorkPercent#0;class#Course#0" />
-                <element signature="method#getAssignmentPercent#0;class#Course#0" />
-                <element signature="method#getClassPartPercent#0;class#Course#0" />
-                <element signature="method#getTutorials#0;class#Course#0" />
-                <element signature="method#getLectures#0;class#Course#0" />
-                <element signature="method#getLaboratories#0;class#Course#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scrame/Lecture.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="33" lean-forward="true" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scrame/Session.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="43" column="56" lean-forward="true" selection-start-line="43" selection-start-column="56" selection-end-line="43" selection-end-column="56" />
-              <folding>
-                <element signature="e#691#692#0" expanded="true" />
-                <element signature="e#716#717#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scrame/AddCourse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1118">
-              <caret line="207" column="5" lean-forward="true" selection-start-line="207" selection-start-column="5" selection-end-line="207" selection-end-column="5" />
-              <folding>
-                <element signature="method#getCourseName#0;class#AddCourse#0" />
-                <element signature="method#getCourseCode#0;class#AddCourse#0" />
-                <element signature="method#getCourseCoordinator#0;class#AddCourse#0" />
-                <element signature="method#getCourseCapacity#0;class#AddCourse#0" />
-                <element signature="method#getTutNumber#0;class#AddCourse#0" />
-                <element signature="method#getLabNumber#0;class#AddCourse#0" />
-                <element signature="method#getExamPercent#0;class#AddCourse#0" />
-                <element signature="method#getCourseWorkPercent#0;class#AddCourse#0" />
-                <element signature="method#getAssignmentPercent#0;class#AddCourse#0" />
-                <element signature="method#getClassPartPercent#0;class#AddCourse#0" />
-                <element signature="method#validateNewCourseCode#0;class#AddCourse#0" />
-                <element signature="method#validatePercentage#0;class#AddCourse#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scrame/AddSession.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="6" column="72" lean-forward="true" selection-start-line="6" selection-start-column="72" selection-end-line="6" selection-end-column="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scrame/AddComponents.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -195,6 +91,7 @@
       <find>correctInput</find>
       <find>sc</find>
       <find>courseIndex</find>
+      <find>import jdk.nashorn.internal.runtime.regexp.joni.Regex</find>
     </findStrings>
     <replaceStrings>
       <replace>correct</replace>
@@ -209,21 +106,22 @@
         <option value="$PROJECT_DIR$/src/scrame/FormatValidator.java" />
         <option value="$PROJECT_DIR$/src/scrame/StudentManager.java" />
         <option value="$PROJECT_DIR$/src/scrame/AddStudent.java" />
-        <option value="$PROJECT_DIR$/src/scrame/AddCourse.java" />
         <option value="$PROJECT_DIR$/src/scrame/DatabaseManager.java" />
         <option value="$PROJECT_DIR$/src/scrame/CourseManager.java" />
         <option value="$PROJECT_DIR$/src/scrame/Main.java" />
         <option value="$PROJECT_DIR$/src/scrame/Session.java" />
         <option value="$PROJECT_DIR$/src/scrame/RegisterStudent_Copy.java" />
-        <option value="$PROJECT_DIR$/src/scrame/RegisterStudent.java" />
         <option value="$PROJECT_DIR$/src/scrame/Course.java" />
+        <option value="$PROJECT_DIR$/src/scrame/AddCourse.java" />
+        <option value="$PROJECT_DIR$/src/scrame/RegisterStudent.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1429" />
-    <option name="width" value="500" />
-    <option name="height" value="1031" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="87" />
+    <option name="y" value="-20" />
+    <option name="width" value="1299" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -258,7 +156,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541780527557" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541783842377" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -311,14 +209,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="953" y="0" width="333" height="687" extended-state="0" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.47619048" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22186235" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Terminal" />
@@ -326,7 +225,7 @@
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.0" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.115658365" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -343,6 +242,18 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/scrame/AddCourse.java</url>
+          <line>231</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/scrame.iml">
@@ -384,27 +295,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scrame/FormatValidator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="16" column="67" lean-forward="true" selection-start-line="16" selection-start-column="67" selection-end-line="16" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="651" column="72" lean-forward="true" selection-start-line="651" selection-start-column="72" selection-end-line="651" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scrame/AddStudent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
-          <folding>
-            <element signature="method#validateNewStudentMatricNo#0;class#AddStudent#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -415,31 +309,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scrame/Components.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scrame/Exam.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="26">
           <caret line="2" column="30" lean-forward="true" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scrame/AddSession.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="6" column="72" lean-forward="true" selection-start-line="6" selection-start-column="72" selection-end-line="6" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scrame/AddComponents.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
@@ -464,9 +337,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/scrame/MarksRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/scrame/Session.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
+        <state relative-caret-position="442">
           <caret line="43" column="56" lean-forward="true" selection-start-line="43" selection-start-column="56" selection-end-line="43" selection-end-column="56" />
           <folding>
             <element signature="e#691#692#0" expanded="true" />
@@ -475,39 +355,96 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scrame/RegisterStudent.java">
+    <entry file="file://$PROJECT_DIR$/src/scrame/Components.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="51" lean-forward="true" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getCourseCode#0;class#RegisterStudent_Copy#0" />
-            <element signature="method#getStudentMatric#0;class#RegisterStudent_Copy#0" />
-            <element signature="method#registerLecture#0;class#RegisterStudent_Copy#0" />
-            <element signature="method#registerTutorial#0;class#RegisterStudent_Copy#0" />
-            <element signature="method#registerLaboratory#0;class#RegisterStudent_Copy#0" />
-          </folding>
+        <state relative-caret-position="72">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scrame/Assignment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scrame/CourseManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="29" column="68" lean-forward="true" selection-start-line="29" selection-start-column="68" selection-end-line="29" selection-end-column="68" />
+        <state relative-caret-position="319">
+          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scrame/FormatValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scrame/AddStudent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-184">
+          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#validateNewStudentMatricNo#0;class#AddStudent#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scrame/CheckVacancy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="10" column="42" lean-forward="true" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scrame/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="30" column="42" lean-forward="true" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+        <state>
+          <caret line="35" column="23" lean-forward="true" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scrame/AddSession.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scrame/AddComponents.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scrame/Course.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="101" column="44" lean-forward="true" selection-start-line="101" selection-start-column="44" selection-end-line="101" selection-end-column="44" />
+          <folding>
+            <element signature="method#constructSessionsList#0;class#Course#0" />
+            <element signature="method#constructComponentsList#0;class#Course#0" />
+            <element signature="e#1188#1189#0" expanded="true" />
+            <element signature="method#getExamPercent#0;class#Course#0" />
+            <element signature="method#getCourseWorkPercent#0;class#Course#0" />
+            <element signature="method#getAssignmentPercent#0;class#Course#0" />
+            <element signature="method#getClassPartPercent#0;class#Course#0" />
+            <element signature="method#getTutorials#0;class#Course#0" />
+            <element signature="method#getLectures#0;class#Course#0" />
+            <element signature="method#getLaboratories#0;class#Course#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scrame/AddCourse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1118">
-          <caret line="207" column="5" lean-forward="true" selection-start-line="207" selection-start-column="5" selection-end-line="207" selection-end-column="5" />
+        <state>
+          <caret line="67" column="34" lean-forward="true" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
           <folding>
             <element signature="method#getCourseName#0;class#AddCourse#0" />
             <element signature="method#getCourseCode#0;class#AddCourse#0" />
@@ -525,22 +462,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scrame/Course.java">
+    <entry file="file://$PROJECT_DIR$/src/scrame/RegisterStudent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        <state relative-caret-position="206">
+          <caret line="116" column="35" lean-forward="true" selection-start-line="116" selection-start-column="35" selection-end-line="116" selection-end-column="35" />
           <folding>
-            <element signature="e#1167#1168#0" expanded="true" />
-            <element signature="e#1188#1189#0" expanded="true" />
-            <element signature="e#1238#1239#0" expanded="true" />
-            <element signature="e#1262#1263#0" expanded="true" />
-            <element signature="method#getExamPercent#0;class#Course#0" />
-            <element signature="method#getCourseWorkPercent#0;class#Course#0" />
-            <element signature="method#getAssignmentPercent#0;class#Course#0" />
-            <element signature="method#getClassPartPercent#0;class#Course#0" />
-            <element signature="method#getTutorials#0;class#Course#0" />
-            <element signature="method#getLectures#0;class#Course#0" />
-            <element signature="method#getLaboratories#0;class#Course#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#getCourseCode#0;class#RegisterStudent#0" />
+            <element signature="method#getStudentMatric#0;class#RegisterStudent#0" />
+            <element signature="method#registerLecture#0;class#RegisterStudent#0" />
+            <element signature="method#registerTutorial#0;class#RegisterStudent#0" />
           </folding>
         </state>
       </provider>
