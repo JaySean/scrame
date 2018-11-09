@@ -1,25 +1,54 @@
 package scrame;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CheckVacancy {
 
 	public static void run() {
 		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("Enter Course Code");
-		String courseCode = sc.nextLine();
+		int index;
+
+		String courseCode = getCourseCode(sc);
+		//course has to exist, check done above
 		Course course = CourseManager.getCourse(courseCode);
-		int tutNumber = course.getTutNumber();
-		int labNumber = course.getLabNumber();
-		
-		for (int i = 1; i < 1 + tutNumber; i++) {
-			System.out.println("Tutorial " + i + ": " + course.getSession().get(i).getVacancy() + "/"
-					+ course.getSession().get(i).getCapacity());
+
+		ArrayList<Lecture> lectures = course.getLectures();
+		ArrayList<Tutorial> tutorials = course.getTutorials();
+		ArrayList<Laboratory> labs = course.getLaboratories();
+
+		index = 1;
+		for (Lecture lecture : lectures) {
+			System.out.println("Lecture " + index + ": " + lecture.getVacancy() + "/" + lecture.getCapacity());
+			index++;
 		}
-		for (int i = 1 + tutNumber; i < 1 + tutNumber + labNumber; i++) {
-			System.out.println("Lab " + (i - tutNumber) + ": " + course.getSession().get(i).getVacancy() + "/"
-					+ course.getSession().get(i).getCapacity());
+
+		index = 1;
+		for (Tutorial tutorial : tutorials) {
+			System.out.println("Tutorial " + index + ": " + tutorial.getVacancy() + "/" + tutorial.getCapacity());
+			index++;
+		}
+
+		index = 1;
+		for (Laboratory lab : labs) {
+			System.out.println("Laboratory " + index + ": " + lab.getVacancy() + "/" + lab.getCapacity());
+			index++;
+		}
+	}
+
+	private static String getCourseCode(Scanner sc) {
+		try {
+			System.out.println("Enter Course Code");
+			String courseCode = sc.nextLine();
+			//check format
+			FormatValidator.validateCourseCode(courseCode);
+			//check existence
+			boolean exists = CourseManager.checkCourseExistence(courseCode);
+			if (!exists) throw new Exception("Course does not exist!");
+			return courseCode;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return getCourseCode(sc);
 		}
 	}
 }
