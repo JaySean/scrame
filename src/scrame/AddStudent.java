@@ -10,29 +10,31 @@ public class AddStudent {
 
 	public static void run(){
 		Scanner sc = new Scanner(System.in);
-		boolean correctInput;
+		String studentName = "";
+		String studentMatricNo = "";
+		boolean correct;
 
 		//enter student name
-		String studentName = "";
-		correctInput = false;
-		while (!correctInput) {
+		correct = false;
+		while (!correct) {
 			try {
 				System.out.println("Enter Student's Name");
 				studentName = sc.nextLine();
-				correctInput = true;
+				FormatValidator.validateName(studentName);
+				correct = true;
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
 		}
+
 		//enter matriculation no.
-		String studentMatricNo = "";
-		correctInput = false;
-		while (!correctInput) {
+		correct = false;
+		while (!correct) {
 			try {
 				System.out.println("Enter Student's Matriculation Number");
 				studentMatricNo = sc.nextLine();
 				validateNewStudentMatricNo(studentMatricNo);
-				correctInput = true;
+				correct = true;
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
@@ -56,18 +58,11 @@ public class AddStudent {
 		DatabaseManager.write(studentList, studentFile);
 	}
 
-	private static void validateNewStudentMatricNo(String studentMatricNo) throws Exception {
-		String matricFormat = "[A-Z][0-9]{7}[A-Z]";
+	private static void validateNewStudentMatricNo(String newStudentMatricNo) throws Exception {
 		//validate format
-		if (!studentMatricNo.matches(matricFormat)) {
-			throw new Exception("Student matriculation number format incorrect - must begin and end with capital letters and have 7 digits in between");
-		}
+		FormatValidator.validateMatricNo(newStudentMatricNo);
 		//validate existence
-		ArrayList<Student> studentList = DatabaseManager.read(studentFile);
-		for (Student student : studentList) {
-			if (student.getStudentMatricNo().equals(studentMatricNo)) {
-				throw new Exception("Student already exists!");
-			}
-		}
+		boolean exists = StudentManager.checkStudentExistence(newStudentMatricNo);
+		if (exists) throw new Exception("Student already exists!");
 	}
 }

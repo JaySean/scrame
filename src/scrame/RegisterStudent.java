@@ -5,10 +5,10 @@ public class RegisterStudent {
 
 	public static void run() {
 		Scanner sc = new Scanner(System.in);
-		
+
 		System.out.println("Enter Course Code"); // check validity: whether course exits
 		String registerCourseCode = sc.nextLine();
-		
+
 		System.out.println("Enter Student Matriculation Number"); // check validity: whether student exits
 		String registerStudentMatric = sc.nextLine();
 
@@ -63,3 +63,4 @@ public class RegisterStudent {
 		CourseManager.updateCourse(courseIndex, course);
 	}
 }
+

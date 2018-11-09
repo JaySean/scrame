@@ -11,16 +11,12 @@ public class CourseManager implements Serializable {
 
 	private final static String courseFile = "data/Courses.txt";
 
-	public static boolean checkCourse(String courseName) {
-		boolean checkCourse = false;
+	public static boolean checkCourseExistence(String courseCode) {
 		ArrayList<Course> courseList = DatabaseManager.read(courseFile);
-		for (int i = 0; i < courseList.size(); i++) {
-			Course c = courseList.get(i);
-			if (c.getCourseName().equals(courseName)) {
-				checkCourse = true;
-			}
+		for (Course course : courseList) {
+			if (course.getCourseCode().equals(courseCode)) return true;
 		}
-		return checkCourse;
+		return false;
 	}
 
 	public static Course getCourse(String courseCode) {
