@@ -127,24 +127,17 @@ public class Course implements Serializable {
 		return false;
 	}
 
-	public int getExamPercent() {
-		if (components != null) return components.get(0).getPercentage();
-		return 0;
+	public Exam getExamComponent() {
+		if (components != null) return (Exam)components.get(0);
+		return null;
 	}
-
-	public int getCourseWorkPercent() {
-		if (components != null) return components.get(1).getPercentage() + components.get(1).getPercentage();
-		return 0;
+	public Assignment getAssignmenComponent() {
+		if (components != null) return (Assignment)components.get(1);
+		return null;
 	}
-
-	public int getAssignmentPercent() {
-		if (components != null) return components.get(1).getPercentage();
-		return 0;
-	}
-
-	public int getClassPartPercent() {
-		if (components != null) return components.get(2).getPercentage();
-		return 0;
+	public ClassPart getClassPartComponent() {
+		if (components != null) return (ClassPart)components.get(2);
+		return null;
 	}
 
 	public ArrayList<Tutorial> getTutorials() {
