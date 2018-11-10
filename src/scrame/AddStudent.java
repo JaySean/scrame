@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class AddStudent {
 	
-	private static final String studentFile = "data/Students.txt";
+	final static String studentFile = "data/Students.txt";
 
 	public static void run(){
 		Scanner sc = new Scanner(System.in);
@@ -13,7 +13,7 @@ public class AddStudent {
 		String studentMatricNo = "";
 		boolean correct;
 
-		//enter student name
+		// Enter student name
 		correct = false;
 		while (!correct) {
 			try {
@@ -22,12 +22,11 @@ public class AddStudent {
 				FormatValidator.validateName(studentName);
 				correct = true;
 			} catch (Exception e) {
-				sc.nextLine();
 				System.out.println(e.getMessage());
 			}
 		}
 
-		//enter matriculation no.
+		// Enter matriculation no.
 		correct = false;
 		while (!correct) {
 			try {
@@ -36,7 +35,6 @@ public class AddStudent {
 				validateNewStudentMatricNo(studentMatricNo);
 				correct = true;
 			} catch (Exception e) {
-				sc.nextLine();
 				System.out.println(e.getMessage());
 			}
 		}
@@ -44,25 +42,27 @@ public class AddStudent {
 		// New instance of Student
 		Student student = new Student(studentName, studentMatricNo);
 		// Read file to array
-		ArrayList<Student> studentList = DatabaseManager.read(studentFile);
+//		ArrayList<Student> studentList = DatabaseManager.read(studentFile);
 		// Add instance of student to array
-		studentList.add(student);
+		Main.studentList.add(student);
 
 		// Print list of ALL students
 		System.out.println("Name / Matriculation Number");
 		System.out.println("---------------------------");
-		for (int i=0; i<studentList.size(); i++) {
-			System.out.println(studentList.get(i).getStudentName() + " / " + studentList.get(i).getStudentMatricNo());
+		for (int i=0; i<Main.studentList.size(); i++) {
+			System.out.println(
+				Main.studentList.get(i).getStudentName() + " / " + 
+				Main.studentList.get(i).getStudentMatricNo());
 		}
 		
 		// Write array to file
-		DatabaseManager.write(studentList, studentFile);
+		DatabaseManager.write(Main.studentList, studentFile);
 	}
 
 	private static void validateNewStudentMatricNo(String newStudentMatricNo) throws Exception {
-		//validate format
+		// Validate format
 		FormatValidator.validateMatricNo(newStudentMatricNo);
-		//validate existence
+		// Validate existence
 		boolean exists = StudentManager.checkStudentExistence(newStudentMatricNo);
 		if (exists) throw new Exception("Student already exists!");
 	}

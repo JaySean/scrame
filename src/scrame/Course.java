@@ -5,9 +5,9 @@ import java.util.*;
 
 public class Course implements Serializable {
 
-	public static Scanner sc = new Scanner(System.in);
-
 	private static final long serialVersionUID = 1L;
+
+	public static Scanner sc = new Scanner(System.in);
 	
 	private String courseName;
 	private String courseCode;
@@ -48,16 +48,19 @@ public class Course implements Serializable {
 	) {
 		// Create arraylist of lecture, tutorial and lab
 		ArrayList<Session> session = new ArrayList<>(1 + tutNumber + labNumber);
+		
 		// Create new instance of lecture
 		Session lecture = new Lecture(courseVacancy);
 		session.add(lecture);
-		// Create new instance of tutorial
+		
+		// Create new instance(s) of tutorial
 		for (int i = 1; i < 1 + tutNumber; i++) {
-			session.add(new Tutorial((int) (Math.ceil(courseVacancy / tutNumber))));
+			session.add(new Tutorial((int) (Math.ceil((double) courseVacancy / tutNumber))));
 		}
-		// Create new instance of lab
+		
+		// Create new instance(s) of lab
 		for (int i = 1; i < 1 + labNumber; i++) {
-			session.add(new Laboratory((int) (Math.ceil(courseVacancy / labNumber))));
+			session.add(new Laboratory((int) (Math.ceil((double) courseVacancy / labNumber))));
 		}
 		return session;
 	}

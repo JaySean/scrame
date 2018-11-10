@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class MarksRecord implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	private String studentMatric;
+	private String studentMatric; // remove
 	private double marks;
 	
 	public MarksRecord(String studentMatric, double marks) {

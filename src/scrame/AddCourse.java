@@ -5,15 +5,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddCourse {
-	
-	private final static String courseFile = "data/Courses.txt";
+
+	final static String courseFile = "data/Courses.txt";
 
 	public static void run() {
 		Scanner sc = new Scanner(System.in);
 		boolean repeat;
-		
-		//read file to array
-		ArrayList<Course> courseList = DatabaseManager.read(courseFile);
+
+		// read file to array
+//		ArrayList<Course> courseList = DatabaseManager.read(courseFile);
 
 		String courseName = getCourseName(sc);
 		String courseCode = getCourseCode(sc);
@@ -22,7 +22,7 @@ public class AddCourse {
 		int tutNumber = getTutNumber(sc);
 		int labNumber = getLabNumber(sc);
 
-		//get exam and coursework percentages
+		// Get exam and coursework percentages
 		int examPercent = 0;
 		int courseWorkPercent = 0;
 		repeat = true;
@@ -31,58 +31,54 @@ public class AddCourse {
 				System.out.println("Exam and Coursework Weights:");
 				examPercent = getExamPercent(sc);
 				courseWorkPercent = getCourseWorkPercent(sc);
-				if (examPercent + courseWorkPercent != 100) throw new Exception("Exam and Course Work percentages must total 100");
+				if (examPercent + courseWorkPercent != 100)
+					throw new Exception("Exam and Course Work percentages must total 100");
 				repeat = false;
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
 		}
 
-		//get assignment and class participation percentages
+		// Get assignment and class participation percentages
 		int assignmentPercent = 0;
 		int classPartPercent = 0;
 		if (courseWorkPercent != 0) {
 			repeat = true;
-			while(repeat) {
+			while (repeat) {
 				try {
 					System.out.println("Assignment and Class Participation Weights:");
 					assignmentPercent = getAssignmentPercent(sc);
 					classPartPercent = getClassPartPercent(sc);
-					if (assignmentPercent + classPartPercent != 100) throw new Exception("Assignment and Class Participation percentage must total 100");
+					if (assignmentPercent + classPartPercent != 100)
+						throw new Exception("Assignment and Class Participation percentage must total 100");
 					repeat = false;
-				} catch  (Exception e) {
+				} catch (Exception e) {
 					System.out.println(e.getMessage());
 				}
 			}
 		}
 
 		// Create new instance of course
-		Course course = new Course(
-				courseName,
-				courseCode,
-				courseCoordinator,
-				courseCapacity,
-				tutNumber,
-				labNumber,
-				examPercent,
-				courseWorkPercent,
-				assignmentPercent,
-				classPartPercent
-		);
+		Course course = new Course(courseName, courseCode, courseCoordinator, courseCapacity, tutNumber, labNumber,
+				examPercent, courseWorkPercent, assignmentPercent, classPartPercent);
 		// Add course to array
-		courseList.add(course);
-		
+		Main.courseList.add(course);
+
 		// Print list of ALL courses
-		for (int i = 0; i < courseList.size(); i++) {
-			System.out.println(courseList.get(i).getCourseName() + " " + courseList.get(i).getCourseCode() + " "
-					+ courseList.get(i).getCourseCoordinator());
+		System.out.println("Course Name / Code / Course Coordinator");
+		System.out.println("----------------------------------------------");
+		for (int i = 0; i < Main.courseList.size(); i++) {
+			System.out.println(
+				Main.courseList.get(i).getCourseName() + " / " + 
+				Main.courseList.get(i).getCourseCode() + " / " + 
+				Main.courseList.get(i).getCourseCoordinator());
 		}
 
 		// Write array to file
-		DatabaseManager.write(courseList, courseFile);
+		DatabaseManager.write(Main.courseList, courseFile);
 	}
 
-	//methods to process inputs
+	// methods to process inputs
 	private static String getCourseName(Scanner sc) {
 		String courseName;
 		while (true) {
@@ -96,11 +92,12 @@ public class AddCourse {
 			}
 		}
 	}
+
 	private static String getCourseCode(Scanner sc) {
 		String courseCode;
 		while (true) {
 			try {
-				System.out.println("Enter Course Code"); // need to check validity: of format e.g. CZ2002; check for repeated course
+				System.out.println("Enter Course Code");
 				courseCode = sc.nextLine();
 				validateNewCourseCode(courseCode);
 				return courseCode;
@@ -109,11 +106,12 @@ public class AddCourse {
 			}
 		}
 	}
+
 	private static String getCourseCoordinator(Scanner sc) {
 		String courseCoordinator;
 		while (true) {
 			try {
-				System.out.println("Enter Course Coordinator"); // need to check validity: only alphabets
+				System.out.println("Enter Course Coordinator");
 				courseCoordinator = sc.nextLine();
 				FormatValidator.validateName(courseCoordinator);
 				return courseCoordinator;
@@ -122,11 +120,12 @@ public class AddCourse {
 			}
 		}
 	}
+
 	private static int getCourseCapacity(Scanner sc) {
 		int courseCapacity;
 		while (true) {
 			try {
-				System.out.println("Enter Course Capacity"); // need to check validity: only integer
+				System.out.println("Enter Course Capacity");
 				courseCapacity = sc.nextInt();
 				sc.nextLine();
 				return courseCapacity;
@@ -136,13 +135,15 @@ public class AddCourse {
 			}
 		}
 	}
+
 	private static int getTutNumber(Scanner sc) {
 		int tutNumber;
 		while (true) {
 			try {
-				System.out.println("Enter Number of Tutorial Class"); // need to check validity: only integer
+				System.out.println("Enter Number of Tutorial Class");
 				tutNumber = sc.nextInt();
-				if (tutNumber < 1) throw new Exception("There must be at least 1 tutorial!");
+				if (tutNumber < 1)
+					throw new Exception("There must be at least 1 tutorial!");
 				sc.nextLine();
 				return tutNumber;
 			} catch (Exception e) {
@@ -151,13 +152,15 @@ public class AddCourse {
 			}
 		}
 	}
+
 	private static int getLabNumber(Scanner sc) {
 		int labNumber;
 		while (true) {
 			try {
-				System.out.println("Enter Number of Laboratory Class"); // need to check validity: only integer
+				System.out.println("Enter Number of Laboratory Class");
 				labNumber = sc.nextInt();
-				if (labNumber < 1) throw new Exception("There must be at least 1 lab component!");
+				if (labNumber < 1)
+					throw new Exception("There must be at least 1 lab component!");
 				sc.nextLine();
 				return labNumber;
 			} catch (Exception e) {
@@ -166,11 +169,12 @@ public class AddCourse {
 			}
 		}
 	}
+
 	private static int getExamPercent(Scanner sc) {
 		int examPercent;
 		while (true) {
 			try {
-				System.out.println("Enter Exam Percentage:"); // need to check validity: only integer, between  0-100
+				System.out.println("Enter Exam Percentage:");
 				examPercent = sc.nextInt();
 				validatePercentage(examPercent);
 				sc.nextLine();
@@ -181,12 +185,13 @@ public class AddCourse {
 			}
 		}
 	}
+
 	private static int getCourseWorkPercent(Scanner sc) {
 		int courseWorkPercent;
 		while (true) {
 			try {
-				System.out.println("Enter Coursework Percentage:"); // need to check validity: only integer, between  0-100
-				courseWorkPercent = sc.nextInt(); // check = 100%
+				System.out.println("Enter Coursework Percentage:");
+				courseWorkPercent = sc.nextInt();
 				validatePercentage(courseWorkPercent);
 				sc.nextLine();
 				return courseWorkPercent;
@@ -196,11 +201,12 @@ public class AddCourse {
 			}
 		}
 	}
+
 	private static int getAssignmentPercent(Scanner sc) {
 		int assignmentPercent;
 		while (true) {
 			try {
-				System.out.println("Enter Assignment Percentage:"); // need to check validity: only integer, between  0-100
+				System.out.println("Enter Assignment Percentage:");
 				assignmentPercent = sc.nextInt();
 				validatePercentage(assignmentPercent);
 				sc.nextLine();
@@ -211,12 +217,13 @@ public class AddCourse {
 			}
 		}
 	}
+
 	private static int getClassPartPercent(Scanner sc) {
 		int classPartPercent;
 		while (true) {
 			try {
-				System.out.println("Enter Class Participation Percentage:"); // need to check validity: only integer, between  0-100
-				classPartPercent = sc.nextInt(); // check = 100%
+				System.out.println("Enter Class Participation Percentage:");
+				classPartPercent = sc.nextInt();
 				validatePercentage(classPartPercent);
 				sc.nextLine();
 				return classPartPercent;
@@ -227,15 +234,18 @@ public class AddCourse {
 		}
 	}
 
-	//utility methods
-	private static void validateNewCourseCode(String newCourseCode) throws Exception{
-		//check for format
+	// Utility methods
+	private static void validateNewCourseCode(String newCourseCode) throws Exception {
+		// Check for format
 		FormatValidator.validateCourseCode(newCourseCode);
-		//check for existence
+		// Check for existence
 		boolean exists = CourseManager.checkCourseExistence(newCourseCode);
-		if (exists) throw new Exception("Course already exists!");
+		if (exists)
+			throw new Exception("Course already exists!");
 	}
-	private static void validatePercentage(int percentage) throws Exception{
-		if (percentage > 100 || percentage < 0) throw new Exception("A percentage must be between 1-100");
+
+	private static void validatePercentage(int percentage) throws Exception {
+		if (percentage > 100 || percentage < 0)
+			throw new Exception("A percentage must be between 1-100");
 	}
 }
