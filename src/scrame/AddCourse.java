@@ -1,5 +1,7 @@
 package scrame;
 
+import com.mitchtalmadge.asciidata.table.ASCIITable;
+
 import javax.xml.transform.Source;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -65,14 +67,27 @@ public class AddCourse {
 		Main.courseList.add(course);
 
 		// Print list of ALL courses
-		System.out.println("Course Name / Code / Course Coordinator");
-		System.out.println("----------------------------------------------");
-		for (int i = 0; i < Main.courseList.size(); i++) {
-			System.out.println(
-				Main.courseList.get(i).getCourseName() + " / " + 
-				Main.courseList.get(i).getCourseCode() + " / " + 
-				Main.courseList.get(i).getCourseCoordinator());
+//		System.out.println("Course Name / Code / Course Coordinator");
+//		System.out.println("----------------------------------------------");
+//		for (int i = 0; i < Main.courseList.size(); i++) {
+//			System.out.println(
+//				Main.courseList.get(i).getCourseName() + " / " +
+//				Main.courseList.get(i).getCourseCode() + " / " +
+//				Main.courseList.get(i).getCourseCoordinator());
+//		}
+
+		String[] headers = new String[]{"No.", "Course Name", "Course Code", "Course Coordinator"};
+
+		int numberOfCourses = Main.courseList.size();
+		String[][] data = new String[numberOfCourses][4];
+
+		for (int i = 0; i < numberOfCourses; i++) {
+			data[i][0] = Integer.toString(i + 1);
+			data[i][1] = Main.courseList.get(i).getCourseName();
+			data[i][2] = Main.courseList.get(i).getCourseCode();
+			data[i][3] = Main.courseList.get(i).getCourseCoordinator();
 		}
+		System.out.println(ASCIITable.fromData(headers, data).toString());
 
 		// Write array to file
 		DatabaseManager.write(Main.courseList, courseFile);
