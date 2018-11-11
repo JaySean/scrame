@@ -33,8 +33,8 @@ public class AddCourse {
 				System.out.println("Exam and Coursework Weights:");
 				examPercent = getExamPercent(sc);
 				courseWorkPercent = getCourseWorkPercent(sc);
-				if (examPercent + courseWorkPercent != 100)
-					throw new Exception("Exam and Course Work percentages must total 100");
+				if (examPercent + courseWorkPercent != 100 && examPercent > 0 && courseWorkPercent > 0)
+					throw new Exception("Exam and Course Work percentages must total 100 and there must be an Exam and Coursework component");
 				repeat = false;
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
@@ -44,19 +44,18 @@ public class AddCourse {
 		// Get assignment and class participation percentages
 		int assignmentPercent = 0;
 		int classPartPercent = 0;
-		if (courseWorkPercent != 0) {
-			repeat = true;
-			while (repeat) {
-				try {
-					System.out.println("Assignment and Class Participation Weights:");
-					assignmentPercent = getAssignmentPercent(sc);
-					classPartPercent = getClassPartPercent(sc);
-					if (assignmentPercent + classPartPercent != 100)
-						throw new Exception("Assignment and Class Participation percentage must total 100");
-					repeat = false;
-				} catch (Exception e) {
-					System.out.println(e.getMessage());
+		repeat = true;
+		while (repeat) {
+			try {
+				System.out.println("Assignment and Class Participation Weights:");
+				assignmentPercent = getAssignmentPercent(sc);
+				classPartPercent = getClassPartPercent(sc);
+				if (assignmentPercent + classPartPercent != 100) {
+					throw new Exception("Assignment and Class Participation percentage must total 100");
 				}
+				repeat = false;
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
 			}
 		}
 

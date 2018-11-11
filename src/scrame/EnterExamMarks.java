@@ -60,6 +60,6 @@ public class EnterExamMarks {
 	}
 	private static void validateMark(int mark) throws Exception {
 		if (mark > 100 || mark < 0)
-			throw new Exception("A mark must be between 1-100");
+			throw new Exception("A mark must be between 0-100");
 	}
 }
