@@ -45,8 +45,7 @@ public class AddStudent {
 
         // New instance of Student
         Student student = new Student(studentName, studentMatricNo);
-        // Read file to array
-//		ArrayList<Student> studentList = DatabaseManager.read(studentFile);
+
         // Add instance of student to array
         Main.studentList.add(student);
 

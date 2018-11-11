@@ -20,4 +20,11 @@ public abstract class FormatValidator {
             throw  new Exception("Name format invalid - Must contain only letters and spaces, it must also not be blank");
         }
     }
+
+    public static void validateCourseName(String courseName) throws Exception {
+        final String nameFormat = "[A-z0-9]+[A-z0-9\\s]*";
+        if (!courseName.matches(nameFormat)) {
+            throw  new Exception("Name format invalid - It must also not be blank");
+        }
+    }
 }

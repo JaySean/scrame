@@ -9,8 +9,7 @@ public class StudentCourse implements Serializable{
 
 	private String studentMatric;
 	private String courseCode;
-//	private ArrayList<MarksRecord> marksRecord;
-	private int[] marksRecord;
+	private int[] marksRecord; //exam assignment classPart
 	
 	public StudentCourse(String studentMatric, String courseCode) {
 		this.studentMatric = studentMatric;
@@ -32,5 +31,23 @@ public class StudentCourse implements Serializable{
 	
 	public void setMarksRecord(int i, int marks) {
 		marksRecord[i] = marks;
+	}
+	public int getExamMarks() {
+		return marksRecord[0];
+	}
+	public void setExamMarks(int mark) {
+		marksRecord[0] = mark;
+	}
+	public int getAssignmentMarks() {
+		return marksRecord[1];
+	}
+	public void setAssigmentMarks(int mark) {
+		marksRecord[1] = mark;
+	}
+	public int getClassPartMarks() {
+		return marksRecord[2];
+	}
+	public void setClassPartMarks(int mark) {
+		marksRecord[2] = mark;
 	}
 }

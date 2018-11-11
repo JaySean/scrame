@@ -32,6 +32,7 @@ public class RegisterStudent {
 			boolean exist = CourseManager.checkCourseExistence(courseCode);
 			if (!exist) throw new Exception("Course does not exist!");
 			//check vacancy
+			Course course = CourseManager.getCourse(courseCode);
 			if (!CourseManager.getCourse(courseCode).hasVacancy()) throw new Exception("There are no vacancies left in this course!");
 			return courseCode;
 		} catch (Exception e) {

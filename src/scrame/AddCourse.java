@@ -67,15 +67,6 @@ public class AddCourse {
 		Main.courseList.add(course);
 
 		// Print list of ALL courses
-//		System.out.println("Course Name / Code / Course Coordinator");
-//		System.out.println("----------------------------------------------");
-//		for (int i = 0; i < Main.courseList.size(); i++) {
-//			System.out.println(
-//				Main.courseList.get(i).getCourseName() + " / " +
-//				Main.courseList.get(i).getCourseCode() + " / " +
-//				Main.courseList.get(i).getCourseCoordinator());
-//		}
-
 		String[] headers = new String[]{"No.", "Course Name", "Course Code", "Course Coordinator"};
 
 		int numberOfCourses = Main.courseList.size();
@@ -100,7 +91,7 @@ public class AddCourse {
 			try {
 				System.out.println("Enter Course Name");
 				courseName = sc.nextLine();
-				FormatValidator.validateName(courseName);
+				FormatValidator.validateCourseName(courseName);
 				return courseName;
 			} catch (Exception e) {
 				System.out.println(e.getMessage());

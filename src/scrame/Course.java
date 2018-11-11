@@ -118,7 +118,6 @@ public class Course implements Serializable {
 		}
 		return false;
 	}
-
 	public boolean hasVacancy() {
 		try {
 			if (getLectures().size() > 0) {
@@ -130,6 +129,15 @@ public class Course implements Serializable {
 		return false;
 	}
 
+	public boolean hasExam() {
+		return getExamComponent().getPercentage() != 0;
+	}
+	public boolean hasAssignment() {
+		return getAssignmenComponent().getPercentage() != 0;
+	}
+	public boolean hasClassPart() {
+		return getClassPartComponent().getPercentage() != 0;
+	}
 	public Exam getExamComponent() {
 		if (components != null) return (Exam)components.get(0);
 		return null;
@@ -142,7 +150,6 @@ public class Course implements Serializable {
 		if (components != null) return (ClassPart)components.get(2);
 		return null;
 	}
-
 	public ArrayList<Tutorial> getTutorials() {
 		ArrayList<Tutorial> tutorials = new ArrayList<>(0);
 		if (session != null) {
@@ -152,7 +159,6 @@ public class Course implements Serializable {
 		}
 		return tutorials;
 	}
-
 	public ArrayList<Lecture> getLectures() {
 		ArrayList<Lecture> lectures = new ArrayList<>(0);
 		if (session != null) {
@@ -162,7 +168,6 @@ public class Course implements Serializable {
 		}
 		return lectures;
 	}
-
 	public ArrayList<Laboratory> getLaboratories() {
 		ArrayList<Laboratory> labs = new ArrayList<>(0);
 		if (session != null) {
