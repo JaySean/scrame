@@ -84,16 +84,22 @@ public class RegisterStudent {
 		ArrayList<Tutorial> tutorials = course.getTutorials();
 		int index = 1;
 		try {
-			System.out.println("Select Tutorial Session:");
-			//print lectures
-			for (Tutorial tutorial : tutorials) {
-				System.out.println("Tutorial " + index + ": " + tutorial.getVacancy() + " vacancies");
-				index++;
+			int choice = -1;
+			do {
+				index = 1;
+				System.out.println("Select Tutorial Session:");
+				//print lectures
+				for (Tutorial tutorial : tutorials) {
+					System.out.println("Tutorial " + index + ": " + tutorial.getVacancy() + " vacancies");
+					index++;
+				}
+				choice = sc.nextInt();
+				//check choice validity
+				if (choice > tutorials.size() || choice < 1) throw new Exception("No such tutorial!");
+				sc.nextLine();
 			}
-			int choice = sc.nextInt();
-			//check choice validity
-			if (choice > tutorials.size() || choice < 1) throw new Exception("No such tutorial!");
-			sc.nextLine();
+			while (tutorials.get(choice - 1).getVacancy() == 0);
+			
 			//add student to course
 			tutorials.get(choice - 1).addStudent(matricNumber);
 		} catch (Exception e) {
@@ -107,16 +113,21 @@ public class RegisterStudent {
 		ArrayList<Laboratory> laboratories = course.getLaboratories();
 		int index = 1;
 		try {
-			System.out.println("Select Laboratory Session:");
-			//print lectures
-			for (Laboratory laboratory : laboratories) {
-				System.out.println("Lab " + index + ": " + laboratory.getVacancy() + " vacancies");
-				index++;
+			int choice = -1;
+			do {
+				index = 1;
+				System.out.println("Select Laboratory Session:");
+				//print lectures
+				for (Laboratory laboratory : laboratories) {
+					System.out.println("Lab " + index + ": " + laboratory.getVacancy() + " vacancies");
+					index++;
+				}
+				choice = sc.nextInt();
+				//check choice validity
+				if (choice > laboratories.size() || choice < 1) throw new Exception("No such laboratory!");
+				sc.nextLine();
 			}
-			int choice = sc.nextInt();
-			//check choice validity
-			if (choice > laboratories.size() || choice < 1) throw new Exception("No such laboratory!");
-			sc.nextLine();
+			while (laboratories.get(choice - 1).getVacancy() == 0);
 			//add student to course
 			laboratories.get(choice - 1).addStudent(matricNumber);
 		} catch (Exception e) {

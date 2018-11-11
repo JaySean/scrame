@@ -3,6 +3,10 @@ package scrame;
 import java.util.*;
 
 public class Main {
+	
+	final static String courseFile = "data/Courses.txt";
+	final static String studentFile = "data/Students.txt";
+	final static String studentCourseFile = "data/StudentCourse.txt";
 
 	// Global Variables
 	public static ArrayList<Course> courseList;
@@ -10,11 +14,6 @@ public class Main {
 	public static ArrayList<StudentCourse> studentCourseList;
 	
 	public static void main(String[] args) {
-		
-		// Global variables
-		final String courseFile = "data/Courses.txt";
-		final String studentFile = "data/Students.txt";
-		final String studentCourseFile = "data/StudentCourse.txt";
 		
 		// Read file to array
 		courseList = DatabaseManager.read(courseFile);
