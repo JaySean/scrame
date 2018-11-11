@@ -142,6 +142,15 @@ public class Course implements Serializable {
 		if (components != null) return (ClassPart)components.get(2);
 		return null;
 	}
+	public int getComponentNo(){
+		int count = 0;
+		for (int i = 0; i < 3; i++){
+			if (this.getComponents().get(i).getPercentage() != 0){
+				count ++;
+			}
+		}
+		return count;
+	}
 
 	public ArrayList<Tutorial> getTutorials() {
 		ArrayList<Tutorial> tutorials = new ArrayList<>(0);

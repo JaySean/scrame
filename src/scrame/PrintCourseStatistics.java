@@ -1,5 +1,7 @@
 package scrame;
 
+import com.mitchtalmadge.asciidata.table.ASCIITable;
+
 import java.util.Scanner;
 
 public class PrintCourseStatistics {
@@ -30,12 +32,18 @@ public class PrintCourseStatistics {
 		int assignmentPercentage = course.getComponents().get(1).getPercentage();
 		int classPartPercentage = course.getComponents().get(2).getPercentage();
 
+		String[] headers = new String[]{"Component", "Average Grade"};
+		String[][] data = new String[3][2];
+
+		int i = 0;
+
 		// Show exam only
 		double examGrade = 0;
 		if (examPercentage != 0) {
-			System.out.println("Average Grade Percentage for Exams (" + examPercentage + "%)");
 			examGrade = (double) totalMarks[0] / numberOfStudents;
-			System.out.println(examGrade);
+			data[i][0] = "Exam (" + examPercentage + "%)";
+			data[i][1] = Double.toString(examGrade);
+			i++;
 		}
 
 		// Show coursework only
@@ -44,18 +52,23 @@ public class PrintCourseStatistics {
 		double classPartGrade = 0;
 		double courseworkGrade = 0;
 		if (courseWorkPercentage != 0) {
-			System.out.println("Average Grade Percentage for Coursework (" + (100 - examPercentage) + "%)");
 			assignmentGrade = (double) (assignmentPercentage * totalMarks[1]) / courseWorkPercentage;
 			classPartGrade = (double) (classPartPercentage * totalMarks[2]) / courseWorkPercentage;
 			courseworkGrade = (assignmentGrade + classPartGrade) / numberOfStudents;
-			System.out.println(courseworkGrade);
+
+			data[i][0] = "Coursework (" + (100 - examPercentage) + "%)";
+			data[i][1] = Double.toString(courseworkGrade);
+			i++;
 		}
 
 		// Show overall
-		System.out.println("Average Grade Percentage for Overall (100%)");
 		double gradePercentage = 
 				((examGrade * examPercentage) / 100) + 
 				((courseworkGrade * courseWorkPercentage) / 100);
-		System.out.println(gradePercentage);
+		data[i][0] = "Overall (100%)";
+		data[i][1] = Double.toString(gradePercentage);
+
+		// Ouput data
+		System.out.println(ASCIITable.fromData(headers, data).toString());
 	}
 }
