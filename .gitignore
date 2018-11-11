@@ -2,3 +2,5 @@
 
 # Ignore folder named 'data'
 data/
+
+out/
