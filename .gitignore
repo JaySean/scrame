@@ -2,5 +2,5 @@
 
 # Ignore folder named 'data'
 data/
-
+idea/
 out/
