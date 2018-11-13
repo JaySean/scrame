@@ -1,141 +1,117 @@
 package scrame;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static scrame.InputValidator.validateRegistration;
+
 public class RegisterStudent {
 
-	public static void run() {
-		Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
 
-		String courseCode = getCourseCode(sc);
+    public static void run() {
 
-		Course course = CourseManager.getCourse(courseCode);
-		String studentMatric = getStudentMatric(sc,course);
+        String studentMatric = Input.getStudentMatric();
+        String courseCode = Input.getCourseFromStudent(studentMatric);
 
-		// Select Lecture
-		registerLecture(sc, studentMatric, course);
-		// Select Tutorial
-		registerTutorial(sc, studentMatric,course );
-		// Select Laboratory
-		registerLaboratory(sc, studentMatric, course);
-		//amend course in persistent memory
-		CourseManager.amendCourse(course);
-	}
+        Course course = CourseManager.getCourse(courseCode);
 
-	private static String getCourseCode(Scanner sc) {
-		try {
-			System.out.println("Enter Course Code");
-			String courseCode = sc.nextLine();
-			//check format
-			FormatValidator.validateCourseCode(courseCode);
-			//check existence
-			boolean exist = CourseManager.checkCourseExistence(courseCode);
-			if (!exist) throw new Exception("Course does not exist!");
-			//check vacancy
-			Course course = CourseManager.getCourse(courseCode);
-			if (!CourseManager.getCourse(courseCode).hasVacancy()) throw new Exception("There are no vacancies left in this course!");
-			return courseCode;
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return getCourseCode(sc);
-		}
-	}
-	private static String getStudentMatric(Scanner sc, Course course) {
-		try {
-			System.out.println("Enter Student Matriculation Number"); // check validity: whether student exits
-			String studentMatric = sc.nextLine();
-			//check format
-			FormatValidator.validateMatricNo(studentMatric);
-			//check existence
-			boolean exist = StudentManager.checkStudentExistence(studentMatric);
-			if (!exist) throw new Exception("Student does not exist!");
-			//check if already in course
-			if (course.hasStudent(studentMatric)) throw new Exception("Student is already registered for this course!");
-			return studentMatric;
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return getStudentMatric(sc,course);
-		}
-	}
-	private static void registerLecture(Scanner sc, String matricNumber, Course course) {
-		if (course == null) return;
-		ArrayList<Lecture> lectures = course.getLectures();
-		int index = 1;
-		try {
-			System.out.println("Select Lecture Session:");
-			//print lectures
-			for (Lecture lecture : lectures) {
-				System.out.println("Lecture " + index + ": " + lecture.getVacancy() + " vacancies");
-				index++;
-			}
-			int choice = sc.nextInt();
-			//check choice validity
-			if (choice > lectures.size() || choice < 1) throw new Exception("No such lecture!");
-			sc.nextLine();
-			//add student to course
-			lectures.get(choice - 1).addStudent(matricNumber);
-		} catch (Exception e) {
-			sc.nextLine();
-			System.out.println(e.getMessage());
-			registerLecture(sc, matricNumber, course);
-		}
-	}
-	private static void registerTutorial(Scanner sc, String matricNumber, Course course) {
-		if (course == null) return;
-		ArrayList<Tutorial> tutorials = course.getTutorials();
-		int index = 1;
-		try {
-			int choice = -1;
-			do {
-				index = 1;
-				System.out.println("Select Tutorial Session:");
-				//print lectures
-				for (Tutorial tutorial : tutorials) {
-					System.out.println("Tutorial " + index + ": " + tutorial.getVacancy() + " vacancies");
-					index++;
-				}
-				choice = sc.nextInt();
-				//check choice validity
-				if (choice > tutorials.size() || choice < 1) throw new Exception("No such tutorial!");
-				sc.nextLine();
-			}
-			while (tutorials.get(choice - 1).getVacancy() == 0);
-			
-			//add student to course
-			tutorials.get(choice - 1).addStudent(matricNumber);
-		} catch (Exception e) {
-			sc.nextLine();
-			System.out.println(e.getMessage());
-			registerTutorial(sc, matricNumber, course);
-		}
-	}
-	private static void registerLaboratory(Scanner sc, String matricNumber, Course course) {
-		if (course == null) return;
-		ArrayList<Laboratory> laboratories = course.getLaboratories();
-		int index = 1;
-		try {
-			int choice = -1;
-			do {
-				index = 1;
-				System.out.println("Select Laboratory Session:");
-				//print lectures
-				for (Laboratory laboratory : laboratories) {
-					System.out.println("Lab " + index + ": " + laboratory.getVacancy() + " vacancies");
-					index++;
-				}
-				choice = sc.nextInt();
-				//check choice validity
-				if (choice > laboratories.size() || choice < 1) throw new Exception("No such laboratory!");
-				sc.nextLine();
-			}
-			while (laboratories.get(choice - 1).getVacancy() == 0);
-			//add student to course
-			laboratories.get(choice - 1).addStudent(matricNumber);
-		} catch (Exception e) {
-			sc.nextLine();
-			System.out.println(e.getMessage());
-			registerLaboratory(sc, matricNumber, course);
-		}
-	}
+        // Select Lecture
+        registerLecture(studentMatric, course);
+        // Select Tutorial
+        registerTutorial(studentMatric, course);
+        // Select Laboratory
+        registerLaboratory(studentMatric, course);
+        //amend course in persistent memory
+        CourseManager.updateCourse(course);
+    }
+
+    private static void registerLecture(String studentMatric, Course course) {
+        if (course == null) return;
+        ArrayList<Lecture> lectures = course.getLectures();
+        int index = 1;
+        try {
+            System.out.println("Select Lecture Session:");
+            // Print Lectures
+            for (Lecture lecture : lectures) {
+                System.out.println("Lecture " + index + ": " + lecture.getVacancy() + " vacancies");
+                index++;
+            }
+            int choice = sc.nextInt();
+            // Check choice validity
+            if (choice > lectures.size() || choice < 1) {
+                throw new Exception("No such lecture!");
+            }
+            sc.nextLine();
+            // Add Student to Course
+            lectures.get(choice - 1).addStudent(studentMatric);
+        } catch (Exception e) {
+            sc.nextLine();
+            System.out.println(e.getMessage());
+            registerLecture(studentMatric, course);
+        }
+    }
+
+    private static void registerTutorial(String studentMatric, Course course) {
+        if (course == null) return;
+        ArrayList<Tutorial> tutorials = course.getTutorials();
+        int index;
+        try {
+            int choice;
+            index = 1;
+            System.out.println("Select Tutorial Session:");
+            // Print tutorials
+            for (Tutorial tutorial : tutorials) {
+                System.out.println("Tutorial " + index + ": " + tutorial.getVacancy() + " vacancies");
+                index++;
+            }
+            choice = sc.nextInt();
+            // Check choice validity
+            if (choice > tutorials.size() || choice < 1) {
+                throw new Exception("No such tutorial!");
+            }
+            if (tutorials.get(choice - 1).getVacancy() == 0){
+                throw new Exception("No vacancies!");
+            }
+            sc.nextLine();
+            // Add Student to Course
+            tutorials.get(choice - 1).addStudent(studentMatric);
+        } catch (Exception e) {
+            sc.nextLine();
+            System.out.println(e.getMessage());
+            registerTutorial(studentMatric, course);
+        }
+    }
+
+    private static void registerLaboratory(String studentMatric, Course course) {
+        if (course == null) return;
+        ArrayList<Laboratory> laboratories = course.getLaboratories();
+        int index;
+        try {
+            int choice;
+            index = 1;
+            System.out.println("Select Laboratory Session:");
+            // Print Laboratories
+            for (Laboratory laboratory : laboratories) {
+                System.out.println("Lab " + index + ": " + laboratory.getVacancy() + " vacancies");
+                index++;
+            }
+            choice = sc.nextInt();
+            // Check choice validity
+            if (choice > laboratories.size() || choice < 1) {
+                throw new Exception("No such laboratory!");
+            }
+            if (laboratories.get(choice - 1).getVacancy() == 0){
+                throw new Exception("No vacancies!");
+            }
+            sc.nextLine();
+            // Add Student to Course
+            laboratories.get(choice - 1).addStudent(studentMatric);
+        } catch (Exception e) {
+            sc.nextLine();
+            System.out.println(e.getMessage());
+            registerLaboratory(studentMatric, course);
+        }
+    }
 }
 

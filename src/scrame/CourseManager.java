@@ -7,33 +7,30 @@ public class CourseManager implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	public static Scanner sc = new Scanner(System.in);
-
 	private final static String courseFile = "data/Courses.txt";
 
 	public static boolean checkCourseExistence(String courseCode) {
-		ArrayList<Course> courseList = DatabaseManager.read(courseFile);
-		for (Course course : courseList) {
+		for (Course course : Main.courseList) {
 			if (course.getCourseCode().equals(courseCode)) return true;
 		}
 		return false;
 	}
 
 	public static Course getCourse(String courseCode) {
-		Course c = null;
-		for (int i = 0; i < getCourseList().size(); i++) {
-			c = getCourseList().get(i);
+		Course c;
+		for (int i = 0; i < Main.courseList.size(); i++) {
+			c = Main.courseList.get(i);
 			if (c.getCourseCode().equals(courseCode)) {
 				return c;
 			}
 		}
-		return null; // Should return with what? Exception handling?
+		return null;
 	}
 
 	public static int getCourseIndex(String courseCode) {
-		Course c = null;
-		for (int i = 0; i < getCourseList().size(); i++) {
-			c = getCourseList().get(i);
+		Course c;
+		for (int i = 0; i < Main.courseList.size(); i++) {
+			c = Main.courseList.get(i);
 			if (c.getCourseCode().equals(courseCode)) {
 				return i;
 			}
@@ -41,22 +38,10 @@ public class CourseManager implements Serializable {
 		return -1;
 	}
 
-	public static ArrayList<Course> getCourseList() {
-		ArrayList<Course> courseList = DatabaseManager.read(courseFile);
-		return courseList;
-	}
-
-	public static void updateCourse(int courseIndex, Course c) {
-		ArrayList<Course> courseList = DatabaseManager.read(courseFile);
-		courseList.set(courseIndex, c);
-		DatabaseManager.write(courseList, courseFile);
-	}
-
-	public static void amendCourse(Course course) {
+	public static void updateCourse(Course course) {
 		if (course == null) return;
-		ArrayList<Course> courseList = DatabaseManager.read(courseFile);
 		int index = getCourseIndex(course.getCourseCode());
-		courseList.set(index, course);
-		DatabaseManager.write(courseList, courseFile);
+		Main.courseList.set(index, course);
+		DatabaseManager.write(Main.courseList, courseFile);
 	}
 }

@@ -3,15 +3,13 @@ package scrame;
 import com.mitchtalmadge.asciidata.table.ASCIITable;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class PrintStudentTranscript {
 
 	public static void run() {
 
-		Scanner sc = new Scanner(System.in);
-
-		String studentMatric = getStudentMatric(sc);
+		/*
+		String studentMatric = Input.getStudentMatric();
 
 		StudentCourse studentCourse = StudentCourseManager.getStudentCourse(studentMatric);
 		String courseCode = studentCourse.getCourseCode();
@@ -25,7 +23,7 @@ public class PrintStudentTranscript {
 		System.out.println("Exam: " + course.getExamComponent().getPercentage() + "%");
 		System.out.println(studentCourse.getExamMarks());
 		if (course.hasAssignment()) {
-			System.out.println("Assignment: " + course.getAssignmenComponent().getPercentage() + "%");
+			System.out.println("Assignment: " + course.getAssignmentComponent().getPercentage() + "%");
 			System.out.println(studentCourse.getAssignmentMarks());
 		}
 		if (course.hasClassPart()) {
@@ -33,59 +31,64 @@ public class PrintStudentTranscript {
 			System.out.println(studentCourse.getClassPartMarks());
 		}
 		double adjustedExam = (double) studentCourse.getExamMarks() * course.getExamComponent().getPercentage() / 100;
-		double adjustedAssignment = (double) studentCourse.getAssignmentMarks() * course.getAssignmenComponent().getPercentage() / 100;
+		double adjustedAssignment = (double) studentCourse.getAssignmentMarks() * course.getAssignmentComponent().getPercentage() / 100;
 		double adjustedClassPart = (double) studentCourse.getClassPartMarks() * course.getClassPartComponent().getPercentage() / 100;
 		double total = adjustedExam + adjustedAssignment + adjustedClassPart;
 		System.out.println("Total:");
 		System.out.println(total);
+		*/
 
-		/*
-		for (StudentCourse studentCourse : Main.studentCourseList) {
+		String studentMatric = Input.getStudentMatric();
+
+		for (StudentCourse studentCourse : Main.studentCourseList)
 			if (studentCourse.getStudentMatric().equals(studentMatric)) {
 				Course course = CourseManager.getCourse(studentCourse.getCourseCode());
 				System.out.println();
 
-				int numberOfCourses = course.getComponentNo();
+				int number = 4;
+				if (course.hasAssignment()) {
+					number++;
+				}
+				if (course.hasClassPart()) {
+					number++;
+				}
+
 				String[] headers = new String[]{"Course Name", "Course Code"};
-				String[][] data = new String[numberOfCourses+3][2];
+				String[][] data = new String[number][2];
 				data[0][0] = course.getCourseName();
 				data[0][1] = course.getCourseCode();
 				data[1][0] = "---Component---";
 				data[1][1] = "---Marks---";
 
-				ArrayList<Components> components = course.getComponents();
-				double totalMarks = 0;
-				for (int i = 0; i < 3; i++) {
-					int componentPercentage = components.get(i).getPercentage();
-					if (componentPercentage != 0) {
-						double componentMarks = studentCourse.getMarksRecord()[i];
-						data[i+2][0] = components.get(i).getType() + "(" + componentPercentage + "%)";
-						data[i+2][1] = Double.toString(componentMarks);
-						totalMarks += (componentPercentage * componentMarks) / 100;
-					}
+
+				data[2][0] = "Exam: " + course.getExamComponent().getPercentage() + "%";
+				data[2][1] = Double.toString(studentCourse.getExamMarks());
+
+				int i = 1;
+
+				if (course.hasAssignment()) {
+					data[i + 2][0] = "Assignment: " + course.getAssignmentComponent().getPercentage() + "%";
+					data[i + 2][1] = Double.toString(studentCourse.getAssignmentMarks());
+					i++;
 				}
-				data[numberOfCourses+2][0] = "Total Marks";
-				data[numberOfCourses+2][1] = Double.toString(totalMarks);
+
+				if (course.hasClassPart()) {
+					data[i + 2][0] = "Class Participation: " + course.getClassPartComponent().getPercentage() + "%";
+					data[i + 2][1] = Double.toString(studentCourse.getClassPartMarks());
+					i++;
+				}
+
+				double adjustedExam = (double) studentCourse.getExamMarks() * course.getExamComponent().getPercentage() / 100;
+				double adjustedAssignment = (double) studentCourse.getAssignmentMarks() * course.getAssignmentComponent().getPercentage() / 100;
+				double adjustedClassPart = (double) studentCourse.getClassPartMarks() * course.getClassPartComponent().getPercentage() / 100;
+				double totalMarks = adjustedExam + adjustedAssignment + adjustedClassPart;
+
+				data[i + 2][0] = "Total Marks";
+				data[i + 2][1] = Double.toString(totalMarks);
 
 				// Output data
 				System.out.println(ASCIITable.fromData(headers, data).toString());
 			}
-		}
-		*/
-	}
 
-	private static String getStudentMatric(Scanner sc) {
-		try {
-			System.out.println("Enter Student Matriculation Number");
-			String studentMatric = sc.nextLine();
-			//validate format
-			FormatValidator.validateMatricNo(studentMatric);
-			//validate existence
-			if (!StudentManager.checkStudentExistence(studentMatric)) throw new Exception("Student does not exist!");
-			return studentMatric;
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return getStudentMatric(sc);
-		}
 	}
 }

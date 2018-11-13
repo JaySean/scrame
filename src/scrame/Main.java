@@ -25,7 +25,7 @@ public class Main {
 		int input;
 		do {
 			showMenu();
-			// get input choice number + validation of choice
+			// Get input choice
 			try {
 				input = sc.nextInt();
 				sc.nextLine();
@@ -34,7 +34,6 @@ public class Main {
 				System.out.println(e.getMessage());
 				continue;
 			}
-			// switch input
 			switch (input) {
 				case 1:
 					AddStudent.run();

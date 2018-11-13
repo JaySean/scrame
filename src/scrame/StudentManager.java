@@ -9,8 +9,8 @@ public class StudentManager implements Serializable {
 	public static final String studentFile = "data/Students.txt";
 
 	public static boolean checkStudentExistence(String matricNo) {
-		ArrayList<Student> studentList = DatabaseManager.read(studentFile);
-		for (Student student : studentList) {
+
+		for (Student student : Main.studentList) {
 			if (student.getStudentMatricNo().equals(matricNo)) return true;
 		}
 		return false;
