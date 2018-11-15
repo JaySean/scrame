@@ -48,7 +48,7 @@ public class EnterCourseworkMarks {
             InputValidator.validateMark(marks);
             studentCourse.setAssignmentMarks(marks);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Input.inputMismatchCapture(e);
             enterAssignmentMarks(studentCourse);
         }
     }
@@ -64,7 +64,7 @@ public class EnterCourseworkMarks {
             InputValidator.validateMark(marks);
             studentCourse.setClassPartMarks(marks);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Input.inputMismatchCapture(e);
             enterClassPartMarks(studentCourse);
         }
     }

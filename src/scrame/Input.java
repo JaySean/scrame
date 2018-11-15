@@ -1,5 +1,8 @@
 package scrame;
 
+import scrame.course.CourseManager;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Input {
@@ -122,7 +125,7 @@ public class Input {
                 return courseCapacity;
             } catch (Exception e) {
                 sc.nextLine();
-                System.out.println(e.getMessage());
+                inputMismatchCapture(e);
             }
         }
     }
@@ -139,7 +142,7 @@ public class Input {
                 return tutNumber;
             } catch (Exception e) {
                 sc.nextLine();
-                System.out.println(e.getMessage());
+                inputMismatchCapture(e);
             }
         }
     }
@@ -156,7 +159,7 @@ public class Input {
                 return labNumber;
             } catch (Exception e) {
                 sc.nextLine();
-                System.out.println(e.getMessage());
+                inputMismatchCapture(e);
             }
         }
     }
@@ -172,7 +175,7 @@ public class Input {
                 return examPercent;
             } catch (Exception e) {
                 sc.nextLine();
-                System.out.println(e.getMessage());
+                inputMismatchCapture(e);
             }
         }
     }
@@ -188,7 +191,7 @@ public class Input {
                 return courseWorkPercent;
             } catch (Exception e) {
                 sc.nextLine();
-                System.out.println(e.getMessage());
+                inputMismatchCapture(e);
             }
         }
     }
@@ -204,7 +207,7 @@ public class Input {
                 return assignmentPercent;
             } catch (Exception e) {
                 sc.nextLine();
-                System.out.println(e.getMessage());
+                inputMismatchCapture(e);
             }
         }
     }
@@ -220,7 +223,7 @@ public class Input {
                 return classPartPercent;
             } catch (Exception e) {
                 sc.nextLine();
-                System.out.println(e.getMessage());
+                inputMismatchCapture(e);
             }
         }
     }
@@ -231,7 +234,9 @@ public class Input {
         while (true) {
             try {
                 courseCode = Input.getCourseCode();
-                InputValidator.studentCourse(studentMatric, courseCode);
+                if (!CourseManager.getCourse(courseCode).hasStudent(studentMatric))
+                    throw new Exception("Student not registered in course!");
+                //InputValidator.studentCourse(studentMatric, courseCode);
                 return courseCode;
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -239,4 +244,7 @@ public class Input {
         }
     }
 
+    public static void inputMismatchCapture(Exception e) {
+        System.out.println(e instanceof InputMismatchException ? "Input cannot be a integer!" : e.getMessage());
+    }
 }

@@ -62,6 +62,7 @@ public class PrintStudentList {
 
     /**
      * Getter method to validate the choice in the swtich console
+     *
      * @return
      */
     private static int getChoice() {
@@ -75,8 +76,9 @@ public class PrintStudentList {
             return choice;
         } catch (Exception e) {
             sc.nextLine();
-            System.out.println(e.getMessage());
+            Input.inputMismatchCapture(e);
             return getChoice();
         }
     }
+}
 

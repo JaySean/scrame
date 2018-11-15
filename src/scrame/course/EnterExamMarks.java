@@ -42,7 +42,7 @@ public class EnterExamMarks {
             InputValidator.validateMark(marks);
             studentCourse.setExamMarks(marks);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Input.inputMismatchCapture(e);
             enterExamMarks(studentCourse);
         }
     }
