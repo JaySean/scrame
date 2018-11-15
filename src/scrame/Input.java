@@ -299,8 +299,6 @@ public class Input {
      */
     public static String getCourseFromStudent(String studentMatric){
 
-    public static String getCourseFromStudent(String studentMatric) {
-
         String courseCode;
         while (true) {
             try {
