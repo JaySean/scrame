@@ -33,6 +33,7 @@ public class RegisterStudent {
 
     private static void registerLecture(String studentMatric, Course course) {
         if (course == null) return;
+        if (course.getLectures().size() == 0) return;
         ArrayList<Lecture> lectures = course.getLectures();
         int index = 1;
         try {
@@ -59,6 +60,7 @@ public class RegisterStudent {
 
     private static void registerTutorial(String studentMatric, Course course) {
         if (course == null) return;
+        if (course.getTutorials().size() == 0) return;
         ArrayList<Tutorial> tutorials = course.getTutorials();
         int index;
         try {
@@ -90,6 +92,7 @@ public class RegisterStudent {
 
     private static void registerLaboratory(String studentMatric, Course course) {
         if (course == null) return;
+        if (course.getLaboratories().size() == 0);
         ArrayList<Laboratory> laboratories = course.getLaboratories();
         int index;
         try {

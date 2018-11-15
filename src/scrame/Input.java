@@ -116,6 +116,8 @@ public class Input {
             try {
                 System.out.println("Enter Course Capacity");
                 courseCapacity = sc.nextInt();
+                if (courseCapacity < 1)
+                    throw new Exception("There must be at least a capacity of 1!");
                 sc.nextLine();
                 return courseCapacity;
             } catch (Exception e) {
@@ -131,8 +133,8 @@ public class Input {
             try {
                 System.out.println("Enter Number of Tutorial Class");
                 tutNumber = sc.nextInt();
-                if (tutNumber < 1)
-                    throw new Exception("There must be at least 1 tutorial!");
+                if (tutNumber < 0)
+                    throw new Exception("Number cannot be negative!");
                 sc.nextLine();
                 return tutNumber;
             } catch (Exception e) {
@@ -148,8 +150,8 @@ public class Input {
             try {
                 System.out.println("Enter Number of Laboratory Class");
                 labNumber = sc.nextInt();
-                if (labNumber < 1)
-                    throw new Exception("There must be at least 1 lab component!");
+                if (labNumber < 0)
+                    throw new Exception("Number cannot be negative!");
                 sc.nextLine();
                 return labNumber;
             } catch (Exception e) {
