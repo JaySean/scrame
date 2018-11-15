@@ -10,8 +10,7 @@ import scrame.student.StudentCourseManager;
 import java.util.Scanner;
 
 public class EnterExamMarks {
-
-    final static String studentCourseFile = "data/StudentCourse.txt";
+    
     static Scanner sc = new Scanner(System.in);
 
     public static void run() {

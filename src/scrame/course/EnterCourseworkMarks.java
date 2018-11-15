@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 public class EnterCourseworkMarks {
 
-    final static String studentCourseFile = "data/StudentCourse.txt";
     static Scanner sc = new Scanner(System.in);
 
     public static void run() {
