@@ -229,14 +229,12 @@ public class Input {
     }
 
     // Student and Course
-    public static String getCourseFromStudent(String studentMatric){
+    public static String getCourseFromStudent(String studentMatric) {
         String courseCode;
         while (true) {
             try {
                 courseCode = Input.getCourseCode();
-                if (!CourseManager.getCourse(courseCode).hasStudent(studentMatric))
-                    throw new Exception("Student not registered in course!");
-                //InputValidator.studentCourse(studentMatric, courseCode);
+                InputValidator.studentCourse(studentMatric, courseCode);
                 return courseCode;
             } catch (Exception e) {
                 System.out.println(e.getMessage());
