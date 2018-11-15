@@ -1,13 +1,9 @@
 package scrame.course;
 
-import scrame.DatabaseManager;
 import scrame.Input;
-import scrame.Main;
 import scrame.print.PrintCourse;
 
 public class AddCourse {
-
-    final static String courseFile = "data/Courses.txt";
 
     public static void run() {
 
@@ -22,14 +18,13 @@ public class AddCourse {
         int tutNumber = Input.getTutNumber();
         int labNumber = Input.getLabNumber();
 
-        // * need to tidy up
         // Get exam and coursework percentages
         int examPercent = 0;
         int courseWorkPercent = 0;
         repeat = true;
         while (repeat) {
             try {
-                System.out.println("Exam and Coursework Weights:");
+                System.out.println("Exam and Coursework Weights (Total 100%):");
                 examPercent = Input.getExamPercent();
                 courseWorkPercent = Input.getCourseWorkPercent();
                 if (examPercent + courseWorkPercent != 100 && examPercent > 0 && courseWorkPercent > 0)
@@ -46,7 +41,8 @@ public class AddCourse {
         repeat = true;
         while (repeat) {
             try {
-                System.out.println("Assignment and Class Participation Weights:");
+                System.out.println("\nCoursework Components");
+                System.out.println("Assignment and Class Participation Weights (Total 100%):");
                 assignmentPercent = Input.getAssignmentPercent();
                 classPartPercent = Input.getClassPartPercent();
                 if (assignmentPercent + classPartPercent != 100) {
@@ -64,13 +60,10 @@ public class AddCourse {
                 courseCapacity, tutNumber, labNumber,
                 examPercent, courseWorkPercent, assignmentPercent, classPartPercent);
 
-        // Add course to array
-        Main.courseList.add(course);
+        // Update course list
+        CourseManager.updateCourse(course);
 
         // Print list of ALL courses
         PrintCourse.run();
-
-        // Write array to file
-        DatabaseManager.write(Main.courseList, courseFile);
     }
 }
