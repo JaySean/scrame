@@ -1,7 +1,8 @@
-package scrame;
+package scrame.student;
+
+import scrame.Main;
 
 import java.io.*;
-import java.util.*;
 
 public class StudentManager implements Serializable {
 

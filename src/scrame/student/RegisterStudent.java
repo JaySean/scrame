@@ -1,9 +1,14 @@
-package scrame;
+package scrame.student;
+
+import scrame.Input;
+import scrame.course.sessions.Tutorial;
+import scrame.course.Course;
+import scrame.course.CourseManager;
+import scrame.course.sessions.Laboratory;
+import scrame.course.sessions.Lecture;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import static scrame.InputValidator.validateRegistration;
 
 public class RegisterStudent {
 

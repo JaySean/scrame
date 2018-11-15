@@ -1,4 +1,6 @@
-package scrame;
+package scrame.course.components;
+
+import scrame.course.MarksRecord;
 
 import java.io.Serializable;
 import java.util.ArrayList;

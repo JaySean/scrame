@@ -1,4 +1,7 @@
-package scrame;
+package scrame.print;
+
+import scrame.*;
+import scrame.course.*;
 
 import java.util.Scanner;
 
@@ -17,18 +20,34 @@ public class PrintStudentList {
 
         switch (choice) {
             case 1:
-                printListByLec(course);
+                if (course == null)
+                    break;
+                else {
+                    PrintStudentListContext context = new PrintStudentListContext(new PrintStudentListByLec());
+                    context.beginPrint(course);
+                }
                 break;
             case 2:
-                printListByTut(course);
-                break;
+                if (course == null)
+                    break;
+                else {
+                    PrintStudentListContext context = new PrintStudentListContext(new PrintStudentListByTut());
+                    context.beginPrint(course);
+                }
             case 3:
-                printListByLab(course);
-                break;
+                if (course == null)
+                    break;
+                else {
+                    PrintStudentListContext context = new PrintStudentListContext(new PrintStudentListByLab());
+                    context.beginPrint(course);
+                }
             case 4:
-                printListByLec(course);
-                printListByTut(course);
-                printListByLab(course);
+                PrintStudentListContext contextLec = new PrintStudentListContext(new PrintStudentListByLec());
+                contextLec.beginPrint(course);
+                PrintStudentListContext contextTut = new PrintStudentListContext(new PrintStudentListByTut());
+                contextTut.beginPrint(course);
+                PrintStudentListContext contextLab = new PrintStudentListContext(new PrintStudentListByLab());
+                contextLab.beginPrint(course);
                 break;
         }
     }
@@ -57,7 +76,7 @@ public class PrintStudentList {
             return getChoice();
         }
     }
-
+/*
     private static void printListByLec(Course course) {
         if (course == null) return;
         System.out.println("\nStudents in " + course.getCourseCode() + " " + course.getCourseName() + " Lectures");
@@ -108,4 +127,5 @@ public class PrintStudentList {
             index++;
         }
     }
+    */
 }

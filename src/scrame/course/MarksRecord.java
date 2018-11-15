@@ -1,4 +1,4 @@
-package scrame;
+package scrame.course;
 
 import java.io.Serializable;
 

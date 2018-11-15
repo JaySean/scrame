@@ -1,5 +1,14 @@
 package scrame;
 
+import scrame.course.*;
+import scrame.print.PrintCourseStatistics;
+import scrame.print.PrintStudentList;
+import scrame.print.PrintStudentTranscript;
+import scrame.student.AddStudent;
+import scrame.student.RegisterStudent;
+import scrame.student.Student;
+import scrame.student.StudentCourse;
+
 import java.util.*;
 
 public class Main {

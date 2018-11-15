@@ -1,6 +1,6 @@
-/bin/
-
-# Ignore folder named 'data'
-data/
-idea/
-out/
+/bin
+/data/*
+/idea/*
+/.idea/*
+/out/*
+*.class

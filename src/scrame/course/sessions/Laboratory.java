@@ -1,10 +1,12 @@
-package scrame;
+package scrame.course.sessions;
 
-public class Tutorial extends Session{
+import scrame.course.sessions.Session;
+
+public class Laboratory extends Session {
 
 	private static final long serialVersionUID = 1L;
 
-	public Tutorial(int capacity) {
+	public Laboratory(int capacity) {
 		this.capacity = capacity;
 		this.vacancy = capacity;
 		studentList = new String[vacancy];

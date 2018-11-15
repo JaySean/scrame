@@ -1,6 +1,8 @@
-package scrame;
+package scrame.course.components;
 
-public class Exam extends Components{
+import scrame.course.components.Components;
+
+public class Exam extends Components {
 
 	private static final long serialVersionUID = 1L;
 	

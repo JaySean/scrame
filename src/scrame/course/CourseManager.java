@@ -1,7 +1,9 @@
-package scrame;
+package scrame.course;
+
+import scrame.DatabaseManager;
+import scrame.Main;
 
 import java.io.*;
-import java.util.*;
 
 public class CourseManager implements Serializable {
 

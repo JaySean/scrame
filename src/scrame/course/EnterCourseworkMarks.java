@@ -1,4 +1,11 @@
-package scrame;
+package scrame.course;
+
+import scrame.Input;
+import scrame.InputValidator;
+import scrame.course.Course;
+import scrame.course.CourseManager;
+import scrame.student.StudentCourse;
+import scrame.student.StudentCourseManager;
 
 import java.util.Scanner;
 
