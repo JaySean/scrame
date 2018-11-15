@@ -1,4 +1,9 @@
-package scrame;
+package scrame.course;
+
+import scrame.DatabaseManager;
+import scrame.Input;
+import scrame.Main;
+import scrame.print.PrintCourse;
 
 public class AddCourse {
 

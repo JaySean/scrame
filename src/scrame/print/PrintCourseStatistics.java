@@ -1,6 +1,10 @@
-package scrame;
+package scrame.print;
 
 import com.mitchtalmadge.asciidata.table.ASCIITable;
+import scrame.course.Course;
+import scrame.course.CourseManager;
+import scrame.Input;
+import scrame.student.StudentCourseManager;
 
 public class PrintCourseStatistics {
 

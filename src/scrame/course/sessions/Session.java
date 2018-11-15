@@ -1,4 +1,4 @@
-package scrame;
+package scrame.course.sessions;
 
 import java.io.Serializable;
 import java.util.ArrayList;

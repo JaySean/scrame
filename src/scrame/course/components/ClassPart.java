@@ -1,4 +1,6 @@
-package scrame;
+package scrame.course.components;
+
+import scrame.course.components.Components;
 
 public class ClassPart extends Components {
 

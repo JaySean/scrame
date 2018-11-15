@@ -1,4 +1,9 @@
-package scrame;
+package scrame.course;
+
+import scrame.Input;
+import scrame.course.sessions.Laboratory;
+import scrame.course.sessions.Lecture;
+import scrame.course.sessions.Tutorial;
 
 import java.util.ArrayList;
 

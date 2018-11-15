@@ -1,6 +1,7 @@
-package scrame;
+package scrame.print;
 
 import com.mitchtalmadge.asciidata.table.ASCIITable;
+import scrame.Main;
 
 public class PrintCourse {
 

@@ -3,4 +3,6 @@
 # Ignore folder named 'data'
 data/
 idea/
+.idea/
 out/
+*.class

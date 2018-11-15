@@ -1,8 +1,10 @@
-package scrame;
+package scrame.print;
 
 import com.mitchtalmadge.asciidata.table.ASCIITable;
-
-import java.util.ArrayList;
+import scrame.*;
+import scrame.course.Course;
+import scrame.course.CourseManager;
+import scrame.student.StudentCourse;
 
 public class PrintStudentTranscript {
 

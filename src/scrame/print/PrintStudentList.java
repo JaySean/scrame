@@ -1,4 +1,10 @@
-package scrame;
+package scrame.print;
+
+import scrame.*;
+import scrame.course.*;
+import scrame.course.sessions.Laboratory;
+import scrame.course.sessions.Lecture;
+import scrame.course.sessions.Tutorial;
 
 import java.util.Scanner;
 
@@ -17,7 +23,10 @@ public class PrintStudentList {
 
         switch (choice) {
             case 1:
-                printListByLec(course);
+                if (course == null)
+                    break;
+                else
+                    PrintStudentListByLec.run(course);
                 break;
             case 2:
                 printListByTut(course);

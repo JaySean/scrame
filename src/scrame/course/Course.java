@@ -1,4 +1,13 @@
-package scrame;
+package scrame.course;
+
+import scrame.course.components.Assignment;
+import scrame.course.components.ClassPart;
+import scrame.course.components.Components;
+import scrame.course.components.Exam;
+import scrame.course.sessions.Laboratory;
+import scrame.course.sessions.Lecture;
+import scrame.course.sessions.Session;
+import scrame.course.sessions.Tutorial;
 
 import java.io.Serializable;
 import java.util.*;

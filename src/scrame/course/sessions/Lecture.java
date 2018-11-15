@@ -1,6 +1,8 @@
-package scrame;
+package scrame.course.sessions;
 
-public class Lecture extends Session{
+import scrame.course.sessions.Session;
+
+public class Lecture extends Session {
 
 	private static final long serialVersionUID = 1L;
 	

@@ -1,5 +1,9 @@
 package scrame;
 
+import scrame.course.Course;
+import scrame.course.CourseManager;
+import scrame.student.Student;
+
 public abstract class InputValidator {
 
     // Student

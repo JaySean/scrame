@@ -1,4 +1,7 @@
-package scrame;
+package scrame.student;
+
+import scrame.DatabaseManager;
+import scrame.Main;
 
 import java.util.ArrayList;
 
