@@ -14,10 +14,10 @@ import java.util.*;
 
 /**
  * Represents the course that a student could be enrolled in
- * A course has a course code starting with 2 capital letter and 4 integers
- * A course name is unique but it could have as many course components as other courses
+ * A course has a course code that is unique to it
+ *
  * @author CZ2002 SS3 Group 1
- * @Verson 5.0
+ * @version 5.0
  */
 public class Course implements Serializable {
 
@@ -27,11 +27,11 @@ public class Course implements Serializable {
      */
     private String courseName;
     /**
-     * Code of the course that is unique to it.
+     * Unique code of the course
      */
     private String courseCode;
     /**
-     * Name of course coordinator
+     * Name of the course coordinator
      */
     private String courseCoordinator;
 
@@ -39,17 +39,18 @@ public class Course implements Serializable {
     ArrayList<Components> components;
 
     /**
+     * Creates a new course
      *
-     * @param courseName Name of course
-     * @param courseCode Course code unique to course
-     * @param courseCoordinator Name of course coordinator
-     * @param courseVacancy Vacancies in a course
-     * @param tutNumber Tutorial session number
-     * @param labNumber lab session number
-     * @param examPercent marks of exams
-     * @param courseWorkPercent marks of coursework
-     * @param assignmentPercent marks of assignment as part of coursework
-     * @param classPartPercent marks of classpart as part of coursework
+     * @param courseName        Name of the course
+     * @param courseCode        Unique course code
+     * @param courseCoordinator Name of the course coordinator
+     * @param courseVacancy     Vacancies available in the course
+     * @param tutNumber         Number of tutorial sessions
+     * @param labNumber         Number of laboratory sessions
+     * @param examPercent       Weightage of exams
+     * @param courseWorkPercent Weightage of coursework
+     * @param assignmentPercent Weightage of assignment as part of coursework
+     * @param classPartPercent  Weightage of class participation as part of coursework
      */
     public Course(
             String courseName,
@@ -72,17 +73,18 @@ public class Course implements Serializable {
 
     /**
      * Array list to store the course vacancy and lab & tutorial session numbers
-     * @param courseVacancy
-     * @param tutNumber
-     * @param labNumber
-     * @return the array list of the session that has been instantiated
+     *
+     * @param courseVacancy Vacancies available in the course
+     * @param tutNumber     Number of tutorial sessions
+     * @param labNumber     Number of laboratory sessions
+     * @return The array list of all the sessions of the course, together with their respective capacities
      */
     private static ArrayList<Session> constructSessionsList(
             int courseVacancy,
             int tutNumber,
             int labNumber
     ) {
-        // Create arraylist of lecture, tutorial and lab
+        // Create array list of lecture, tutorial and lab
         ArrayList<Session> session = new ArrayList<>(1 + tutNumber + labNumber);
 
         // Create new instance of lecture
@@ -102,12 +104,13 @@ public class Course implements Serializable {
     }
 
     /**
-     * Array list to store the exam and coursework grades
-     * @param examPercent
-     * @param courseWorkPercent
-     * @param assignmentPercent
-     * @param classPartPercent
-     * @return the array list of the components that has been instantiated
+     * Array list to store the exam and coursework weightages
+     *
+     * @param examPercent       Weightage of exams
+     * @param courseWorkPercent Weightage of coursework
+     * @param assignmentPercent Weightage of assignment as part of coursework
+     * @param classPartPercent  Weightage of class participation as part of coursework
+     * @return The array list of all the components of the course, together with their respective weightages
      */
     private static ArrayList<Components> constructComponentsList(
             int examPercent,
@@ -127,24 +130,27 @@ public class Course implements Serializable {
     }
 
     /**
-     * getter method to get course name
-     * @return the course name
+     * Get the name of the course
+     *
+     * @return The course's name
      */
     public String getCourseName() {
         return courseName;
     }
 
     /**
-     * getter method to get course code
-     * @return the course code
+     * Get the code of the course
+     *
+     * @return The course's code
      */
     public String getCourseCode() {
         return courseCode;
     }
 
     /**
-     * getter method to get name of course coordinator
-     * @return the name of the course coordinator
+     * Get the name of the course coordinator
+     *
+     * @return The course coordinator's name
      */
     public String getCourseCoordinator() {
         return courseCoordinator;
@@ -153,9 +159,10 @@ public class Course implements Serializable {
     // Check existence
 
     /**
-     * checks existence of matric number that has been inputted
-     * @param matricNo
-     * @return a boolean value of whether or not a student exists.
+     * Checks whether a particular student has previously registered for the course
+     *
+     * @param matricNo The student's matriculation number
+     * @return A boolean value of whether a student is registered for the course
      */
     public boolean hasStudent(String matricNo) {
         try {
@@ -167,34 +174,38 @@ public class Course implements Serializable {
     }
 
     /**
-     * Checks existence of an Exam component
-     * @return whether or not the component exists.
+     * Checks whether the course has an exam component
+     *
+     * @return A boolean value of whether the course has an exam component
      */
     public boolean hasExam() {
         return getExamComponent().getPercentage() != 0;
     }
 
     /**
-     * Checks existence of an assignment
-     * @return whether or not the component exists.
+     * Checks whether the course has an assignment component
+     *
+     * @return A boolean value of whether the course has an assignment component
      */
     public boolean hasAssignment() {
         return getAssignmentComponent().getPercentage() != 0;
     }
 
     /**
-     * Checks existence of a classpart component in the course
-     * @return whether or not the component exists.
+     * Checks whether the course has a class participation component
+     *
+     * @return A boolean value of whether the course has a class participation component
      */
     public boolean hasClassPart() {
         return getClassPartComponent().getPercentage() != 0;
     }
 
-    // Get components
+    // Components
 
     /**
-     * getter method for the exam component in the course
-     * @return null
+     * Get the exam component of the course
+     *
+     * @return The exam object of the course
      */
     public Exam getExamComponent() {
         if (components != null) return (Exam) components.get(0);
@@ -202,8 +213,9 @@ public class Course implements Serializable {
     }
 
     /**
-     * getter method for the assignment component in the course
-     * @return
+     * Get the assignment component of the course
+     *
+     * @return The assignment component of the course
      */
     public Assignment getAssignmentComponent() {
         if (components != null) return (Assignment) components.get(1);
@@ -211,56 +223,60 @@ public class Course implements Serializable {
     }
 
     /**
-     * getter method for the classpart component in the course
-     * @return null
+     * Get the class participation component of the course
+     *
+     * @return The class participation component of the course
      */
     public ClassPart getClassPartComponent() {
         if (components != null) return (ClassPart) components.get(2);
         return null;
     }
 
-    // Get session
+    // Sessions
 
     /**
-     * getter method for the tutorial sessions stored in an array list
-     * @return relevant tutorial session user is looking for
-     */
-    public ArrayList<Tutorial> getTutorials() {
-        ArrayList<Tutorial> tutorials = new ArrayList<>(0);
-        if (session != null) {
-            for (Session aSession : session) {
-                if (aSession instanceof Tutorial) tutorials.add((Tutorial) aSession);
-            }
-        }
-        return tutorials;
-    }
-
-    /**
-     * getter method for the lecture sessions stored in an array list
-     * @return relevant lecture session user is looking for
+     * Get the lecture session of the course
+     *
+     * @return The list of lecture session of the course
      */
     public ArrayList<Lecture> getLectures() {
         ArrayList<Lecture> lectures = new ArrayList<>(0);
         if (session != null) {
-            for (Session aSession : session) {
-                if (aSession instanceof Lecture) lectures.add((Lecture) aSession);
+            for (Session session : session) {
+                if (session instanceof Lecture) lectures.add((Lecture) session);
             }
         }
         return lectures;
     }
 
     /**
-     * getter method for the lab sessions stored in an array list
-     * @return relevant laboratories user is looking for
+     * Get the tutorial session(s) of the course
+     *
+     * @return The list of tutorial session(s) of the course
+     */
+    public ArrayList<Tutorial> getTutorials() {
+        ArrayList<Tutorial> tutorials = new ArrayList<>(0);
+        if (session != null) {
+            for (Session session : session) {
+                if (session instanceof Tutorial) tutorials.add((Tutorial) session);
+            }
+        }
+        return tutorials;
+    }
+
+
+    /**
+     * Get the laboratory session(s) of the course
+     *
+     * @return The list of laboratory session(s) of the course
      */
     public ArrayList<Laboratory> getLaboratories() {
         ArrayList<Laboratory> labs = new ArrayList<>(0);
         if (session != null) {
-            for (Session aSession : session) {
-                if (aSession instanceof Laboratory) labs.add((Laboratory) aSession);
+            for (Session session : session) {
+                if (session instanceof Laboratory) labs.add((Laboratory) session);
             }
         }
         return labs;
     }
-
 }

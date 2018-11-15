@@ -8,15 +8,17 @@ import scrame.StudentCourseManager;
 import java.util.Scanner;
 
 /**
- * Class to enter the marks a student got for an exam
+ * Takes in user's input of exam marks and sets it in the record
+ *
  * @author CZ2002 SS3 Group 1
  * @version 4.0
  */
 public class EnterExamMarks {
 
     static Scanner sc = new Scanner(System.in);
+
     /**
-     * A method to implement all the methods required to enter exam marks
+     * The main method of the EnterCourseworkMarks function
      */
     public static void run() {
 
@@ -28,12 +30,14 @@ public class EnterExamMarks {
 
         if (course.hasExam()) enterExamMarks(studentCourse);
 
+        // Creates/updates the marks record
         StudentCourseManager.updateStudentCourse(studentCourse);
     }
 
     /**
-     * Method that validates and sets the exam marks gotten by a student
-     * @param studentCourse
+     * Takes in the user's input and sets the exam marks
+     *
+     * @param studentCourse Record between a student and a course
      */
     private static void enterExamMarks(StudentCourse studentCourse) {
         try {

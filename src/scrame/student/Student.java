@@ -27,8 +27,8 @@ public class Student implements Serializable {
     /**
      * Creates a new student
      *
-     * @param studentName     This student's name
-     * @param studentMatricNo This student's matriculation number
+     * @param studentName     The student's name
+     * @param studentMatricNo The student's matriculation number
      */
     public Student(String studentName, String studentMatricNo) {
         this.studentName = studentName;
@@ -47,7 +47,7 @@ public class Student implements Serializable {
     /**
      * Get the student's matriculation number
      *
-     * @return This student's matriculation number
+     * @return The student's matriculation number
      */
     public String getStudentMatricNo() {
         return studentMatricNo;

@@ -5,14 +5,15 @@ import scrame.InputValidator;
 import scrame.print.PrintCourse;
 
 /**
- * Class that handles the edition of a course
+ * Creates a new course object and appends it to the existing list of courses
+ *
  * @author CZ2002 SS3 Group 1
  * @version 3.0
  */
 
 public class AddCourse {
     /**
-     * A method to implement all the methods required to add a course in the console
+     * This is the main method of the AddCourse function
      */
     public static void run() {
 
