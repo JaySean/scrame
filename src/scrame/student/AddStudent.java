@@ -3,6 +3,7 @@ package scrame.student;
 import scrame.Input;
 import scrame.print.PrintStudent;
 
+/
 public class AddStudent {
 
     public static void run() {

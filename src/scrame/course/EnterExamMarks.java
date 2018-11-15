@@ -16,7 +16,7 @@ public class EnterExamMarks {
 
     static Scanner sc = new Scanner(System.in);
     /**
-     * A method to implement all the methods required to add a course into the array list
+     * A method to implement all the methods required to enter exam marks
      */
     public static void run() {
 

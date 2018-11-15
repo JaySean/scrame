@@ -10,6 +10,7 @@ import scrame.course.sessions.Lecture;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class RegisterStudent {
 
     static Scanner sc = new Scanner(System.in);
@@ -17,7 +18,7 @@ public class RegisterStudent {
     public static void run() {
 
         String studentMatric = Input.getStudentMatric();
-        String courseCode = Input.getCourseFromStudent(studentMatric);
+        String courseCode = Input.getCourseCode();
 
         Course course = CourseManager.getCourse(courseCode);
 

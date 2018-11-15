@@ -5,11 +5,21 @@ import scrame.course.CourseManager;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Holds all the input methods
+ * @author CZ2002 SS3 Group 1
+ * @version 3.0
+ */
 public class Input {
 
     static Scanner sc = new Scanner(System.in);
 
     // Student
+
+    /**
+     * Getter method to validate the format the name of a student.
+     * @return student name
+     */
     public static String getStudentName() {
         String studentName;
         while (true) {
@@ -24,6 +34,10 @@ public class Input {
         }
     }
 
+    /**
+     * Getter Method to validate format and check for duplicates of the student matric number
+     * @return the matric number of the student.
+     */
     public static String getStudentMatric() {
         String studentMatric;
         while (true) {
@@ -39,6 +53,10 @@ public class Input {
         }
     }
 
+    /**
+     * method to input student matric number and validate it
+     * @return the matric number of the student.
+     */
     public static String newStudentMatric() {
         String studentMatric;
         while (true) {
@@ -55,6 +73,11 @@ public class Input {
     }
 
     // Course
+
+    /**
+     * method to validate the format of the inputted course name
+     * @return the course name
+     */
     public static String getCourseName() {
         String courseName;
         while (true) {
@@ -69,6 +92,10 @@ public class Input {
         }
     }
 
+    /**
+     *method to validate the format and check for duplicates of the inputted course code
+     * @return the course code.
+     */
     public static String getCourseCode() {
         String courseCode;
         while (true) {
@@ -84,6 +111,10 @@ public class Input {
         }
     }
 
+    /**
+     * Validates the format and the existence of the course code inputted
+     * @return the course code.
+     */
     public static String newCourseCode() {
         String courseCode;
         while (true) {
@@ -99,6 +130,10 @@ public class Input {
         }
     }
 
+    /**
+     * validates the format of the name of the course coordinator inputted
+     * @return the name of the course coordinator
+     */
     public static String getCourseCoordinator() {
         String courseCoordinator;
         while (true) {
@@ -113,6 +148,10 @@ public class Input {
         }
     }
 
+    /**
+     * method for inputting the course capacity of a course
+     * @return the course with the set course capacity
+     */
     public static int getCourseCapacity() {
         int courseCapacity;
         while (true) {
@@ -130,6 +169,10 @@ public class Input {
         }
     }
 
+    /**
+     * method for inputting the number of tutorial classes in a course
+     * @return the number of tutorials to be stored in the course
+     */
     public static int getTutNumber() {
         int tutNumber;
         while (true) {
@@ -147,6 +190,10 @@ public class Input {
         }
     }
 
+    /**
+     * method for inputting the number of lab sessions in a course
+     * @return the number of lab sessions to be stored in the course.
+     */
     public static int getLabNumber() {
         int labNumber;
         while (true) {
@@ -164,6 +211,10 @@ public class Input {
         }
     }
 
+    /**
+     * input method to enter the weightage an exam has in a course.
+     * @return the weightage an exam has on a course.
+     */
     public static int getExamPercent() {
         int examPercent;
         while (true) {
@@ -180,6 +231,10 @@ public class Input {
         }
     }
 
+    /**
+     * method to enter the weighttage coursework has on a course
+     * @return the weightage the coursework has on a course.
+     */
     public static int getCourseWorkPercent() {
         int courseWorkPercent;
         while (true) {
@@ -196,6 +251,10 @@ public class Input {
         }
     }
 
+    /**
+     * input method for entering the weightage an assignment has on coursework
+     * @return the weightage the assignment has on coursework component
+     */
     public static int getAssignmentPercent() {
         int assignmentPercent;
         while (true) {
@@ -212,6 +271,10 @@ public class Input {
         }
     }
 
+    /**
+     * input method for entering the weightage class part has on coursework
+     * @return the weightage class part has on coursework.
+     */
     public static int getClassPartPercent() {
         int classPartPercent;
         while (true) {
@@ -229,6 +292,12 @@ public class Input {
     }
 
     // Student and Course
+
+    /**
+     *input method to validate whether or not a student is registered in a course.
+     * @param studentMatric
+     * @return the course code.
+     */
     public static String getCourseFromStudent(String studentMatric){
         String courseCode;
         while (true) {
@@ -244,6 +313,10 @@ public class Input {
         }
     }
 
+    /**
+     * validates if inputted value is a mismatch based on type
+     * @param e exception object
+     */
     public static void inputMismatchCapture(Exception e) {
         System.out.println(e instanceof InputMismatchException ? "Input cannot be a integer!" : e.getMessage());
     }

@@ -10,6 +10,10 @@ import scrame.course.Course;
 public class PrintContext {
     private PrintStrategy strategy;
 
+    /**
+     * constructors for implementing strategy pattern
+     * @param strategy
+     */
     public PrintContext(PrintStrategy strategy){
         this.strategy = strategy;
     }

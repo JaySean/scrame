@@ -12,7 +12,7 @@ public class Exam extends Components {
 
     /**
      * method that receives the percentage of exam to be serialized
-     * @param percentage
+     * @param percentage weightage for a component
      */
     public Exam(int percentage) {
         super(percentage);
