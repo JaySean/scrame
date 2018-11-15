@@ -10,6 +10,13 @@ import scrame.student.Student;
 
 import java.util.*;
 
+/**
+ * Main class
+ *
+ * @author  CZ2002 SS3 Group 1
+ * @version 5.0
+ */
+
 public class Main {
 	
 	final static String courseFile = "data/Courses.txt";
