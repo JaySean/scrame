@@ -10,10 +10,19 @@ import scrame.course.sessions.Lecture;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Student registers for a course by selecting sessions (lectures, tutorials, laboratories) that have a vacancy
+ *
+ * @author CZ2002 SS3 Group 1
+ * @version 3.0
+ */
 public class RegisterStudent {
 
     static Scanner sc = new Scanner(System.in);
 
+    /**
+     * This is the main method of the RegisterStudent function
+     */
     public static void run() {
 
         String studentMatric = Input.getStudentMatric();
@@ -27,10 +36,17 @@ public class RegisterStudent {
         registerTutorial(studentMatric, course);
         // Select Laboratory
         registerLaboratory(studentMatric, course);
-        //amend course in persistent memory
+        // Amends the course list with the updated course
         CourseManager.updateCourse(course);
     }
 
+    /**
+     * Student registers for the lecture session of the course
+     * There is only 1 lecture available to choose from
+     *
+     * @param studentMatric Student's matriculation number
+     * @param course        Course that the student is registering for
+     */
     private static void registerLecture(String studentMatric, Course course) {
         if (course == null) return;
         if (course.getLectures().size() == 0) return;
@@ -58,6 +74,13 @@ public class RegisterStudent {
         }
     }
 
+    /**
+     * Student registers for a tutorial session of the course
+     * Student has to select a tutorial session that has available slots
+     *
+     * @param studentMatric Student's matriculation number
+     * @param course        Course that the student is registering for
+     */
     private static void registerTutorial(String studentMatric, Course course) {
         if (course == null) return;
         if (course.getTutorials().size() == 0) return;
@@ -77,7 +100,7 @@ public class RegisterStudent {
             if (choice > tutorials.size() || choice < 1) {
                 throw new Exception("No such tutorial!");
             }
-            if (tutorials.get(choice - 1).getVacancy() == 0){
+            if (tutorials.get(choice - 1).getVacancy() == 0) {
                 throw new Exception("No vacancies!");
             }
             sc.nextLine();
@@ -90,9 +113,16 @@ public class RegisterStudent {
         }
     }
 
+    /**
+     * Student registers for a laboratory session of the course
+     * Student has to select a laboratory session that has available slots
+     *
+     * @param studentMatric Student's matriculation number
+     * @param course        Course that the student is registering for
+     */
     private static void registerLaboratory(String studentMatric, Course course) {
         if (course == null) return;
-        if (course.getLaboratories().size() == 0);
+        if (course.getLaboratories().size() == 0) ;
         ArrayList<Laboratory> laboratories = course.getLaboratories();
         int index;
         try {
@@ -109,7 +139,7 @@ public class RegisterStudent {
             if (choice > laboratories.size() || choice < 1) {
                 throw new Exception("No such laboratory!");
             }
-            if (laboratories.get(choice - 1).getVacancy() == 0){
+            if (laboratories.get(choice - 1).getVacancy() == 0) {
                 throw new Exception("No vacancies!");
             }
             sc.nextLine();
