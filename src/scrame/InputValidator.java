@@ -165,8 +165,8 @@ public abstract class InputValidator {
      */
     public static void studentCourse(String studentMatric, String courseCode) throws Exception {
         Course course = CourseManager.getCourse(courseCode);
-        if (!course.hasStudent(studentMatric)) {
-            throw new Exception("Student is not registered for this course!\n");
+        if (course.hasStudent(studentMatric)) {
+            throw new Exception("Student is already registered for this course!\n");
         }
     }
 }

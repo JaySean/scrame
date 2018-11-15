@@ -21,7 +21,7 @@ public class CourseManager implements Serializable {
 	/**
 	 * getter method to return the list of courses
 	 * @param courseCode
-	 * @return
+	 * @return null
 	 */
 	public static Course getCourse(String courseCode) {
 		Course c;
@@ -37,7 +37,7 @@ public class CourseManager implements Serializable {
 	/**
 	 * counter that returns the index of the course that the user is try to update
 	 * @param courseCode code of a course that unique to each course
-	 * @return
+	 * @return the index of the course that the user is try to update
 	 */
 	public static int getIndex(String courseCode) {
 		Course c;

@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class CheckVacancy {
 	/**
-	 * A method to implement all the methods required to add a course into the array list
+	 * A method to implement all the methods required to return the vacancy of a course session
 	 */
 	public static void run() {
 		int index;

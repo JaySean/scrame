@@ -11,7 +11,7 @@ public class ClassPart extends Components {
 
     /**
      * method that receives the percentage of class part to be serialized
-     * @param percentage
+     * @param percentage weightage for a component
      */
     public ClassPart(int percentage) {
         super(percentage);
