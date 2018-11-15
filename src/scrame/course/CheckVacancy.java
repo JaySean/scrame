@@ -7,8 +7,15 @@ import scrame.course.sessions.Tutorial;
 
 import java.util.ArrayList;
 
+/**
+ * Class to check and print the vacancies for a particular session
+ * @author CZ2002 SS3 Group 1
+ * @version 3.0
+ */
 public class CheckVacancy {
-
+	/**
+	 * A method to implement all the methods required to add a course into the array list
+	 */
 	public static void run() {
 		int index;
 

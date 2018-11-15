@@ -7,10 +7,17 @@ import scrame.StudentCourseManager;
 
 import java.util.Scanner;
 
+/**
+ * Class to enter the marks a student got for an exam
+ * @author CZ2002 SS3 Group 1
+ * @version 4.0
+ */
 public class EnterExamMarks {
 
     static Scanner sc = new Scanner(System.in);
-
+    /**
+     * A method to implement all the methods required to add a course into the array list
+     */
     public static void run() {
 
         String studentMatric = Input.getStudentMatric();
@@ -24,6 +31,10 @@ public class EnterExamMarks {
         StudentCourseManager.updateStudentCourse(studentCourse);
     }
 
+    /**
+     * Method that validates and sets the exam marks gotten by a student
+     * @param studentCourse
+     */
     private static void enterExamMarks(StudentCourse studentCourse) {
         try {
             System.out.println("Enter Exam Marks:");

@@ -4,8 +4,16 @@ import scrame.Input;
 import scrame.InputValidator;
 import scrame.print.PrintCourse;
 
-public class AddCourse {
+/**
+ * Class that handles the edition of a course
+ * @author CZ2002 SS3 Group 1
+ * @version 3.0
+ */
 
+public class AddCourse {
+    /**
+     * A method to implement all the methods required to add a course into the array list
+     */
     public static void run() {
 
         PrintCourse.run();

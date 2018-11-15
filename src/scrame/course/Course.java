@@ -12,18 +12,45 @@ import scrame.course.sessions.Tutorial;
 import java.io.Serializable;
 import java.util.*;
 
+/**
+ * Represents the course that a student could be enrolled in
+ * A course has a course code starting with 2 capital letter and 4 integers
+ * A course name is unique but it could have as many course components as other courses
+ * @author CZ2002 SS3 Group 1
+ * @Verson 5.0
+ */
 public class Course implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    /**
+     * Name of the course.
+     */
     private String courseName;
+    /**
+     * Code of the course that is unique to it.
+     */
     private String courseCode;
-
+    /**
+     * Name of course coordinator
+     */
     private String courseCoordinator;
 
     ArrayList<Session> session;
     ArrayList<Components> components;
 
+    /**
+     *
+     * @param courseName Name of course
+     * @param courseCode Course code unique to course
+     * @param courseCoordinator Name of course coordinator
+     * @param courseVacancy Vacancies in a course
+     * @param tutNumber Tutorial session number
+     * @param labNumber lab session number
+     * @param examPercent marks of exams
+     * @param courseWorkPercent marks of coursework
+     * @param assignmentPercent marks of assignment as part of coursework
+     * @param classPartPercent marks of classpart as part of coursework
+     */
     public Course(
             String courseName,
             String courseCode,
@@ -43,6 +70,13 @@ public class Course implements Serializable {
         this.components = constructComponentsList(examPercent, courseWorkPercent, assignmentPercent, classPartPercent);
     }
 
+    /**
+     * Array list to store the course vacancy and lab & tutorial session numbers
+     * @param courseVacancy
+     * @param tutNumber
+     * @param labNumber
+     * @return
+     */
     private static ArrayList<Session> constructSessionsList(
             int courseVacancy,
             int tutNumber,
@@ -67,6 +101,14 @@ public class Course implements Serializable {
         return session;
     }
 
+    /**
+     * Array list to store the exam and coursework grades
+     * @param examPercent
+     * @param courseWorkPercent
+     * @param assignmentPercent
+     * @param classPartPercent
+     * @return
+     */
     private static ArrayList<Components> constructComponentsList(
             int examPercent,
             int courseWorkPercent,
@@ -84,19 +126,37 @@ public class Course implements Serializable {
         return components;
     }
 
+    /**
+     * getter method to get course name
+     * @return
+     */
     public String getCourseName() {
         return courseName;
     }
 
+    /**
+     * getter method to get course code
+     * @return
+     */
     public String getCourseCode() {
         return courseCode;
     }
 
+    /**
+     * getter method to get name of course coordinator
+     * @return
+     */
     public String getCourseCoordinator() {
         return courseCoordinator;
     }
 
     // Check existence
+
+    /**
+     * checks existence of matric number that has been inputted
+     * @param matricNo
+     * @return
+     */
     public boolean hasStudent(String matricNo) {
         try {
             if (getLectures().get(0).hasStudent(matricNo)) return true;
@@ -106,35 +166,65 @@ public class Course implements Serializable {
         return false;
     }
 
+    /**
+     * Checks existence of an Exam component
+     * @return
+     */
     public boolean hasExam() {
         return getExamComponent().getPercentage() != 0;
     }
 
+    /**
+     * Checks existence of an assignment
+     * @return
+     */
     public boolean hasAssignment() {
         return getAssignmentComponent().getPercentage() != 0;
     }
 
+    /**
+     * Checks existence of a classpart component in the course
+     * @return
+     */
     public boolean hasClassPart() {
         return getClassPartComponent().getPercentage() != 0;
     }
 
     // Get components
+
+    /**
+     * getter method for the exam component in the course
+     * @return
+     */
     public Exam getExamComponent() {
         if (components != null) return (Exam) components.get(0);
         return null;
     }
 
+    /**
+     * getter method for the assignment component in the course
+     * @return
+     */
     public Assignment getAssignmentComponent() {
         if (components != null) return (Assignment) components.get(1);
         return null;
     }
 
+    /**
+     * getter method for the classpart component in the course
+     * @return
+     */
     public ClassPart getClassPartComponent() {
         if (components != null) return (ClassPart) components.get(2);
         return null;
     }
 
     // Get session
+
+    /**
+     * getter method for the tutorial sessions stored in an array list
+     * @return
+     */
     public ArrayList<Tutorial> getTutorials() {
         ArrayList<Tutorial> tutorials = new ArrayList<>(0);
         if (session != null) {
@@ -145,6 +235,10 @@ public class Course implements Serializable {
         return tutorials;
     }
 
+    /**
+     * getter method for the lecture sessions stored in an array list
+     * @return
+     */
     public ArrayList<Lecture> getLectures() {
         ArrayList<Lecture> lectures = new ArrayList<>(0);
         if (session != null) {
@@ -155,6 +249,10 @@ public class Course implements Serializable {
         return lectures;
     }
 
+    /**
+     * getter method for the lab sessions stored in an array list
+     * @return
+     */
     public ArrayList<Laboratory> getLaboratories() {
         ArrayList<Laboratory> labs = new ArrayList<>(0);
         if (session != null) {

@@ -7,10 +7,18 @@ import scrame.StudentCourseManager;
 
 import java.util.Scanner;
 
+/**
+ * Class to implement the entering Coursework marks
+ * @author CZ2002 SS3 group 1
+ * @version 3.0
+ */
+
 public class EnterCourseworkMarks {
 
     static Scanner sc = new Scanner(System.in);
-
+    /**
+     * A method to implement all the methods required to add a course into the array list
+     */
     public static void run() {
 
         String studentMatric = Input.getStudentMatric();
@@ -29,6 +37,10 @@ public class EnterCourseworkMarks {
         StudentCourseManager.updateStudentCourse(studentCourse);
     }
 
+    /**
+     * Method to validate and enter the amount of marks scored in an assignment section
+     * @param studentCourse
+     */
     private static void enterAssignmentMarks(StudentCourse studentCourse) {
         try {
             System.out.println("Enter Assignment Marks:");
@@ -41,6 +53,10 @@ public class EnterCourseworkMarks {
         }
     }
 
+    /**
+     * Method to validate and enter the amount of marks scored in the classpart section
+     * @param studentCourse
+     */
     private static void enterClassPartMarks(StudentCourse studentCourse) {
         try {
             System.out.println("Enter Class Participation Marks:");
