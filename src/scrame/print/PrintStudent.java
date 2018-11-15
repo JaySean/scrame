@@ -3,6 +3,11 @@ package scrame.print;
 import com.mitchtalmadge.asciidata.table.ASCIITable;
 import scrame.Main;
 
+/**
+ * Prints student details into an ASCII table
+ * @author CZ2002 SS3 Group 1
+ * @version 4.0
+ */
 public class PrintStudent {
 
     public static void run() {

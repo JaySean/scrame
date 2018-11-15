@@ -6,52 +6,20 @@ import scrame.course.CourseManager;
 import scrame.Input;
 import scrame.StudentCourseManager;
 
+/**
+ * Class that contains the methods to print out course statistics
+ * @author CZ2002 SS3 Group 1
+ * @version 4.0
+ */
 public class PrintCourseStatistics {
-
+	/**
+	 * run method to implement the methods required to print course statistics into an ASCII table
+	 */
 	public static void run() {
 
 		String courseCode = Input.getCourseCode();
 
 		Course course = CourseManager.getCourse(courseCode);
-
-		/*
-		// Show Exam
-		int examPercentage = course.getExamComponent().getPercentage();
-		System.out.println("Average Grade Percentage for Exams (" + examPercentage + "%)");
-		double examAveMarks = StudentCourseManager.getAverageExamForCourse(courseCode);
-		System.out.println(examAveMarks);
-
-		// Show Coursework
-		int courseworkPercentage = 0;
-		double courseworkAveMarks = 0;
-		if (course.hasClassPart() || course.hasAssignment()) {
-
-			int assignmentPercentage = course.getAssignmentComponent().getPercentage();
-			int classpartPercentage = course.getClassPartComponent().getPercentage();
-
-			courseworkPercentage = assignmentPercentage + classpartPercentage;
-
-			System.out.println("Average Grade Percentage for Coursework (" + courseworkPercentage + "%)");
-
-			double assignmentAveMarks = StudentCourseManager.getAverageAssignmentForCourse(courseCode);
-			double classpartAveMarks = StudentCourseManager.getAverageClassPartForCourse(courseCode);
-			double adjustedAssignmentMarks = (double) assignmentPercentage * assignmentAveMarks / courseworkPercentage;
-			double adjustedclasspartAveMarks = (double) classpartPercentage * classpartAveMarks / courseworkPercentage;
-
-			courseworkAveMarks = adjustedAssignmentMarks + adjustedclasspartAveMarks;
-
-			System.out.println(courseworkAveMarks);
-		}
-
-		//show overall
-		System.out.println("Average Grade Percentage for Overall (100%)");
-		double adjustedExamMarks = examAveMarks * examPercentage / 100;
-		double adjustedCourseWorkMarks = courseworkAveMarks * courseworkPercentage / 100;
-		System.out.println(adjustedExamMarks + adjustedCourseWorkMarks);
-
-		*/
-
-
 
 		String[] headers = new String[]{"Component", "Average Grade"};
 		String[][] data = new String[3][2];

@@ -3,8 +3,16 @@ package scrame.print;
 import com.mitchtalmadge.asciidata.table.ASCIITable;
 import scrame.Main;
 
-public class PrintCourse {
+/**
+ * Class that prints the course details in an ASCII table from the attributes below
+ * @author CZ2002 SS3 Group 1
+ * @version 3.0
+ */
 
+public class PrintCourse {
+    /**
+     * Run method that implements all the required method to print out course details
+     */
     public static void run() {
         String[] headers = new String[]{
                 "No.",

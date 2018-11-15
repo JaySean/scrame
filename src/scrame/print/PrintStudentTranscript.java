@@ -6,39 +6,16 @@ import scrame.course.Course;
 import scrame.course.CourseManager;
 import scrame.StudentCourse;
 
+/**
+ * prints student transcripts in an ASCII table
+ * @author CZ2002 SS3 Group 1
+ * @version 2.0
+ */
 public class PrintStudentTranscript {
-
+	/**
+	 * implements methods to print student transcript
+	 */
 	public static void run() {
-
-		/*
-		String studentMatric = Input.getStudentMatric();
-
-		StudentCourse studentCourse = StudentCourseManager.getStudentCourse(studentMatric);
-		String courseCode = studentCourse.getCourseCode();
-		Course course = CourseManager.getCourse(courseCode);
-		System.out.println("Course: " + course.getCourseName() + " " + courseCode);
-
-		int eMarks = studentCourse.getExamMarks();
-		int aMarks = studentCourse.getAssignmentMarks();
-		int cMarks = studentCourse.getClassPartMarks();
-
-		System.out.println("Exam: " + course.getExamComponent().getPercentage() + "%");
-		System.out.println(studentCourse.getExamMarks());
-		if (course.hasAssignment()) {
-			System.out.println("Assignment: " + course.getAssignmentComponent().getPercentage() + "%");
-			System.out.println(studentCourse.getAssignmentMarks());
-		}
-		if (course.hasClassPart()) {
-			System.out.println("Class Participation: " + course.getClassPartComponent().getPercentage() + "%");
-			System.out.println(studentCourse.getClassPartMarks());
-		}
-		double adjustedExam = (double) studentCourse.getExamMarks() * course.getExamComponent().getPercentage() / 100;
-		double adjustedAssignment = (double) studentCourse.getAssignmentMarks() * course.getAssignmentComponent().getPercentage() / 100;
-		double adjustedClassPart = (double) studentCourse.getClassPartMarks() * course.getClassPartComponent().getPercentage() / 100;
-		double total = adjustedExam + adjustedAssignment + adjustedClassPart;
-		System.out.println("Total:");
-		System.out.println(total);
-		*/
 
 		String studentMatric = Input.getStudentMatric();
 

@@ -5,10 +5,18 @@ import scrame.course.*;
 
 import java.util.Scanner;
 
+/**
+ * Console to choose which session of list of students the user wants to print
+ * @author CZ2002 SS3 Group 1
+ * @version 3.0
+ */
 public class PrintStudentList {
 
     static Scanner sc = new Scanner(System.in);
 
+    /**
+     * run method that implements said console
+     */
     public static void run() {
 
         String courseCode = Input.getCourseCode();
@@ -40,6 +48,9 @@ public class PrintStudentList {
         }
     }
 
+    /**
+     * method to print menu for console
+     */
     private static void printMenu() {
         System.out.println();
         System.out.println("1 : Print student list by lecture");
@@ -49,6 +60,10 @@ public class PrintStudentList {
         System.out.println();
     }
 
+    /**
+     * Getter method to validate the choice in the swtich console
+     * @return
+     */
     private static int getChoice() {
         try {
             System.out.println("Enter Choice: ");
@@ -64,56 +79,4 @@ public class PrintStudentList {
             return getChoice();
         }
     }
-/*
-    private static void printListByLec(Course course) {
-        if (course == null) return;
-        System.out.println("\nStudents in " + course.getCourseCode() + " " + course.getCourseName() + " Lectures");
-        int index = 1;
-        String[] studentList;
-        for (Lecture lec : course.getLectures()) {
-            System.out.println("Lecture " + index);
-            studentList = lec.getStudentList();
-            for (String student : studentList) {
-                if (student != null) {
-                    System.out.println(student);
-                }
-            }
-            index++;
-        }
-    }
 
-    private static void printListByTut(Course course) {
-        if (course == null) return;
-        System.out.println("\nStudents in " + course.getCourseCode() + " " + course.getCourseName() + " Tutorials");
-        int index = 1;
-        String[] studentList;
-        for (Tutorial tut : course.getTutorials()) {
-            System.out.println("Tutorial " + index);
-            studentList = tut.getStudentList();
-            for (String student : studentList) {
-                if (student != null) {
-                    System.out.println(student);
-                }
-            }
-            index++;
-        }
-    }
-
-    private static void printListByLab(Course course) {
-        if (course == null) return;
-        System.out.println("\nStudents in " + course.getCourseCode() + " " + course.getCourseName() + " Laboratories");
-        int index = 1;
-        String[] studentList;
-        for (Laboratory lab : course.getLaboratories()) {
-            System.out.println("Laboratory " + index);
-            studentList = lab.getStudentList();
-            for (String student : studentList) {
-                if (student != null) {
-                    System.out.println(student);
-                }
-            }
-            index++;
-        }
-    }
-    */
-}
