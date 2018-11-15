@@ -16,6 +16,7 @@ import java.util.Scanner;
  * @author CZ2002 SS3 Group 1
  * @version 3.0
  */
+
 public class RegisterStudent {
 
     static Scanner sc = new Scanner(System.in);
@@ -26,7 +27,7 @@ public class RegisterStudent {
     public static void run() {
 
         String studentMatric = Input.getStudentMatric();
-        String courseCode = Input.getCourseFromStudent(studentMatric);
+        String courseCode = Input.getCourseCode();
 
         Course course = CourseManager.getCourse(courseCode);
 

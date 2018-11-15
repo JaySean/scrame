@@ -6,8 +6,9 @@ import java.util.ArrayList;
 /**
  * Superclass that serializes and initializes a Session
  * @author CZ2002 SS3 Group 1
+ * @version 3.0
  */
-public abstract class Session implements Serializable {
+public class Session implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	/**
@@ -25,7 +26,7 @@ public abstract class Session implements Serializable {
 
 	/**
 	 * getter method to get vacancy of session
-	 * @return
+	 * @return the vacancy of the session
 	 */
 	public int getVacancy() {
 		return vacancy;
@@ -33,7 +34,7 @@ public abstract class Session implements Serializable {
 
 	/**
 	 * getter method to get capacity of session
-	 * @return
+	 * @return the capacity of the session
 	 */
 	public int getCapacity() {
 		return capacity;
@@ -41,7 +42,7 @@ public abstract class Session implements Serializable {
 
 	/**
 	 * getter method to return the list of students
-	 * @return
+	 * @return the list of students
 	 */
 	public String[] getStudentList() {
 		return studentList;
@@ -59,7 +60,7 @@ public abstract class Session implements Serializable {
 	/**
 	 * method to check for an existence of a student using matric number
 	 * @param studentMatric
-	 * @return
+	 * @return a boolean determining whether or not a student exists
 	 */
 	public boolean hasStudent(String studentMatric) {
 		for (String student : studentList) {

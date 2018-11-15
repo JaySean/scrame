@@ -61,9 +61,9 @@ public class PrintStudentList {
     }
 
     /**
-     * Getter method to validate the choice in the swtich console
+     * Getter method to validate the choice in the switch console
      *
-     * @return
+     * @return the choice the user made in the console after being validated.
      */
     private static int getChoice() {
         try {

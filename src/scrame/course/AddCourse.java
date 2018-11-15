@@ -12,7 +12,7 @@ import scrame.print.PrintCourse;
 
 public class AddCourse {
     /**
-     * A method to implement all the methods required to add a course into the array list
+     * A method to implement all the methods required to add a course in the console
      */
     public static void run() {
 

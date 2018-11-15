@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @version 2.0
  */
 
-public abstract class Components implements Serializable{
+public class Components implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	/**
@@ -26,7 +26,7 @@ public abstract class Components implements Serializable{
 
 	/**
 	 * Getter method for retrieving percentage
-	 * @return
+	 * @return the weightage for component
 	 */
 	public int getPercentage() {
 		return percentage;

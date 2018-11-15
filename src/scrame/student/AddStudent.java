@@ -9,6 +9,7 @@ import scrame.print.PrintStudent;
  * @author CZ2002 SS3 Group 1
  * @version 3.0
  */
+
 public class AddStudent {
 
     /**

@@ -75,7 +75,7 @@ public class Course implements Serializable {
      * @param courseVacancy
      * @param tutNumber
      * @param labNumber
-     * @return
+     * @return the array list of the session that has been instantiated
      */
     private static ArrayList<Session> constructSessionsList(
             int courseVacancy,
@@ -107,7 +107,7 @@ public class Course implements Serializable {
      * @param courseWorkPercent
      * @param assignmentPercent
      * @param classPartPercent
-     * @return
+     * @return the array list of the components that has been instantiated
      */
     private static ArrayList<Components> constructComponentsList(
             int examPercent,
@@ -128,7 +128,7 @@ public class Course implements Serializable {
 
     /**
      * getter method to get course name
-     * @return
+     * @return the course name
      */
     public String getCourseName() {
         return courseName;
@@ -136,7 +136,7 @@ public class Course implements Serializable {
 
     /**
      * getter method to get course code
-     * @return
+     * @return the course code
      */
     public String getCourseCode() {
         return courseCode;
@@ -144,7 +144,7 @@ public class Course implements Serializable {
 
     /**
      * getter method to get name of course coordinator
-     * @return
+     * @return the name of the course coordinator
      */
     public String getCourseCoordinator() {
         return courseCoordinator;
@@ -155,7 +155,7 @@ public class Course implements Serializable {
     /**
      * checks existence of matric number that has been inputted
      * @param matricNo
-     * @return
+     * @return a boolean value of whether or not a student exists.
      */
     public boolean hasStudent(String matricNo) {
         try {
@@ -168,7 +168,7 @@ public class Course implements Serializable {
 
     /**
      * Checks existence of an Exam component
-     * @return
+     * @return whether or not the component exists.
      */
     public boolean hasExam() {
         return getExamComponent().getPercentage() != 0;
@@ -176,7 +176,7 @@ public class Course implements Serializable {
 
     /**
      * Checks existence of an assignment
-     * @return
+     * @return whether or not the component exists.
      */
     public boolean hasAssignment() {
         return getAssignmentComponent().getPercentage() != 0;
@@ -184,7 +184,7 @@ public class Course implements Serializable {
 
     /**
      * Checks existence of a classpart component in the course
-     * @return
+     * @return whether or not the component exists.
      */
     public boolean hasClassPart() {
         return getClassPartComponent().getPercentage() != 0;
@@ -194,7 +194,7 @@ public class Course implements Serializable {
 
     /**
      * getter method for the exam component in the course
-     * @return
+     * @return null
      */
     public Exam getExamComponent() {
         if (components != null) return (Exam) components.get(0);
@@ -212,7 +212,7 @@ public class Course implements Serializable {
 
     /**
      * getter method for the classpart component in the course
-     * @return
+     * @return null
      */
     public ClassPart getClassPartComponent() {
         if (components != null) return (ClassPart) components.get(2);
@@ -223,7 +223,7 @@ public class Course implements Serializable {
 
     /**
      * getter method for the tutorial sessions stored in an array list
-     * @return
+     * @return relevant tutorial session user is looking for
      */
     public ArrayList<Tutorial> getTutorials() {
         ArrayList<Tutorial> tutorials = new ArrayList<>(0);
@@ -237,7 +237,7 @@ public class Course implements Serializable {
 
     /**
      * getter method for the lecture sessions stored in an array list
-     * @return
+     * @return relevant lecture session user is looking for
      */
     public ArrayList<Lecture> getLectures() {
         ArrayList<Lecture> lectures = new ArrayList<>(0);
@@ -251,7 +251,7 @@ public class Course implements Serializable {
 
     /**
      * getter method for the lab sessions stored in an array list
-     * @return
+     * @return relevant laboratories user is looking for
      */
     public ArrayList<Laboratory> getLaboratories() {
         ArrayList<Laboratory> labs = new ArrayList<>(0);
