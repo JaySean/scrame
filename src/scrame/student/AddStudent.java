@@ -1,13 +1,9 @@
 package scrame.student;
 
-import scrame.DatabaseManager;
 import scrame.Input;
-import scrame.Main;
 import scrame.print.PrintStudent;
 
 public class AddStudent {
-
-    final static String studentFile = "data/Students.txt";
 
     public static void run() {
 
@@ -22,13 +18,10 @@ public class AddStudent {
         // New instance of Student
         Student student = new Student(studentName, studentMatricNo);
 
-        // Add instance of student to array
-        Main.studentList.add(student);
+        // Update student list
+        StudentManager.updateStudent(student);
 
         // Print list of ALL students
         PrintStudent.run();
-
-        // Write array to file
-        DatabaseManager.write(Main.studentList, studentFile);
     }
 }

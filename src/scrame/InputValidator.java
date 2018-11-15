@@ -86,14 +86,6 @@ public abstract class InputValidator {
             throw new Exception("A percentage must be between 1-100\n");
     }
 
-    public static void validateRegistration(String studentMatric, String courseCode) throws Exception{
-
-        Course course = CourseManager.getCourse(courseCode);
-        if (course.hasStudent(studentMatric)){
-            throw new Exception("Student is already registered for this course!\n");
-        }
-    }
-
     // Marks
     public static void validateMark(int mark) throws Exception {
         if (mark > 100 || mark < 0)

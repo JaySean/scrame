@@ -1,4 +1,4 @@
-package scrame.student;
+package scrame;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -23,14 +23,6 @@ public class StudentCourse implements Serializable {
 
     public String getCourseCode() {
         return courseCode;
-    }
-
-    public int[] getMarksRecord() {
-        return marksRecord;
-    }
-
-    public void setMarksRecord(int i, int marks) {
-        marksRecord[i] = marks;
     }
 
     public int getExamMarks() {

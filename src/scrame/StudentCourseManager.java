@@ -1,7 +1,4 @@
-package scrame.student;
-
-import scrame.DatabaseManager;
-import scrame.Main;
+package scrame;
 
 import java.util.ArrayList;
 
@@ -20,7 +17,7 @@ public class StudentCourseManager {
         return -1;
     }
 
-    public static StudentCourse createStudentCourse(String studentMatric, String courseCode) {
+    public static StudentCourse getStudentCourse(String studentMatric, String courseCode) {
         StudentCourse studentCourse;
 
         int index = getIndex(studentMatric, courseCode);
@@ -45,27 +42,18 @@ public class StudentCourseManager {
         DatabaseManager.write(Main.studentCourseList, studentCourseFile);
     }
 
-    public static StudentCourse getStudentCourse(String matricNumber) {
-        ArrayList<StudentCourse> studentCourseList = DatabaseManager.read(studentCourseFile);
-        for (StudentCourse studentCourse : studentCourseList) {
-            if (studentCourse.getStudentMatric().equals(matricNumber)) return studentCourse;
-        }
-        return null;
-    }
-
-    public static ArrayList<StudentCourse> getStudentsCourseByCourseCode(String courseCode) {
-        ArrayList<StudentCourse> studentCourseList = DatabaseManager.read(studentCourseFile);
-        ArrayList<StudentCourse> studentCourseListByCourse = new ArrayList<>(0);
-        for (StudentCourse studentCourse : studentCourseList) {
+    public static ArrayList<StudentCourse> getCourse(String courseCode) {
+        ArrayList<StudentCourse> listByCourse = new ArrayList<>(0);
+        for (StudentCourse studentCourse : Main.studentCourseList) {
             if (studentCourse.getCourseCode().equals(courseCode)) {
-                studentCourseListByCourse.add(studentCourse);
+                listByCourse.add(studentCourse);
             }
         }
-        return studentCourseListByCourse;
+        return listByCourse;
     }
 
     public static double getAveExamMarks(String courseCode) {
-        ArrayList<StudentCourse> studentCourseList = getStudentsCourseByCourseCode(courseCode);
+        ArrayList<StudentCourse> studentCourseList = getCourse(courseCode);
         int totalMarks = 0;
         for (StudentCourse studentCourse : studentCourseList) {
             totalMarks += studentCourse.getExamMarks();
@@ -74,7 +62,7 @@ public class StudentCourseManager {
     }
 
     public static double getAveAssignmentMarks(String courseCode) {
-        ArrayList<StudentCourse> studentCourseList = getStudentsCourseByCourseCode(courseCode);
+        ArrayList<StudentCourse> studentCourseList = getCourse(courseCode);
         int totalMarks = 0;
         for (StudentCourse studentCourse : studentCourseList) {
             totalMarks += studentCourse.getAssignmentMarks();
@@ -83,7 +71,7 @@ public class StudentCourseManager {
     }
 
     public static double getAveClassPartMarks(String courseCode) {
-        ArrayList<StudentCourse> studentCourseList = getStudentsCourseByCourseCode(courseCode);
+        ArrayList<StudentCourse> studentCourseList = getCourse(courseCode);
         int totalMarks = 0;
         for (StudentCourse studentCourse : studentCourseList) {
             totalMarks += studentCourse.getClassPartMarks();

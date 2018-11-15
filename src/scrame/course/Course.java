@@ -16,15 +16,10 @@ public class Course implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public static Scanner sc = new Scanner(System.in);
-
     private String courseName;
     private String courseCode;
 
     private String courseCoordinator;
-
-    private int tutNumber;
-    private int labNumber;
 
     ArrayList<Session> session;
     ArrayList<Components> components;
@@ -45,8 +40,6 @@ public class Course implements Serializable {
         this.courseCode = courseCode;
         this.courseCoordinator = courseCoordinator;
         this.session = constructSessionsList(courseVacancy, tutNumber, labNumber);
-        this.tutNumber = tutNumber;
-        this.labNumber = labNumber;
         this.components = constructComponentsList(examPercent, courseWorkPercent, assignmentPercent, classPartPercent);
     }
 
@@ -103,36 +96,10 @@ public class Course implements Serializable {
         return courseCoordinator;
     }
 
-    public int getTutNumber() {
-        return tutNumber;
-    }
-
-    public int getLabNumber() {
-        return labNumber;
-    }
-
-    public ArrayList<Session> getSession() {
-        return session;
-    }
-
-    public ArrayList<Components> getComponents() {
-        return components;
-    }
-
+    // Check existence
     public boolean hasStudent(String matricNo) {
         try {
             if (getLectures().get(0).hasStudent(matricNo)) return true;
-        } catch (Exception e) {
-            return false;
-        }
-        return false;
-    }
-
-    public boolean hasVacancy() {
-        try {
-            if (getLectures().size() > 0) {
-                return getLectures().get(0).getVacancy() > 0;
-            }
         } catch (Exception e) {
             return false;
         }
@@ -151,6 +118,7 @@ public class Course implements Serializable {
         return getClassPartComponent().getPercentage() != 0;
     }
 
+    // Get components
     public Exam getExamComponent() {
         if (components != null) return (Exam) components.get(0);
         return null;
@@ -166,16 +134,7 @@ public class Course implements Serializable {
         return null;
     }
 
-    public int getComponentNo() {
-        int count = 0;
-        for (int i = 0; i < 3; i++) {
-            if (this.getComponents().get(i).getPercentage() != 0) {
-                count++;
-            }
-        }
-        return count;
-    }
-
+    // Get session
     public ArrayList<Tutorial> getTutorials() {
         ArrayList<Tutorial> tutorials = new ArrayList<>(0);
         if (session != null) {

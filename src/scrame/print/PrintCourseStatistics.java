@@ -4,7 +4,7 @@ import com.mitchtalmadge.asciidata.table.ASCIITable;
 import scrame.course.Course;
 import scrame.course.CourseManager;
 import scrame.Input;
-import scrame.student.StudentCourseManager;
+import scrame.StudentCourseManager;
 
 public class PrintCourseStatistics {
 

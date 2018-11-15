@@ -1,17 +1,10 @@
 package scrame.course.components;
 
-import scrame.course.components.Components;
-
 public class Exam extends Components {
 
-	private static final long serialVersionUID = 1L;
-	
-	public Exam(int percentage) {
-		super(percentage);
-	}
+    private static final long serialVersionUID = 1L;
 
-	public String getType() {
-		return "Exam";
-	}
-	
+    public Exam(int percentage) {
+        super(percentage);
+    }
 }

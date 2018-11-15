@@ -17,27 +17,9 @@ public abstract class Session implements Serializable {
 	public int getCapacity() {
 		return capacity;
 	}
-
-	public void setVacancy(int vacancy) {
-		this.vacancy = vacancy;
-	}
-
-	public int countVacancy() {
-		int vacancy = 0;
-		for (int i = 0; i < studentList.length; i++) {
-			if (studentList[i].isEmpty()) { // or isBlank?
-				vacancy++;
-			}
-		}
-		return vacancy;
-	}
 	
 	public String[] getStudentList() {
 		return studentList;
-	}
-	
-	public void setStudentList(String[] studentList) {
-		this.studentList = studentList;
 	}
 
 	public void addStudent(String studentMatric) {

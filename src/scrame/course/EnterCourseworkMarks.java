@@ -2,10 +2,8 @@ package scrame.course;
 
 import scrame.Input;
 import scrame.InputValidator;
-import scrame.course.Course;
-import scrame.course.CourseManager;
-import scrame.student.StudentCourse;
-import scrame.student.StudentCourseManager;
+import scrame.StudentCourse;
+import scrame.StudentCourseManager;
 
 import java.util.Scanner;
 
@@ -19,7 +17,7 @@ public class EnterCourseworkMarks {
         String courseCode = Input.getCourseFromStudent(studentMatric);
 
         Course course = CourseManager.getCourse(courseCode);
-        StudentCourse studentCourse = StudentCourseManager.createStudentCourse(studentMatric, courseCode);
+        StudentCourse studentCourse = StudentCourseManager.getStudentCourse(studentMatric, courseCode);
 
         if (course.hasAssignment()) {
             enterAssignmentMarks(studentCourse);
