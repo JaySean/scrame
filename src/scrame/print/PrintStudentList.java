@@ -25,8 +25,11 @@ public class PrintStudentList {
             case 1:
                 if (course == null)
                     break;
-                else
-                    PrintStudentListByLec.run(course);
+                else {
+                    PrintStudentListContext context = new PrintStudentListContext(new PrintStudentListByLec());
+                    context.beginPrint(course);
+                }
+
                 break;
             case 2:
                 printListByTut(course);
