@@ -3,7 +3,7 @@ package scrame.print;
 import scrame.course.Course;
 import scrame.course.sessions.Laboratory;
 
-public class PrintStudentListByLab implements PrintStudentListStrategy {
+public class PrintByLab implements PrintStrategy {
     public void print(Course course) {
         System.out.println("\nStudents in " + course.getCourseCode() + " " + course.getCourseName() + " Laboratories");
         int index = 1;

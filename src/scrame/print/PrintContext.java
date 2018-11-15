@@ -2,10 +2,10 @@ package scrame.print;
 
 import scrame.course.Course;
 
-public class PrintStudentListContext {
-    private PrintStudentListStrategy strategy;
+public class PrintContext {
+    private PrintStrategy strategy;
 
-    public PrintStudentListContext(PrintStudentListStrategy strategy){
+    public PrintContext(PrintStrategy strategy){
         this.strategy = strategy;
     }
 

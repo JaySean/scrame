@@ -20,33 +20,21 @@ public class PrintStudentList {
 
         switch (choice) {
             case 1:
-                if (course == null)
-                    break;
-                else {
-                    PrintStudentListContext context = new PrintStudentListContext(new PrintStudentListByLec());
-                    context.beginPrint(course);
-                }
+                PrintContext context1 = new PrintContext(new PrintByLec());
+                context1.beginPrint(course);
                 break;
             case 2:
-                if (course == null)
-                    break;
-                else {
-                    PrintStudentListContext context = new PrintStudentListContext(new PrintStudentListByTut());
-                    context.beginPrint(course);
-                }
+                PrintContext context2 = new PrintContext(new PrintByTut());
+                context2.beginPrint(course);
             case 3:
-                if (course == null)
-                    break;
-                else {
-                    PrintStudentListContext context = new PrintStudentListContext(new PrintStudentListByLab());
-                    context.beginPrint(course);
-                }
+                PrintContext context3 = new PrintContext(new PrintByLab());
+                context3.beginPrint(course);
             case 4:
-                PrintStudentListContext contextLec = new PrintStudentListContext(new PrintStudentListByLec());
+                PrintContext contextLec = new PrintContext(new PrintByLec());
                 contextLec.beginPrint(course);
-                PrintStudentListContext contextTut = new PrintStudentListContext(new PrintStudentListByTut());
+                PrintContext contextTut = new PrintContext(new PrintByTut());
                 contextTut.beginPrint(course);
-                PrintStudentListContext contextLab = new PrintStudentListContext(new PrintStudentListByLab());
+                PrintContext contextLab = new PrintContext(new PrintByLab());
                 contextLab.beginPrint(course);
                 break;
         }
