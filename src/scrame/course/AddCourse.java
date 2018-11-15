@@ -1,6 +1,7 @@
 package scrame.course;
 
 import scrame.Input;
+import scrame.InputValidator;
 import scrame.print.PrintCourse;
 
 public class AddCourse {
@@ -27,8 +28,7 @@ public class AddCourse {
                 System.out.println("Exam and Coursework Weights (Total 100%):");
                 examPercent = Input.getExamPercent();
                 courseWorkPercent = Input.getCourseWorkPercent();
-                if (examPercent + courseWorkPercent != 100 && examPercent > 0 && courseWorkPercent > 0)
-                    throw new Exception("Exam and Course Work percentages must total 100 and there must be an Exam and Coursework component");
+                InputValidator.validateTotalPercentage(examPercent, courseWorkPercent);
                 repeat = false;
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -39,15 +39,13 @@ public class AddCourse {
         int assignmentPercent = 0;
         int classPartPercent = 0;
         repeat = true;
+        System.out.println("\nCoursework Components");
         while (repeat) {
             try {
-                System.out.println("\nCoursework Components");
                 System.out.println("Assignment and Class Participation Weights (Total 100%):");
                 assignmentPercent = Input.getAssignmentPercent();
                 classPartPercent = Input.getClassPartPercent();
-                if (assignmentPercent + classPartPercent != 100) {
-                    throw new Exception("Assignment and Class Participation percentage must total 100");
-                }
+                InputValidator.validateTotalPercentage(assignmentPercent, classPartPercent);
                 repeat = false;
             } catch (Exception e) {
                 System.out.println(e.getMessage());

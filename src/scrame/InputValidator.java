@@ -86,6 +86,11 @@ public abstract class InputValidator {
             throw new Exception("A percentage must be between 1-100\n");
     }
 
+    public static void validateTotalPercentage(int percentage1, int percentage2) throws Exception {
+        if (percentage1 + percentage2 != 100)
+            throw new Exception("Percentages must total 100!\n");
+    }
+
     // Marks
     public static void validateMark(int mark) throws Exception {
         if (mark > 100 || mark < 0)
@@ -95,7 +100,7 @@ public abstract class InputValidator {
     // Student and Course
     public static void studentCourse(String studentMatric, String courseCode) throws Exception {
         Course course = CourseManager.getCourse(courseCode);
-        if (!course.hasStudent(studentMatric)){
+        if (!course.hasStudent(studentMatric)) {
             throw new Exception("Student is already registered for this course!\n");
         }
     }
