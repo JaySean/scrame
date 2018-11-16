@@ -156,8 +156,8 @@ public abstract class InputValidator {
      * @throws Exception containing error message telling user that the number of sessions is incorrect
      */
     public static void validateSessionNumber(int sessionNumber, int courseCapacity) throws Exception {
-        if (sessionNumber < 0)
-            throw new Exception("Number cannot be negative!\n");
+        if (sessionNumber <= 0)
+            throw new Exception("Number must be more than zero!\n");
         if (sessionNumber > courseCapacity) {
             throw new Exception("Number of sessions cannot exceed course capacity!\n");
         }
