@@ -89,6 +89,9 @@ public class Main {
 		} while (repeat);
 	}
 
+	/**
+	 * Displays console menu
+	 */
 	public static void showMenu() {
 		System.out.println();
 		System.out.println("1: Add a student");

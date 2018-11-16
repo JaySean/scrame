@@ -5,10 +5,10 @@ import scrame.course.CourseManager;
 import scrame.student.Student;
 
 /**
- * A class holding all validation methods used by the Input class
+ * Validates the user's inputs
  *
- * @author Lim Han Quan
- * @version 6.0
+ * @author CZ2002 SS3 Group 1
+ * @version 3.0
  */
 
 public abstract class InputValidator {
@@ -16,7 +16,7 @@ public abstract class InputValidator {
     /**
      * Checks if student name matches given regex format
      *
-     * @param name proposed name of student
+     * @param name User input for the student's name
      * @throws Exception containing error message to prompt user for correct format
      */
     public static void studentNameFormat(String name) throws Exception {
@@ -29,7 +29,7 @@ public abstract class InputValidator {
     /**
      * Checks if student matriculation matches given regex format
      *
-     * @param studentMatric proposed student matriculation number
+     * @param studentMatric User input for the student's matriculation number
      * @throws Exception containing error message to prompt user for correct format
      */
     public static void studentMatricFormat(String studentMatric) throws Exception {
@@ -40,10 +40,10 @@ public abstract class InputValidator {
     }
 
     /**
-     * Checks if student matric is already in system
+     * Checks if the student is not in system
      *
-     * @param newStudentMatricNo proposed new student matriculation number
-     * @throws Exception containing error message telling user that student matric is taken
+     * @param newStudentMatricNo User input for the new student's matriculation number
+     * @throws Exception containing error message telling user that the student already exists
      */
     public static void newStudentMatric(String newStudentMatricNo) throws Exception {
         // Validate existence
@@ -55,16 +55,16 @@ public abstract class InputValidator {
     }
 
     /**
-     * Checks if student matric is already in system
+     * Checks if the student is already in system
      *
-     * @param newStudentMatric proposed new student matriculation number
-     * @throws Exception containing error message telling user that student doesn't exist in system
+     * @param existStudentMatric User input for the existing student's matriculation number
+     * @throws Exception containing error message telling user that student doesn't exist
      */
-    public static void existStudentMatric(String newStudentMatric) throws Exception {
+    public static void existStudentMatric(String existStudentMatric) throws Exception {
         // Check for existence
         boolean exists = false;
         for (Student student : Main.studentList) {
-            if (student.getStudentMatricNo().equals(newStudentMatric)) {
+            if (student.getStudentMatricNo().equals(existStudentMatric)) {
                 exists = true;
             }
         }
@@ -75,7 +75,7 @@ public abstract class InputValidator {
     /**
      * Checks if student course name matches given regex format
      *
-     * @param courseName course name to validated
+     * @param courseName User input for the course name
      * @throws Exception containing error message prompting user for correct format
      */
     public static void courseNameFormat(String courseName) throws Exception {
@@ -88,7 +88,7 @@ public abstract class InputValidator {
     /**
      * Checks if student course code matches given regex format
      *
-     * @param newCourseCode course code to validate
+     * @param newCourseCode User input for the course code
      * @throws Exception containing error message prompting user for correct format
      */
     public static void courseCodeFormat(String newCourseCode) throws Exception {
@@ -99,10 +99,10 @@ public abstract class InputValidator {
     }
 
     /**
-     * Checks if new course code is already in system
+     * Checks if the course is not in the system
      *
-     * @param newCourseCode course code to validate
-     * @throws Exception containing error message telling user that Course Code is taken
+     * @param newCourseCode User input for the new course code
+     * @throws Exception containing error message telling user that the course already exists
      */
     public static void newCourseCode(String newCourseCode) throws Exception {
         // Check for existence
@@ -117,9 +117,9 @@ public abstract class InputValidator {
     }
 
     /**
-     * Checks if course is in system by course code
+     * Checks if the course is already in the system
      *
-     * @param newCourseCode course code to validate
+     * @param newCourseCode User input for the course code
      * @throws Exception containing error message telling user that course does not exist
      */
     public static void existCourseCode(String newCourseCode) throws Exception {
@@ -134,20 +134,41 @@ public abstract class InputValidator {
             throw new Exception("Course does not exist!\n");
     }
 
+    /**
+     * Checks if such a session exists in the system
+     *
+     * @param choice  User input for the session number
+     * @param size    Number of session of that type in the course
+     * @param session Type of session
+     * @throws Exception containing error message telling user that session does not exist
+     */
     public static void existSession(int choice, int size, String session) throws Exception {
         if (choice > size || choice < 1) {
             throw new Exception("No such " + session + "!\n");
         }
     }
 
-    public static void validateSessionNumber(int sessionNumber, int courseCapacity) throws Exception{
+    /**
+     * Checks if the number of sessions to be created is in the correct range
+     *
+     * @param sessionNumber  User input for the number of sessions
+     * @param courseCapacity Total number of sessions that can be created
+     * @throws Exception containing error message telling user that the number of sessions is incorrect
+     */
+    public static void validateSessionNumber(int sessionNumber, int courseCapacity) throws Exception {
         if (sessionNumber < 0)
             throw new Exception("Number cannot be negative!\n");
-        if (sessionNumber > courseCapacity){
+        if (sessionNumber > courseCapacity) {
             throw new Exception("Number of sessions cannot exceed course capacity!\n");
         }
     }
 
+    /**
+     * Checks if there are remaining vacancies for a student to register for a course
+     *
+     * @param vacancy Remaining slots in the course being registered for
+     * @throws Exception containing error message telling user that there are no more vacancies
+     */
     public static void existVacancy(int vacancy) throws Exception {
         if (vacancy == 0) {
             throw new Exception("No vacancies!\n");
@@ -155,10 +176,10 @@ public abstract class InputValidator {
     }
 
     /**
-     * Validates if percentage is within 0-100
+     * Checks if the percentage is from 1 to 100
      *
-     * @param percentage percentage to input
-     * @throws Exception containing error message telling user that percentage must be between 1-100
+     * @param percentage User input for the component's percentage
+     * @throws Exception containing error message telling user that percentage must be from 1-100
      */
     public static void validatePercentage(int percentage) throws Exception {
         if (percentage > 100 || percentage < 0)
@@ -167,11 +188,11 @@ public abstract class InputValidator {
 
 
     /**
-     * validates is both input percentages add up to 100
+     * Checks if the components' percentages add up to 100
      *
-     * @param percentage1 percentage to input
-     * @param percentage2 percentage to input
-     * @throws Exception containing error message telling user that percentage must add to 100
+     * @param percentage1 Percentage of first component
+     * @param percentage2 Percentage of second component
+     * @throws Exception containing error message telling user that percentages must add to 100
      */
     public static void validateTotalPercentage(int percentage1, int percentage2) throws Exception {
         if (percentage1 + percentage2 != 100)
@@ -179,22 +200,22 @@ public abstract class InputValidator {
     }
 
     /**
-     * validates if mark adds is 100
+     * Checks if the marks being added is from 1 to 100
      *
-     * @param mark
-     * @throws Exception
+     * @param mark User input for the marks to be added to the record
+     * @throws Exception containing error message telling user that the marks must be in the correct range
      */
     public static void validateMark(int mark) throws Exception {
         if (mark > 100 || mark < 0)
-            throw new Exception("A mark must be between 0-100");
+            throw new Exception("Marks must be between 0-100");
     }
 
     /**
-     * Checks if student is not registered for course
+     * Checks if student is registered for the course
      *
-     * @param studentMatric student
-     * @param courseCode    course to check using course code
-     * @throws Exception containing error message that user is already in course
+     * @param studentMatric User input for the student's matriculation number
+     * @param courseCode    User input for the course code
+     * @throws Exception containing error message that user not registered for the course
      */
     public static void checkStudentInCourse(String studentMatric, String courseCode) throws Exception {
         Course course = CourseManager.getCourse(courseCode);
@@ -206,9 +227,9 @@ public abstract class InputValidator {
     /**
      * Checks if student is already registered for course
      *
-     * @param studentMatric student
-     * @param courseCode    course to check using course code
-     * @throws Exception containing error message that user is already in course
+     * @param studentMatric User input for the student's matriculation number
+     * @param courseCode    User input for the course code
+     * @throws Exception containing error message that user already registered for the course
      */
     public static void checkStudentNotInCourse(String studentMatric, String courseCode) throws Exception {
         Course course = CourseManager.getCourse(courseCode);

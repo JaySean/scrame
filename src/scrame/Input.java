@@ -1,12 +1,12 @@
 package scrame;
 
-import scrame.course.CourseManager;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * Holds all the input methods
+ * Takes in user's inputs for the various functions
+ * Validates the input according to the respective requirements
+ *
  * @author CZ2002 SS3 Group 1
  * @version 3.0
  */
@@ -17,8 +17,7 @@ public class Input {
     // Student
 
     /**
-     * Getter method to validate the format the name of a student.
-     * @return student name
+     * @return Validated user's input of the student's name
      */
     public static String getStudentName() {
         String studentName;
@@ -35,8 +34,7 @@ public class Input {
     }
 
     /**
-     * Getter Method to validate format and check for duplicates of the student matric number
-     * @return the matric number of the student.
+     * @return Validated user's input of the student's matriculation number
      */
     public static String getStudentMatric() {
         String studentMatric;
@@ -54,8 +52,7 @@ public class Input {
     }
 
     /**
-     * method to input student matric number and validate it
-     * @return the matric number of the student.
+     * @return Validated user's input of the student's matriculation number
      */
     public static String newStudentMatric() {
         String studentMatric;
@@ -75,8 +72,7 @@ public class Input {
     // Course
 
     /**
-     * method to validate the format of the inputted course name
-     * @return the course name
+     * @return Validated user's input of the course name
      */
     public static String getCourseName() {
         String courseName;
@@ -93,8 +89,9 @@ public class Input {
     }
 
     /**
-     *method to validate the format and check for duplicates of the inputted course code
-     * @return the course code.
+     * Takes in user input of an existing course code
+     *
+     * @return Validated user's input of the course code.
      */
     public static String getCourseCode() {
         String courseCode;
@@ -112,8 +109,9 @@ public class Input {
     }
 
     /**
-     * Validates the format and the existence of the course code inputted
-     * @return the course code.
+     * Takes in user input for a new course code
+     *
+     * @return Validated user's input of the course code.
      */
     public static String newCourseCode() {
         String courseCode;
@@ -131,8 +129,7 @@ public class Input {
     }
 
     /**
-     * validates the format of the name of the course coordinator inputted
-     * @return the name of the course coordinator
+     * @return Validated user's input of the name of the course coordinator
      */
     public static String getCourseCoordinator() {
         String courseCoordinator;
@@ -149,8 +146,7 @@ public class Input {
     }
 
     /**
-     * method for inputting the course capacity of a course
-     * @return the course with the set course capacity
+     * @return Validated user's input of the course capacity
      */
     public static int getCourseCapacity() {
         int courseCapacity;
@@ -170,8 +166,7 @@ public class Input {
     }
 
     /**
-     * method for inputting the number of tutorial classes in a course
-     * @return the number of tutorials to be stored in the course
+     * @return Validated user's input of the number of tutorials sessions of the course
      */
     public static int getTutNumber(int courseCapacity) {
         int tutNumber;
@@ -190,8 +185,7 @@ public class Input {
     }
 
     /**
-     * method for inputting the number of lab sessions in a course
-     * @return the number of lab sessions to be stored in the course.
+     * @return Validated user's input of the number of laboratory sessions of the course
      */
     public static int getLabNumber(int courseCapacity) {
         int labNumber;
@@ -210,8 +204,7 @@ public class Input {
     }
 
     /**
-     * input method to enter the weightage an exam has in a course.
-     * @return the weightage an exam has on a course.
+     * @return Validated user's input of the exam weightage in the course
      */
     public static int getExamPercent() {
         int examPercent;
@@ -230,8 +223,7 @@ public class Input {
     }
 
     /**
-     * method to enter the weighttage coursework has on a course
-     * @return the weightage the coursework has on a course.
+     * @return Validated user's input of the coursework weightage in the course
      */
     public static int getCourseWorkPercent() {
         int courseWorkPercent;
@@ -250,8 +242,7 @@ public class Input {
     }
 
     /**
-     * input method for entering the weightage an assignment has on coursework
-     * @return the weightage the assignment has on coursework component
+     * @return Validated user's input of the assignment weightage in the coursework
      */
     public static int getAssignmentPercent() {
         int assignmentPercent;
@@ -270,8 +261,7 @@ public class Input {
     }
 
     /**
-     * input method for entering the weightage class part has on coursework
-     * @return the weightage class part has on coursework.
+     * @return Validated user's input of the assignment weightage in the coursework
      */
     public static int getClassPartPercent() {
         int classPartPercent;
@@ -290,12 +280,14 @@ public class Input {
     }
 
     // Student and Course
+
     /**
-     * input method to validate whether or not a student is registered in a course.
-     * @param studentMatric
-     * @return the course code.
+     * Takes in user input for a course code where the student is not registered for the course
+     *
+     * @param studentMatric The student's matriculation number
+     * @return Validated user's input of the course code
      */
-    public static String getStudentNotInCourse(String studentMatric){
+    public static String getStudentNotInCourse(String studentMatric) {
         String courseCode;
         while (true) {
             try {
@@ -309,11 +301,12 @@ public class Input {
     }
 
     /**
-     *input method to validate whether or not a student is registered in a course.
-     * @param studentMatric
-     * @return the course code.
+     * Takes in user input for a course code where the student is already registered for the course
+     *
+     * @param studentMatric The student's matriculation number
+     * @return Validated user's input of the course code
      */
-    public static String getStudentInCourse(String studentMatric){
+    public static String getStudentInCourse(String studentMatric) {
         String courseCode;
         while (true) {
             try {
@@ -327,8 +320,9 @@ public class Input {
     }
 
     /**
-     * validates if inputted value is a mismatch based on type
-     * @param e exception object
+     * Captures inputMismatchCapture
+     *
+     * @param e Exception object
      */
     public static void inputMismatchCapture(Exception e) {
         System.out.println(e instanceof InputMismatchException ? "Input must be an integer!" : e.getMessage());

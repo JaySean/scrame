@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Class that puts together a student's unique particulars and their course marks and
- * stores them as a record
+ * Creates a new marks record between a student and a course
+ *
  * @author CZ2002 SS3 Group 1
  * @version 5.0
  */
@@ -15,12 +15,13 @@ public class StudentCourse implements Serializable {
 
     private String studentMatric;
     private String courseCode;
-    private int[] marksRecord; //exam assignment classPart
+    private int[] marksRecord; // Exam, Assignment, Class Participation
 
     /**
-     * constructors for class
-     * @param studentMatric matric number of the student
-     * @param courseCode unqiue course code of course
+     * Creates a new marks record
+     *
+     * @param studentMatric The student's matriculation number
+     * @param courseCode    The course code
      */
     public StudentCourse(String studentMatric, String courseCode) {
         this.studentMatric = studentMatric;
@@ -29,63 +30,62 @@ public class StudentCourse implements Serializable {
     }
 
     /**
-     * getter method for a student's matric number
-     * @return the student's matric number
+     * @return The student's matriculation number
      */
     public String getStudentMatric() {
         return studentMatric;
     }
 
-    /**Getter method for a student's course code
-     * @return the unique code that refers to a course
+    /**
+     * @return The course code
      */
     public String getCourseCode() {
         return courseCode;
     }
 
     /**
-     * Getter method for exams marks
-     * @return the marks a student got for an exam
+     * @return The marks a student got for an exam
      */
     public int getExamMarks() {
         return marksRecord[0];
     }
 
     /**
-     * Setter method to set exam marks for a student
-     * @param mark amount of marks a student got for an exam of a course
+     * Sets the exam marks that a student got for a course
+     *
+     * @param mark The student's exam marks for a course
      */
     public void setExamMarks(int mark) {
         marksRecord[0] = mark;
     }
 
     /**
-     * Getter method to get assignment mark
-     * @return the amount of marks a student got for an assignment
+     * @return The marks a student got for an assignment
      */
     public int getAssignmentMarks() {
         return marksRecord[1];
     }
 
     /**
-     * Setter method to set the assignment marks of a student
-     * @param mark The amount of marks a student scored for his assignment component
+     * Sets the assignment marks that a student got for a course
+     *
+     * @param mark The student's assignment marks for a course
      */
     public void setAssignmentMarks(int mark) {
         marksRecord[1] = mark;
     }
 
     /**
-     * Getter method to get class part marks
-     * @return the class part marks a student got for this component
+     * @return The marks a student got for class participation
      */
     public int getClassPartMarks() {
         return marksRecord[2];
     }
 
     /**
-     * setter method for classpart marks
-     * @param mark the amount of marks a student has scored for classpart
+     * Sets the  marks that a student got for a course
+     *
+     * @param mark The student's class participation marks for a course
      */
     public void setClassPartMarks(int mark) {
         marksRecord[2] = mark;

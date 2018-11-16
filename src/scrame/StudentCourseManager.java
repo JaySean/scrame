@@ -3,22 +3,22 @@ package scrame;
 import java.util.ArrayList;
 
 /**
- * Control class that manages the marks of a student in all his components
+ * Control class for the marks record between a student and a course
+ *
  * @author CZ2002 SS3 Group 1
  * @version 2.0
  */
 
 public class StudentCourseManager {
     /**
-     * Storing data on a student's performance in a particular course in a .txt file
+     * Location of data of a student's marks in a particular course
      */
     final static String studentCourseFile = "data/StudentCourse.txt";
 
     /**
-     * Gets the index when raversing through the Student records
-     * @param studentMatric The matric number of the student
-     * @param courseCode The code unique to the course.
-     * @return the index of the record being searched
+     * @param studentMatric The student's matriculation number
+     * @param courseCode    The course code
+     * @return the index of the marks record being searched
      */
     public static int getIndex(String studentMatric, String courseCode) {
         for (int i = 0; i < Main.studentCourseList.size(); i++) {
@@ -32,10 +32,9 @@ public class StudentCourseManager {
     }
 
     /**
-     * getter method to get the record of a student
-     * @param studentMatric matric number of the student
-     * @param courseCode course code of the student
-     * @return the record of the student
+     * @param studentMatric The student's matriculation number
+     * @param courseCode    The course code
+     * @return the marks record of the student for a particular course
      */
     public static StudentCourse getStudentCourse(String studentMatric, String courseCode) {
         StudentCourse studentCourse;
@@ -52,8 +51,10 @@ public class StudentCourseManager {
     }
 
     /**
-     * updates student oourse record
-     * @param studentCourse the record of a student in a particular course
+     * If the marks record is new and being added, it is appended to the end of the list of courses
+     * If the marks record is being amended, it is updated in its previous index of the list
+     *
+     * @param studentCourse the marks record of a student for a particular course
      */
     public static void updateStudentCourse(StudentCourse studentCourse) {
         if (studentCourse == null) return;
@@ -67,27 +68,27 @@ public class StudentCourseManager {
     }
 
     /**
-     * instantiates an array list of course names along with its course code
-     * @param courseCode the unique code of a course
-     * @return list of courses in the array list
+     * @param courseCode The course code
+     * @return List of marks record of the particular course
      */
-    public static ArrayList<StudentCourse> getCourse(String courseCode) {
-        ArrayList<StudentCourse> listByCourse = new ArrayList<>(0);
+    public static ArrayList<StudentCourse> getCourseList(String courseCode) {
+        ArrayList<StudentCourse> courseList = new ArrayList<>(0);
         for (StudentCourse studentCourse : Main.studentCourseList) {
             if (studentCourse.getCourseCode().equals(courseCode)) {
-                listByCourse.add(studentCourse);
+                courseList.add(studentCourse);
             }
         }
-        return listByCourse;
+        return courseList;
     }
 
     /**
-     * calculates the eaverage exam marks of a course
-     * @param courseCode unique code of courses
-     * @return average marks students got for the exam of a course
+     * Calculates the average exam marks of a course
+     *
+     * @param courseCode The course code
+     * @return Average marks that the students got for the exam of the course
      */
     public static double getAveExamMarks(String courseCode) {
-        ArrayList<StudentCourse> studentCourseList = getCourse(courseCode);
+        ArrayList<StudentCourse> studentCourseList = getCourseList(courseCode);
         int totalMarks = 0;
         for (StudentCourse studentCourse : studentCourseList) {
             totalMarks += studentCourse.getExamMarks();
@@ -96,25 +97,28 @@ public class StudentCourseManager {
     }
 
     /**
-     * Calculates average marks students got for the assignment component of the course
-     * @param courseCode Unique code to a course
-     * @return average marks students got for the assignment component
+     * Calculates the average assignment marks of a course
+     *
+     * @param courseCode The course code
+     * @return Average marks that the students got for the assignment of the course
      */
     public static double getAveAssignmentMarks(String courseCode) {
-        ArrayList<StudentCourse> studentCourseList = getCourse(courseCode);
+        ArrayList<StudentCourse> studentCourseList = getCourseList(courseCode);
         int totalMarks = 0;
         for (StudentCourse studentCourse : studentCourseList) {
             totalMarks += studentCourse.getAssignmentMarks();
         }
         return (double) totalMarks / studentCourseList.size();
     }
+
     /**
-     * Calculates average marks students got for the class part component of the course
-     * @param courseCode Unique code to a course
-     * @return average marks students got for the class part component
+     * Calculates the average class participation marks of a course
+     *
+     * @param courseCode The course code
+     * @return Average marks that the students got for the class participation of the course
      */
     public static double getAveClassPartMarks(String courseCode) {
-        ArrayList<StudentCourse> studentCourseList = getCourse(courseCode);
+        ArrayList<StudentCourse> studentCourseList = getCourseList(courseCode);
         int totalMarks = 0;
         for (StudentCourse studentCourse : studentCourseList) {
             totalMarks += studentCourse.getClassPartMarks();

@@ -15,6 +15,9 @@ public class CourseManager implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * Location of data of courses
+     */
     private final static String courseFile = "data/Courses.txt";
 
     /**
