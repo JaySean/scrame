@@ -5,15 +5,17 @@ import scrame.course.CourseManager;
 import scrame.student.Student;
 
 /**
- A class holding all validation methods used by the Input class
- @author Lim Han Quan
- @version 6.0
+ * A class holding all validation methods used by the Input class
+ *
+ * @author Lim Han Quan
+ * @version 6.0
  */
 
 public abstract class InputValidator {
 
     /**
-     Checks if student name matches given regex format
+     * Checks if student name matches given regex format
+     *
      * @param name proposed name of student
      * @throws Exception containing error message to prompt user for correct format
      */
@@ -25,7 +27,8 @@ public abstract class InputValidator {
     }
 
     /**
-     Checks if student matriculation matches given regex format
+     * Checks if student matriculation matches given regex format
+     *
      * @param studentMatric proposed student matriculation number
      * @throws Exception containing error message to prompt user for correct format
      */
@@ -37,7 +40,8 @@ public abstract class InputValidator {
     }
 
     /**
-     Checks if student matric is already in system
+     * Checks if student matric is already in system
+     *
      * @param newStudentMatricNo proposed new student matriculation number
      * @throws Exception containing error message telling user that student matric is taken
      */
@@ -51,7 +55,8 @@ public abstract class InputValidator {
     }
 
     /**
-     Checks if student matric is already in system
+     * Checks if student matric is already in system
+     *
      * @param newStudentMatric proposed new student matriculation number
      * @throws Exception containing error message telling user that student doesn't exist in system
      */
@@ -68,7 +73,8 @@ public abstract class InputValidator {
     }
 
     /**
-     Checks if student course name matches given regex format
+     * Checks if student course name matches given regex format
+     *
      * @param courseName course name to validated
      * @throws Exception containing error message prompting user for correct format
      */
@@ -80,7 +86,8 @@ public abstract class InputValidator {
     }
 
     /**
-     Checks if student course code matches given regex format
+     * Checks if student course code matches given regex format
+     *
      * @param newCourseCode course code to validate
      * @throws Exception containing error message prompting user for correct format
      */
@@ -92,7 +99,8 @@ public abstract class InputValidator {
     }
 
     /**
-     Checks if new course code is already in system
+     * Checks if new course code is already in system
+     *
      * @param newCourseCode course code to validate
      * @throws Exception containing error message telling user that Course Code is taken
      */
@@ -109,7 +117,8 @@ public abstract class InputValidator {
     }
 
     /**
-     Checks if course is in system by course code
+     * Checks if course is in system by course code
+     *
      * @param newCourseCode course code to validate
      * @throws Exception containing error message telling user that course does not exist
      */
@@ -125,8 +134,21 @@ public abstract class InputValidator {
             throw new Exception("Course does not exist!\n");
     }
 
+    public static void existSession(int choice, int size, String session) throws Exception {
+        if (choice > size || choice < 1) {
+            throw new Exception("No such " + session + "!\n");
+        }
+    }
+
+    public static void existVacancy(int vacancy) throws Exception {
+        if (vacancy == 0) {
+            throw new Exception("No vacancies!\n");
+        }
+    }
+
     /**
-     Validates if percentage is within 0-100
+     * Validates if percentage is within 0-100
+     *
      * @param percentage percentage to input
      * @throws Exception containing error message telling user that percentage must be between 1-100
      */
@@ -137,7 +159,8 @@ public abstract class InputValidator {
 
 
     /**
-     validates is both input percentages add up to 100
+     * validates is both input percentages add up to 100
+     *
      * @param percentage1 percentage to input
      * @param percentage2 percentage to input
      * @throws Exception containing error message telling user that percentage must add to 100
@@ -148,7 +171,8 @@ public abstract class InputValidator {
     }
 
     /**
-     validates if mark adds is 100
+     * validates if mark adds is 100
+     *
      * @param mark
      * @throws Exception
      */
@@ -158,9 +182,10 @@ public abstract class InputValidator {
     }
 
     /**
-     Checks if student is not registered for course
+     * Checks if student is not registered for course
+     *
      * @param studentMatric student
-     * @param courseCode course to check using course code
+     * @param courseCode    course to check using course code
      * @throws Exception containing error message that user is already in course
      */
     public static void checkStudentInCourse(String studentMatric, String courseCode) throws Exception {
@@ -171,9 +196,10 @@ public abstract class InputValidator {
     }
 
     /**
-     Checks if student is already registered for course
+     * Checks if student is already registered for course
+     *
      * @param studentMatric student
-     * @param courseCode course to check using course code
+     * @param courseCode    course to check using course code
      * @throws Exception containing error message that user is already in course
      */
     public static void checkStudentNotInCourse(String studentMatric, String courseCode) throws Exception {
