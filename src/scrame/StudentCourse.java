@@ -51,22 +51,42 @@ public class StudentCourse implements Serializable {
         return marksRecord[0];
     }
 
+    /**
+     * Setter method to set exam marks for a student
+     * @param mark amount of marks a student got for an exam of a course
+     */
     public void setExamMarks(int mark) {
         marksRecord[0] = mark;
     }
 
+    /**
+     * Getter method to get assignment mark
+     * @return the amount of marks a student got for an assignment
+     */
     public int getAssignmentMarks() {
         return marksRecord[1];
     }
 
+    /**
+     * Setter method to set the assignment marks of a student
+     * @param mark The amount of marks a student scored for his assignment component
+     */
     public void setAssignmentMarks(int mark) {
         marksRecord[1] = mark;
     }
 
+    /**
+     * Getter method to get class part marks
+     * @return the class part marks a student got for this component
+     */
     public int getClassPartMarks() {
         return marksRecord[2];
     }
 
+    /**
+     * setter method for classpart marks
+     * @param mark the amount of marks a student has scored for classpart
+     */
     public void setClassPartMarks(int mark) {
         marksRecord[2] = mark;
     }
