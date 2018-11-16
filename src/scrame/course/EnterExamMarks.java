@@ -23,7 +23,7 @@ public class EnterExamMarks {
     public static void run() {
 
         String studentMatric = Input.getStudentMatric();
-        String courseCode = Input.getCourseFromStudent(studentMatric);
+        String courseCode = Input.getStudentInCourse(studentMatric);
 
         Course course = CourseManager.getCourse(courseCode);
         StudentCourse studentCourse = StudentCourseManager.getStudentCourse(studentMatric, courseCode);

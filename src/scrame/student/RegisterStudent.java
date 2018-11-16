@@ -27,7 +27,7 @@ public class RegisterStudent {
     public static void run() {
 
         String studentMatric = Input.getStudentMatric();
-        String courseCode = Input.getCourseCode();
+        String courseCode = Input.getStudentNotInCourse(studentMatric);
 
         Course course = CourseManager.getCourse(courseCode);
 

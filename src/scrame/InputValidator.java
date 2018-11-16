@@ -158,12 +158,25 @@ public abstract class InputValidator {
     }
 
     /**
-     Checks if student already registered for course
+     Checks if student is not registered for course
      * @param studentMatric student
      * @param courseCode course to check using course code
      * @throws Exception containing error message that user is already in course
      */
-    public static void studentCourse(String studentMatric, String courseCode) throws Exception {
+    public static void checkStudentInCourse(String studentMatric, String courseCode) throws Exception {
+        Course course = CourseManager.getCourse(courseCode);
+        if (!course.hasStudent(studentMatric)) {
+            throw new Exception("Student is not registered for this course!\n");
+        }
+    }
+
+    /**
+     Checks if student is already registered for course
+     * @param studentMatric student
+     * @param courseCode course to check using course code
+     * @throws Exception containing error message that user is already in course
+     */
+    public static void checkStudentNotInCourse(String studentMatric, String courseCode) throws Exception {
         Course course = CourseManager.getCourse(courseCode);
         if (course.hasStudent(studentMatric)) {
             throw new Exception("Student is already registered for this course!\n");

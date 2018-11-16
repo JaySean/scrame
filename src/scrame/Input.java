@@ -293,17 +293,34 @@ public class Input {
 
     // Student and Course
     /**
-     *input method to validate whether or not a student is registered in a course.
+     * input method to validate whether or not a student is registered in a course.
      * @param studentMatric
      * @return the course code.
      */
-    public static String getCourseFromStudent(String studentMatric){
-
+    public static String getStudentNotInCourse(String studentMatric){
         String courseCode;
         while (true) {
             try {
                 courseCode = Input.getCourseCode();
-                InputValidator.studentCourse(studentMatric, courseCode);
+                InputValidator.checkStudentNotInCourse(studentMatric, courseCode);
+                return courseCode;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    /**
+     *input method to validate whether or not a student is registered in a course.
+     * @param studentMatric
+     * @return the course code.
+     */
+    public static String getStudentInCourse(String studentMatric){
+        String courseCode;
+        while (true) {
+            try {
+                courseCode = Input.getCourseCode();
+                InputValidator.checkStudentInCourse(studentMatric, courseCode);
                 return courseCode;
             } catch (Exception e) {
                 System.out.println(e.getMessage());
