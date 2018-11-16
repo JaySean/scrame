@@ -3,7 +3,7 @@ package scrame.print;
 import scrame.course.Course;
 
 /**
- * Context for implementing strategy pattern
+ * Prints student list based on selected strategy
  *
  * @author CZ2002 SS3 Group 1
  * @version 3.0
@@ -12,9 +12,9 @@ public class PrintContext {
     private PrintStrategy strategy;
 
     /**
-     * constructors for implementing strategy pattern
+     * Creates a context for the strategy pattern
      *
-     * @param strategy
+     * @param strategy selected print strategy
      */
     public PrintContext(PrintStrategy strategy) {
         this.strategy = strategy;
