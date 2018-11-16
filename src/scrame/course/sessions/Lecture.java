@@ -1,16 +1,20 @@
 package scrame.course.sessions;
 
 /**
- * Subclass of superclass Session that instantiates a lecture session
+ * Subclass of session
+ * There is only 1 lecture session
+ *
  * @author CZ2002 SS3 Group 1
  * @version 2.0
  */
 public class Lecture extends Session {
 
 	private static final long serialVersionUID = 1L;
+
 	/**
-	 * Constructor to initialize session capacity and vacancy
-	 * @param capacity total capacity of a session
+	 * Creates a new lecture session
+	 *
+	 * @param capacity Total number of students that can register for the course
 	 */
 	public Lecture(int capacity) {
 		this.capacity = capacity;

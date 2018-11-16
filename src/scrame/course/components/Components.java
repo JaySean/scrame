@@ -3,33 +3,36 @@ package scrame.course.components;
 import java.io.Serializable;
 
 /**
- * Superclass that handles the serialization of scores obtained from a course
+ * Superclass of components of a course which students are graded on
+ *
  * @author CZ2002 SS3 Group 1
  * @version 2.0
  */
 
-public class Components implements Serializable{
+public class Components implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	/**
-	 * weightage for a component
-	 */
-	private int percentage;
+    private static final long serialVersionUID = 1L;
+    /**
+     * Weightage of the component
+     */
+    private int percentage;
 
-	/**
-	 * Constructor for percentage
-	 * @param percentage
-	 */
-	public Components(int percentage) {
-		this.percentage = percentage;
-	}
+    /**
+     * Creates a new component
+     *
+     * @param percentage Weightage of the component
+     */
+    public Components(int percentage) {
+        this.percentage = percentage;
+    }
 
-	/**
-	 * Getter method for retrieving percentage
-	 * @return the weightage for component
-	 */
-	public int getPercentage() {
-		return percentage;
-	}
-	
+    /**
+     * Gets the component's weightage
+     *
+     * @return the weightage for component
+     */
+    public int getPercentage() {
+        return percentage;
+    }
+
 }

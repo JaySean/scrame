@@ -1,8 +1,11 @@
 package scrame.course.components;
 
 /**
- * Subclass of Components used in calculating weightage of classpart
+ * Subclass of Components
+ * Type of coursework
+ *
  * @author CZ2002 SS3 Group 1
+ *  @version 2.0
  */
 
 public class ClassPart extends Components {
@@ -10,8 +13,9 @@ public class ClassPart extends Components {
     private static final long serialVersionUID = 1L;
 
     /**
-     * method that receives the percentage of class part to be serialized
-     * @param percentage weightage for a component
+     * Creates a new class participation component
+     *
+     * @param percentage Weightage of class participation in coursework
      */
     public ClassPart(int percentage) {
         super(percentage);

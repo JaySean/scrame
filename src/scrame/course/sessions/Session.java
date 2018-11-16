@@ -4,68 +4,74 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Superclass that serializes and initializes a Session
+ * Superclass of sessions of a course which students register for
+ *
  * @author CZ2002 SS3 Group 1
  * @version 3.0
  */
 public class Session implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	/**
-	 * Capacity of a session
-	 */
-	protected int capacity;
-	/**
-	 * Vacancy of a session
-	 */
-	protected int vacancy;
-	/**
-	 * string to store the list of students added to a session
-	 */
-	public String[] studentList = new String[capacity];
+    private static final long serialVersionUID = 1L;
+    /**
+     * Total number of students that can register for the session
+     */
+    protected int capacity;
+    /**
+     * Current remaining slots of the session that students can register for
+     */
+    protected int vacancy;
+    /**
+     * List of students that are registered for the session
+     */
+    public String[] studentList = new String[capacity];
 
-	/**
-	 * getter method to get vacancy of session
-	 * @return the vacancy of the session
-	 */
-	public int getVacancy() {
-		return vacancy;
-	}
+    /**
+     * Gets the course's vacancy
+     *
+     * @return The vacancy of the session
+     */
+    public int getVacancy() {
+        return vacancy;
+    }
 
-	/**
-	 * getter method to get capacity of session
-	 * @return the capacity of the session
-	 */
-	public int getCapacity() {
-		return capacity;
-	}
+    /**
+     * Gets the course's capacity
+     *
+     * @return The capacity of the session
+     */
+    public int getCapacity() {
+        return capacity;
+    }
 
-	/**
-	 * getter method to return the list of students
-	 * @return the list of students
-	 */
-	public String[] getStudentList() {
-		return studentList;
-	}
+    /**
+     * Gets the list of register students of the session
+     *
+     * @return The list of registered students of the session
+     */
+    public String[] getStudentList() {
+        return studentList;
+    }
 
-	/**
-	 * method to add a student to a session
-	 * @param studentMatric
-	 */
-	public void addStudent(String studentMatric) {
-		studentList[capacity - vacancy] = studentMatric;
-		vacancy--;
-	}
+    /**
+     * method to add a student to a session
+     *
+     * @param studentMatric
+     */
+    public void addStudent(String studentMatric) {
+        studentList[capacity - vacancy] = studentMatric;
+        vacancy--;
+    }
 
-	/**
-	 * method to check for an existence of a student using matric number
-	 * @param studentMatric
-	 * @return a boolean determining whether or not a student exists
-	 */
-	public boolean hasStudent(String studentMatric) {
-		for (String student : studentList) {
-			if (student.equals(studentMatric)) return true;
-		}
-		return false;
-	}
+    /**
+     * Checks whether a student is registered for the session
+     *
+     * @param studentMatric The student's matriculation number
+     * @return A boolean value of whether a student is registered for the session
+     */
+    public boolean hasStudent(String studentMatric) {
+        for (String student : studentList) {
+            if (student.equals(studentMatric)) return true;
+        }
+        return false;
+    }
 }
