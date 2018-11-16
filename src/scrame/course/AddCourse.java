@@ -25,8 +25,8 @@ public class AddCourse {
         String courseCode = Input.newCourseCode();
         String courseCoordinator = Input.getCourseCoordinator();
         int courseCapacity = Input.getCourseCapacity();
-        int tutNumber = Input.getTutNumber();
-        int labNumber = Input.getLabNumber();
+        int tutNumber = Input.getTutNumber(courseCapacity);
+        int labNumber = Input.getLabNumber(courseCapacity);
 
         // Get exam and coursework percentages
         int examPercent = 0;

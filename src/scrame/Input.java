@@ -173,14 +173,13 @@ public class Input {
      * method for inputting the number of tutorial classes in a course
      * @return the number of tutorials to be stored in the course
      */
-    public static int getTutNumber() {
+    public static int getTutNumber(int courseCapacity) {
         int tutNumber;
         while (true) {
             try {
                 System.out.println("Enter Number of Tutorial Class");
                 tutNumber = sc.nextInt();
-                if (tutNumber < 0)
-                    throw new Exception("Number cannot be negative!");
+                InputValidator.validateSessionNumber(tutNumber, courseCapacity);
                 sc.nextLine();
                 return tutNumber;
             } catch (Exception e) {
@@ -194,14 +193,13 @@ public class Input {
      * method for inputting the number of lab sessions in a course
      * @return the number of lab sessions to be stored in the course.
      */
-    public static int getLabNumber() {
+    public static int getLabNumber(int courseCapacity) {
         int labNumber;
         while (true) {
             try {
                 System.out.println("Enter Number of Laboratory Class");
                 labNumber = sc.nextInt();
-                if (labNumber < 0)
-                    throw new Exception("Number cannot be negative!");
+                InputValidator.validateSessionNumber(labNumber, courseCapacity);
                 sc.nextLine();
                 return labNumber;
             } catch (Exception e) {
