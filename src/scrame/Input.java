@@ -333,6 +333,6 @@ public class Input {
      * @param e exception object
      */
     public static void inputMismatchCapture(Exception e) {
-        System.out.println(e instanceof InputMismatchException ? "Input cannot be a integer!" : e.getMessage());
+        System.out.println(e instanceof InputMismatchException ? "Input must be an integer!" : e.getMessage());
     }
 }
