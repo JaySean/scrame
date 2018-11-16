@@ -1,6 +1,7 @@
 package scrame.student;
 
 import scrame.Input;
+import scrame.InputValidator;
 import scrame.course.sessions.Tutorial;
 import scrame.course.Course;
 import scrame.course.CourseManager;
@@ -25,20 +26,27 @@ public class RegisterStudent {
      * This is the main method of the RegisterStudent function
      */
     public static void run() {
-
         String studentMatric = Input.getStudentMatric();
-        String courseCode = Input.getStudentNotInCourse(studentMatric);
+        while(true){
+            try {
+                String courseCode = Input.getStudentNotInCourse(studentMatric);
+                Course course = CourseManager.getCourse(courseCode);
+                int vacancy = course.getLectures().get(0).getVacancy();
+                InputValidator.existVacancy(vacancy);
 
-        Course course = CourseManager.getCourse(courseCode);
-
-        // Select Lecture
-        registerLecture(studentMatric, course);
-        // Select Tutorial
-        registerTutorial(studentMatric, course);
-        // Select Laboratory
-        registerLaboratory(studentMatric, course);
-        // Amends the course list with the updated course
-        CourseManager.updateCourse(course);
+                // Select Lecture
+                registerLecture(studentMatric, course);
+                // Select Tutorial
+                registerTutorial(studentMatric, course);
+                // Select Laboratory
+                registerLaboratory(studentMatric, course);
+                // Amends the course list with the updated course
+                CourseManager.updateCourse(course);
+                break;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     /**
@@ -62,9 +70,9 @@ public class RegisterStudent {
             }
             int choice = sc.nextInt();
             // Check choice validity
-            if (choice > lectures.size() || choice < 1) {
-                throw new Exception("No such lecture!");
-            }
+            InputValidator.existSession(choice, lectures.size(), "lecture");
+            int vacancy = lectures.get(choice - 1).getVacancy();
+            InputValidator.existVacancy(vacancy);
             sc.nextLine();
             // Add Student to Course
             lectures.get(choice - 1).addStudent(studentMatric);
@@ -98,12 +106,9 @@ public class RegisterStudent {
             }
             choice = sc.nextInt();
             // Check choice validity
-            if (choice > tutorials.size() || choice < 1) {
-                throw new Exception("No such tutorial!");
-            }
-            if (tutorials.get(choice - 1).getVacancy() == 0) {
-                throw new Exception("No vacancies!");
-            }
+            InputValidator.existSession(choice, tutorials.size(), "tutorial");
+            int vacancy = tutorials.get(choice - 1).getVacancy();
+            InputValidator.existVacancy(vacancy);
             sc.nextLine();
             // Add Student to Course
             tutorials.get(choice - 1).addStudent(studentMatric);
@@ -123,7 +128,7 @@ public class RegisterStudent {
      */
     private static void registerLaboratory(String studentMatric, Course course) {
         if (course == null) return;
-        if (course.getLaboratories().size() == 0) ;
+        if (course.getLaboratories().size() == 0) return;
         ArrayList<Laboratory> laboratories = course.getLaboratories();
         int index;
         try {
@@ -137,12 +142,9 @@ public class RegisterStudent {
             }
             choice = sc.nextInt();
             // Check choice validity
-            if (choice > laboratories.size() || choice < 1) {
-                throw new Exception("No such laboratory!");
-            }
-            if (laboratories.get(choice - 1).getVacancy() == 0) {
-                throw new Exception("No vacancies!");
-            }
+            InputValidator.existSession(choice, laboratories.size(), "laboratories");
+            int vacancy = laboratories.get(choice - 1).getVacancy();
+            InputValidator.existVacancy(vacancy);
             sc.nextLine();
             // Add Student to Course
             laboratories.get(choice - 1).addStudent(studentMatric);
