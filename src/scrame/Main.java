@@ -65,25 +65,25 @@ public class Main {
 				case 5:
 					PrintStudentList.run();
 					break;
-				case 7:
+				case 6:
 					EnterCourseworkMarks.run();
 					break;
-				case 8:
+				case 7:
 					EnterExamMarks.run();
 					break;
-				case 9:
+				case 8:
 					PrintCourseStatistics.run();
 					break;
-				case 10:
+				case 9:
 					PrintStudentTranscript.run();
 					break;
-				case 11:
+				case 10:
 					repeat = false;
 					DatabaseManager.write(courseList, courseFile);
 					DatabaseManager.write(studentList, studentFile);
 					break;
 				default:
-					System.out.println("Choice out of range: Choice must be 1-11");
+					System.out.println("Choice out of range: Choice must be 1-10!");
 					break;
 			}
 		} while (repeat);
@@ -96,11 +96,10 @@ public class Main {
 		System.out.println("3: Register student for a course");
 		System.out.println("4: Check available slot in a class");
 		System.out.println("5: Print student list by lecture, tutorial or laboratory session for a course");
-		System.out.println("6: Enter course assessment components weightage");
-		System.out.println("7: Enter coursework mark - inclusive of its components");
-		System.out.println("8: Enter exam mark");
-		System.out.println("9: Print course statistics");
-		System.out.println("10: Print student transcript");
-		System.out.println("11: Save and Quit");
+		System.out.println("6: Enter coursework mark - inclusive of its components");
+		System.out.println("7: Enter exam mark");
+		System.out.println("8: Print course statistics");
+		System.out.println("9: Print student transcript");
+		System.out.println("10: Save and Quit");
 	}
 }
