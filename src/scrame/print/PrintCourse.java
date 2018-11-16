@@ -4,14 +4,16 @@ import com.mitchtalmadge.asciidata.table.ASCIITable;
 import scrame.Main;
 
 /**
- * Class that prints the course details in an ASCII table from the attributes below
+ * Prints the list of created courses
+ * Contains details on the course name, course code and course coordinator
+ *
  * @author CZ2002 SS3 Group 1
  * @version 3.0
  */
 
 public class PrintCourse {
     /**
-     * Run method that implements all the required method to print out course details
+     * Main method of PrintCourse function
      */
     public static void run() {
         String[] headers = new String[]{
@@ -30,6 +32,8 @@ public class PrintCourse {
             data[i][2] = Main.courseList.get(i).getCourseCode();
             data[i][3] = Main.courseList.get(i).getCourseCoordinator();
         }
+
+        // Outputs data in an ASCII table
         System.out.println(ASCIITable.fromData(headers, data).toString());
     }
 }

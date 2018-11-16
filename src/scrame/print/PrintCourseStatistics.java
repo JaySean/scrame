@@ -7,13 +7,15 @@ import scrame.Input;
 import scrame.StudentCourseManager;
 
 /**
- * Class that contains the methods to print out course statistics
+ * Calculates and prints the mean grade percentage
+ * Prints by overall (exam + coursework), exam only and coursework only
+ *
  * @author CZ2002 SS3 Group 1
  * @version 4.0
  */
 public class PrintCourseStatistics {
 	/**
-	 * run method to implement the methods required to print course statistics into an ASCII table
+	 * Main method of the PrintCourseStatistics function
 	 */
 	public static void run() {
 
@@ -26,7 +28,7 @@ public class PrintCourseStatistics {
 
 		int i = 0;
 
-		// Show xam only
+		// Show exam only
 		int examPercentage = course.getExamComponent().getPercentage();
 		double examGrade = StudentCourseManager.getAveExamMarks(courseCode);
 		data[i][0] = "Exam (" + examPercentage + "%)";

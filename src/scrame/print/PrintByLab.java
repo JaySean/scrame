@@ -4,14 +4,16 @@ import scrame.course.Course;
 import scrame.course.sessions.Laboratory;
 
 /**
- * Holds methods used to print out the list of students in a particular lab session of a course
+ * Prints out the list of students in a particular laboratory session of a course
+ *
  * @author CZ2002 SS3 Group 1
  * @version 3.0
  */
 public class PrintByLab implements PrintStrategy {
     /**
-     * inherited method from interface PrintStrategy to print out the list of students in a particular lab session of a course
-     * @param course object of Class course type
+     * Inherited method from PrintStrategy interface
+     *
+     * @param course Course object which contains the laboratory session
      */
     public void print(Course course) {
         System.out.println("\nStudents in " + course.getCourseCode() + " " + course.getCourseName() + " Laboratories");
@@ -27,7 +29,6 @@ public class PrintByLab implements PrintStrategy {
             }
             index++;
         }
-        return;
     }
 }
 

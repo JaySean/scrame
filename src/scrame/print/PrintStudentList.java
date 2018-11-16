@@ -6,7 +6,9 @@ import scrame.course.*;
 import java.util.Scanner;
 
 /**
- * Console to choose which session of list of students the user wants to print
+ * Console to choose option of printing student list
+ * Prints by lecture group, tutorial group and/or laboratory group
+ *
  * @author CZ2002 SS3 Group 1
  * @version 3.0
  */
@@ -15,7 +17,7 @@ public class PrintStudentList {
     static Scanner sc = new Scanner(System.in);
 
     /**
-     * run method that implements said console
+     * Main method of PrintStudentList function
      */
     public static void run() {
 
@@ -49,7 +51,7 @@ public class PrintStudentList {
     }
 
     /**
-     * method to print menu for console
+     * Displays menu of print options
      */
     private static void printMenu() {
         System.out.println();
@@ -61,9 +63,10 @@ public class PrintStudentList {
     }
 
     /**
-     * Getter method to validate the choice in the switch console
+     * Gets the input of user's print choice
+     * Validates input
      *
-     * @return the choice the user made in the console after being validated.
+     * @return The print option that the user chose
      */
     private static int getChoice() {
         try {

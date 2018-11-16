@@ -2,15 +2,18 @@ package scrame.print;
 
 import scrame.course.Course;
 import scrame.course.sessions.Lecture;
+
 /**
- * Holds methods used to print out the list of students in a particular lecture session of a course
+ * Prints out the list of students in a particular lecture session of a course
+ *
  * @author CZ2002 SS3 Group 1
  * @version 3.0
  */
 public class PrintByLec implements PrintStrategy {
     /**
-     * inherited method from interface PrintStrategy to print out the list of students in a particular lecture session of a course
-     * @param course object of Class course type
+     * Inherited method from PrintStrategy interface
+     *
+     * @param course Course object which contains the lecture session
      */
     public void print(Course course) {
         System.out.println("\nStudents in " + course.getCourseCode() + " " + course.getCourseName() + " Lectures");
@@ -26,7 +29,6 @@ public class PrintByLec implements PrintStrategy {
             }
             index++;
         }
-        return;
     }
 }
 
