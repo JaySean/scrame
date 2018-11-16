@@ -69,7 +69,7 @@ public class PrintStudentTranscript {
 
                 // Outputs data in an ASCII table
                 System.out.println(ASCIITable.fromData(headers, data).toString());
-                break;
+
             }
     }
 }
