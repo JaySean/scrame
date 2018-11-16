@@ -30,7 +30,7 @@ public class Student implements Serializable {
      * @param studentName     The student's name
      * @param studentMatricNo The student's matriculation number
      */
-    public Student(String studentName, String studentMatricNo) {
+    Student(String studentName, String studentMatricNo) {
         this.studentName = studentName;
         this.studentMatricNo = studentMatricNo;
     }

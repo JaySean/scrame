@@ -19,7 +19,7 @@ public abstract class InputValidator {
      * @param name User input for the student's name
      * @throws Exception containing error message to prompt user for correct format
      */
-    public static void studentNameFormat(String name) throws Exception {
+    static void studentNameFormat(String name) throws Exception {
         final String nameFormat = "[A-z]+[A-z\\s]*";
         if (!name.matches(nameFormat)) {
             throw new Exception("Name format invalid - Must contain only letters and spaces, it must also not be blank\n");
@@ -32,7 +32,7 @@ public abstract class InputValidator {
      * @param studentMatric User input for the student's matriculation number
      * @throws Exception containing error message to prompt user for correct format
      */
-    public static void studentMatricFormat(String studentMatric) throws Exception {
+    static void studentMatricFormat(String studentMatric) throws Exception {
         final String matricFormat = "[A-Z][0-9]{7}[A-Z]";
         if (!studentMatric.matches(matricFormat)) {
             throw new Exception("Student matriculation number format invalid - Must begin and end with capital letters and have 7 digits in between\n");
@@ -45,7 +45,7 @@ public abstract class InputValidator {
      * @param newStudentMatricNo User input for the new student's matriculation number
      * @throws Exception containing error message telling user that the student already exists
      */
-    public static void newStudentMatric(String newStudentMatricNo) throws Exception {
+    static void newStudentMatric(String newStudentMatricNo) throws Exception {
         // Validate existence
         for (Student student : Main.studentList) {
             if (student.getStudentMatricNo().equals(newStudentMatricNo)) {
@@ -60,7 +60,7 @@ public abstract class InputValidator {
      * @param existStudentMatric User input for the existing student's matriculation number
      * @throws Exception containing error message telling user that student doesn't exist
      */
-    public static void existStudentMatric(String existStudentMatric) throws Exception {
+    static void existStudentMatric(String existStudentMatric) throws Exception {
         // Check for existence
         boolean exists = false;
         for (Student student : Main.studentList) {
@@ -78,7 +78,7 @@ public abstract class InputValidator {
      * @param courseName User input for the course name
      * @throws Exception containing error message prompting user for correct format
      */
-    public static void courseNameFormat(String courseName) throws Exception {
+    static void courseNameFormat(String courseName) throws Exception {
         final String nameFormat = "[A-z0-9]+[A-z0-9\\s]*";
         if (!courseName.matches(nameFormat)) {
             throw new Exception("Name format invalid - It must also not be blank\n");
@@ -91,7 +91,7 @@ public abstract class InputValidator {
      * @param newCourseCode User input for the course code
      * @throws Exception containing error message prompting user for correct format
      */
-    public static void courseCodeFormat(String newCourseCode) throws Exception {
+    static void courseCodeFormat(String newCourseCode) throws Exception {
         final String courseCodeFormat = "[A-Z]{2}[0-9]{4}";
         if (!newCourseCode.matches(courseCodeFormat)) {
             throw new Exception("Course code format invalid - Must begin with 2 capital letters followed by 4 digits\n");
@@ -104,7 +104,7 @@ public abstract class InputValidator {
      * @param newCourseCode User input for the new course code
      * @throws Exception containing error message telling user that the course already exists
      */
-    public static void newCourseCode(String newCourseCode) throws Exception {
+    static void newCourseCode(String newCourseCode) throws Exception {
         // Check for existence
         boolean exists = false;
         for (Course course : Main.courseList) {
@@ -122,7 +122,7 @@ public abstract class InputValidator {
      * @param newCourseCode User input for the course code
      * @throws Exception containing error message telling user that course does not exist
      */
-    public static void existCourseCode(String newCourseCode) throws Exception {
+    static void existCourseCode(String newCourseCode) throws Exception {
         // Check for existence
         boolean exists = false;
         for (Course course : Main.courseList) {
@@ -155,7 +155,7 @@ public abstract class InputValidator {
      * @param courseCapacity Total number of sessions that can be created
      * @throws Exception containing error message telling user that the number of sessions is incorrect
      */
-    public static void validateSessionNumber(int sessionNumber, int courseCapacity) throws Exception {
+    static void validateSessionNumber(int sessionNumber, int courseCapacity) throws Exception {
         if (sessionNumber <= 0)
             throw new Exception("Number must be more than zero!\n");
         if (sessionNumber > courseCapacity) {
@@ -181,7 +181,7 @@ public abstract class InputValidator {
      * @param percentage User input for the component's percentage
      * @throws Exception containing error message telling user that percentage must be from 1-100
      */
-    public static void validatePercentage(int percentage) throws Exception {
+    static void validatePercentage(int percentage) throws Exception {
         if (percentage > 100 || percentage < 0)
             throw new Exception("A percentage must be between 1-100\n");
     }
@@ -217,7 +217,7 @@ public abstract class InputValidator {
      * @param courseCode    User input for the course code
      * @throws Exception containing error message that user not registered for the course
      */
-    public static void checkStudentInCourse(String studentMatric, String courseCode) throws Exception {
+    static void checkStudentInCourse(String studentMatric, String courseCode) throws Exception {
         Course course = CourseManager.getCourse(courseCode);
         if (!course.hasStudent(studentMatric)) {
             throw new Exception("Student is not registered for this course!\n");
@@ -231,7 +231,7 @@ public abstract class InputValidator {
      * @param courseCode    User input for the course code
      * @throws Exception containing error message that user already registered for the course
      */
-    public static void checkStudentNotInCourse(String studentMatric, String courseCode) throws Exception {
+    static void checkStudentNotInCourse(String studentMatric, String courseCode) throws Exception {
         Course course = CourseManager.getCourse(courseCode);
         if (course.hasStudent(studentMatric)) {
             throw new Exception("Student is already registered for this course!\n");

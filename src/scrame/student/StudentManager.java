@@ -12,21 +12,21 @@ import java.io.*;
  * @version 5.0
  */
 
-public class StudentManager implements Serializable {
+class StudentManager implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
      * Location of data of students
      */
-    public static final String studentFile = "data/Students.txt";
+    static final String studentFile = "data/Students.txt";
 
     /**
      * Adds the new student to the array of existing students and saves the array to the file
      *
      * @param student Student object being updated
      */
-    public static void updateStudent(Student student) {
+    static void updateStudent(Student student) {
         if (student == null) return;
         Main.studentList.add(student);
         DatabaseManager.write(Main.studentList, studentFile);

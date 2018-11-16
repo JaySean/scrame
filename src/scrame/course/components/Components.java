@@ -22,7 +22,7 @@ public class Components implements Serializable {
      *
      * @param percentage Weightage of the component
      */
-    public Components(int percentage) {
+    Components(int percentage) {
         this.percentage = percentage;
     }
 

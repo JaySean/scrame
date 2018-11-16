@@ -23,7 +23,7 @@ public class StudentCourse implements Serializable {
      * @param studentMatric The student's matriculation number
      * @param courseCode    The course code
      */
-    public StudentCourse(String studentMatric, String courseCode) {
+    StudentCourse(String studentMatric, String courseCode) {
         this.studentMatric = studentMatric;
         this.courseCode = courseCode;
         this.marksRecord = new int[3];

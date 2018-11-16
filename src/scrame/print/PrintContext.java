@@ -8,7 +8,7 @@ import scrame.course.Course;
  * @author CZ2002 SS3 Group 1
  * @version 3.0
  */
-public class PrintContext {
+class PrintContext {
     private PrintStrategy strategy;
 
     /**
@@ -16,11 +16,11 @@ public class PrintContext {
      *
      * @param strategy selected print strategy
      */
-    public PrintContext(PrintStrategy strategy) {
+    PrintContext(PrintStrategy strategy) {
         this.strategy = strategy;
     }
 
-    public void beginPrint(Course course) {
+    void beginPrint(Course course) {
         strategy.print(course);
     }
 }

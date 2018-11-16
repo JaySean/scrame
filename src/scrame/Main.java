@@ -92,7 +92,7 @@ public class Main {
 	/**
 	 * Displays console menu
 	 */
-	public static void showMenu() {
+	private static void showMenu() {
 		System.out.println();
 		System.out.println("1: Add a student");
 		System.out.println("2: Add a course");

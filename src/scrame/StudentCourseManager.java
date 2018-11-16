@@ -13,14 +13,14 @@ public class StudentCourseManager {
     /**
      * Location of data of a student's marks in a particular course
      */
-    final static String studentCourseFile = "data/StudentCourse.txt";
+    private final static String studentCourseFile = "data/StudentCourse.txt";
 
     /**
      * @param studentMatric The student's matriculation number
      * @param courseCode    The course code
      * @return the index of the marks record being searched
      */
-    public static int getIndex(String studentMatric, String courseCode) {
+    private static int getIndex(String studentMatric, String courseCode) {
         for (int i = 0; i < Main.studentCourseList.size(); i++) {
             if (Main.studentCourseList.get(i).getStudentMatric().equals(studentMatric)) {
                 if (Main.studentCourseList.get(i).getCourseCode().equals(courseCode)) {
@@ -71,7 +71,7 @@ public class StudentCourseManager {
      * @param courseCode The course code
      * @return List of marks record of the particular course
      */
-    public static ArrayList<StudentCourse> getCourseList(String courseCode) {
+    private static ArrayList<StudentCourse> getCourseList(String courseCode) {
         ArrayList<StudentCourse> courseList = new ArrayList<>(0);
         for (StudentCourse studentCourse : Main.studentCourseList) {
             if (studentCourse.getCourseCode().equals(courseCode)) {

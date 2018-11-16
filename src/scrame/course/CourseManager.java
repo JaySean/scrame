@@ -43,7 +43,7 @@ public class CourseManager implements Serializable {
      * @param courseCode Code of a course that unique to each course
      * @return The index position of the course in the array list of coruses
      */
-    public static int getIndex(String courseCode) {
+    static int getIndex(String courseCode) {
         Course c;
         for (int i = 0; i < Main.courseList.size(); i++) {
             c = Main.courseList.get(i);

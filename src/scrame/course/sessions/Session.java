@@ -15,11 +15,11 @@ public class Session implements Serializable {
     /**
      * Total number of students that can register for the session
      */
-    protected int capacity;
+    int capacity;
     /**
      * Current remaining slots of the session that students can register for
      */
-    protected int vacancy;
+    int vacancy;
     /**
      * List of students that are registered for the session
      */
