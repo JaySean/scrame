@@ -1,7 +1,9 @@
 package scrame.course.sessions;
 
 /**
- * Subclass of superclass Session that instantiates a Tutorial session
+ * Subclass of session
+ * The maximum number of tutorials is the number of vacancies in a course
+ *
  * @author CZ2002 SS3 Group 1
  * @version 2.0
  */
@@ -10,8 +12,9 @@ public class Tutorial extends Session {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Constructor to initialize session capacity and vacancy
-	 * @param capacity total capacity of a session
+	 * Creates a new tutorial session
+	 *
+	 * @param capacity Total number of students that can register for the session
 	 */
 	public Tutorial(int capacity) {
 		this.capacity = capacity;
